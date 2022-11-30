@@ -1,0 +1,18 @@
+﻿<a href="Trips/@tripid" class="trip-card btn card shadow-sm" target="_self">
+    <div class="card-body">
+        <h5 class="card-title">@tripName</h5>
+        <p class="card-text">@tripDate</p>
+        <p class="card-text">@tripDuration</p>
+    </div>
+</a>
+
+@code {
+    [Parameter]
+    public int tripid { get; set; } = 0;
+    [Parameter]
+    public string tripName { get; set; } = "";
+    [Parameter]
+    public string tripDate { get; set; } = "";
+    [Parameter]
+    public string tripDuration { get; set; } = "";
+}

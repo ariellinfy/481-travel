@@ -1,0 +1,45 @@
+﻿@page "/edit"
+@layout PageLayout
+@inject AuthenticationStateProvider authenticationStateProvider
+@inject NavigationManager navigationManager
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+
+<PageHeader pageTitle="Edit Profile" />
+<hr>
+<EditForm Model="user" OnValidSubmit="ValidateInput">
+    <div class="input-box">
+        <div class="form-floating mt-3">
+            <InputText @bind-Value="user.Name" class="form-control" id="name" placeholder="name" />
+            <label for="name">Name</label>
+        </div>
+        <ValidationMessage For="() => user.Name" />
+    </div>
+    <div class="input-box">
+        <div class="form-floating mt-3">
+            <InputText @bind-Value="user.Email" class="form-control" id="email" placeholder="name@example.com" />
+            <label for="email">Email</label>
+        </div>
+        <ValidationMessage For="() => user.Email" />
+    </div>
+    <div class="form-controls">
+        <input type="submit" class="btn btn-primary-filled" value="Save" />
+    </div>
+</EditForm>
+
+@code {
+    private UserModel user;
+
+    protected override void OnInitialized()
+    {
+        user = new UserModel();
+        base.OnInitialized();
+    }
+
+    private async Task<bool> ValidateInput()
+    {
+        ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserAuthentication(user.Email);
+        navigationManager.NavigateTo("/");
+        await sessionStorage.SetItemAsync("email", user.Email);
+        return await Task.FromResult(true);
+    }
+}

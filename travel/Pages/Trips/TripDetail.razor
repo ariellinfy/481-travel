@@ -1,0 +1,143 @@
+﻿@page "/trips/0"
+
+@*<PageTitle>@tripName</PageTitle>*@
+
+<div class="page-container" >
+    <div class="page-header">
+        <p class="text-wrap fs-3 page-title">Summer Holiday Trip</p>
+        <div class="dropdown">
+            <button class="btn btn-round btn-settings" type="button" data-bs-toggle="dropdown">
+                <i class="bi bi-three-dots-vertical"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li>
+                    <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#rename">
+                        Rename
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete">
+                        Delete
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#previous">
+                        Previous
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-body">
+        <CPSC481.Components.DayPlans planDate="@date1" />
+        <hr/>
+        <CPSC481.Components.DayPlans planDate="@date2" />
+        <hr />
+        <CPSC481.Components.DayPlans planDate="@date3" />
+    </div>
+    <div class="btn-fixed dropdown">
+        <button class="btn btn-round btn-add" type="button" data-bs-toggle="dropdown">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+            </svg>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            <li>
+                <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addPlan">
+                    Add Plan
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#quickAdd">
+                    Quick Add
+                </button>
+            </li>     
+        </ul>
+    </div>
+    <div class="modal fade" id="addPlan" tabindex="-1" aria-labelledby="addPlanLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Add a Plan</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="new-plan" class="modal-body">
+                    <form class="plan-form">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="activityName" placeholder="unknown" required>
+                            <label for="activityName">Activity Name</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="datetime-local" class="form-control" id="startDate&Time" required>
+                            <label for="startDate&Time">Start Date & Time</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="datetime-local" class="form-control" id="endDate&Time" required>
+                            <label for="endDate&Time">End Date & Time</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="address" placeholder="unknown">
+                            <label for="address">Address</label>
+                        </div>
+
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="N/A" id="notes" style="height: 100px"></textarea>
+                            <label for="notes">Notes</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-save">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="quickAdd" tabindex="-1" aria-labelledby="quickAddLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Quick Add</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="quick-add" class="modal-body">
+                    <CPSC481.Components.QuickAddCard planImg="@img1" planName="@name1" planDetail="@detail1" />
+                    <CPSC481.Components.QuickAddCard planImg="@img3" planName="@name3" planDetail="@detail3" />
+                    <CPSC481.Components.QuickAddCard planImg="@img2" planName="@name2" planDetail="@detail2" />
+                    <CPSC481.Components.QuickAddCard planImg="@img5" planName="@name5" planDetail="@detail5" />
+                    <CPSC481.Components.QuickAddCard planImg="@img4" planName="@name4" planDetail="@detail4" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    //[Parameter]
+    //public string tripName { get; set; } = "";
+
+    private string date1 = "April 28, 2022";
+    private string date2 = "May 2, 2022";
+    private string date3 = "July 15, 2022";
+
+    private string name1 = "Public Speaking Session by PMI-SAC Toastmasters";
+    private string detail1 = "Tue, Nov 15 at 5:30 pm";
+    private string img1 = "https://www.toastmasters.org/content/images/globals/toastmasters-logo@2x.png";
+
+    private string name2 = "Calgary Tower";
+    private string detail2 = "101 9 Ave SW, Calgary, AB";
+    private string img2 = "https://cdn.skyrisecities.com/sites/default/files/images/articles/2016/10/23252/23252-80921.jpeg";
+
+    private string name3 = "Relaxing your nervious system - guided meditation";
+    private string detail3 = "Sat, Nov 19 at 7:00 pm";
+    private string img3 = "https://www.cateritterwellness.com/wp-content/uploads/2020/08/calm-nervous-system-woman-at-beach.jpg";
+
+    private string name4 = "Creatives and Cocktails";
+    private string detail4 = "Thu, Nov 17 at 6:00 pm";
+    private string img4 = "https://images.squarespace-cdn.com/content/v1/5dc9a446da9c5672e5eed377/1581547606501-LMHGF6TEQINRQX59E1VW/CWC_header-01.jpg?format=2500w";
+
+    private string name5 = "Calgary Zoo";
+    private string detail5 = "210 St. George's Drive NE, Calgary, AB";
+    private string img5 = "https://az837918.vo.msecnd.net/publishedimages/Listings/2031/en-US/images/2/wilder-insitutecalgary-zoo-L-24.jpg";
+}

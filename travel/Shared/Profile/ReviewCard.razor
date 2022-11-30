@@ -1,0 +1,31 @@
+﻿<div class="card review-card">
+    <div class="card-body">
+        <div class="review-header">
+            <div class="rating">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+            </div>
+            <p class="card-text">@publishDate</p>
+        </div>
+
+        <h5 class="card-title">@name</h5>
+        <p>@content</p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public double rating { get; set; }
+
+    [Parameter]
+    public string publishDate { get; set; }
+
+    [Parameter]
+    public string name { get; set; }
+
+    [Parameter]
+    public string content { get; set; }
+}

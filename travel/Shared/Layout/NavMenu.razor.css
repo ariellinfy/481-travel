@@ -1,0 +1,60 @@
+.oi {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.navbar {
+    width: 100%;
+    border-top: 0.1rem solid lightgray;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.nav-item {
+    font-size: 0.9rem;
+    padding-top: 0.5rem;
+}
+
+    .nav-item ::deep a {
+        color: #d7d7d7;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        line-height: 2rem;
+    }
+
+        .nav-item ::deep a.active {
+            background-color: rgba(255,255,255,1);
+            color: white;
+        }
+
+        .nav-item ::deep a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+.navbar-nav .nav-link:focus, .navbar-light .nav-link:hover {
+    color: #C3BA9B;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+    .nav-link:active {
+        color: #C3BA9B;
+    }
+
+i {
+    font-size: 2.25rem;
+}

@@ -1,0 +1,77 @@
+﻿@page "/signup"
+@layout PageLayout
+@inject AuthenticationStateProvider authenticationStateProvider
+@inject NavigationManager navigationManager
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+
+<PageHeader pageTitle="Signup" />
+<hr>
+<EditForm Model="user" OnValidSubmit="ValidateUser">
+    <DataAnnotationsValidator />
+    <div class="input-box">
+        <div class="form-floating mt-3">
+            <InputText @bind-Value="user.Name" class="form-control" id="name" placeholder="name" />
+            <label for="name">Name</label>
+        </div>
+        <ValidationMessage For="() => user.Name" />
+    </div>
+    <div class="input-box">
+        <div class="form-floating mt-3">
+            <InputText @bind-Value="user.Email" class="form-control" id="email" placeholder="name@example.com" />
+            <label for="email">Email</label>
+        </div>
+        <ValidationMessage For="() => user.Email" />
+    </div>
+    <div class="input-box">
+        <div class="form-floating mt-3">
+            <InputText type="password" @bind-Value="user.Password" class="form-control" id="pw" placeholder="Password" />
+            <label for="pw">Password</label>
+        </div>
+        <ValidationMessage For="() => user.Password" />
+    </div>
+    <div class="input-box">
+        <div class="form-floating mt-3">
+            <InputText type="password" @bind-Value="user.ConfirmPassword" class="form-control" id="cpw" placeholder="Confirm Password" />
+            <label for="cpw">Confirm Password</label>
+        </div>
+        <ValidationMessage For="() => user.ConfirmPassword" />
+    </div>
+    <div class="form-controls">
+        <input type="submit" class="btn btn-primary-filled" value="Create Account" />
+    </div>
+</EditForm>
+
+@code {
+    private SignupModel user;
+
+    protected override void OnInitialized()
+    {
+        user = new SignupModel();
+        base.OnInitialized();
+    }
+
+    private async Task<bool> ValidateUser()
+    {
+        ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserAuthentication(user.Email);
+        navigationManager.NavigateTo("/");
+        await sessionStorage.SetItemAsync("email", user.Email);
+        return await Task.FromResult(true);
+    }
+
+    //public void Logout()
+    //{
+    //    ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserLogout();
+    //    navigationManager.NavigateTo("/");
+    //}
+}
+
+
+@*        <AuthorizeView>
+            <Authorized>
+                <p>Welcome @context.User.Identity.Name</p>
+                <a href="/login" @onclick="(() => Logout())">Logout</a>
+            </Authorized>
+            <NotAuthorized>
+                <a href="/login"> Login</a>
+            </NotAuthorized>
+        </AuthorizeView>*@

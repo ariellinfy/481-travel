@@ -1,0 +1,36 @@
+﻿<button type="button" class="plan-card card shadow-sm" data-bs-toggle="modal" data-bs-target="#planSetting">
+    <div class="card-body">
+        <h5 class="card-title">@planName</h5>
+        <p class="card-text">@planTime</p>
+        <p class="card-text">@planAddress</p>
+    </div>
+    <button class="btn btn-notify">
+        <i class="bi bi-bell-fill"></i>
+    </button>
+</button>
+
+<div class="modal fade" id="planSetting" tabindex="-1" aria-labelledby="planSettingLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div id="plan-setting" class="modal-body">
+                <button type="button" class="btn btn-setting">Edit</button>
+                <hr />
+                <button type="button" class="btn btn-setting">Copy Address</button>
+                <hr />
+                <button type="button" class="btn btn-setting">Delete</button>
+                <hr />
+                <hr />
+                <button type="button" class="btn btn-setting btn-cancel" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string planName { get; set; } = "";
+    [Parameter]
+    public string planTime { get; set; } = "";
+    [Parameter]
+    public string planAddress { get; set; } = "";
+}

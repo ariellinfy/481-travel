@@ -1,0 +1,25 @@
+﻿<div class="card">
+    <img src=@planImg class="card-img-top" alt="...">
+    <button class="btn btn-round btn-add btn-modal" type="button" @onclick="UpdateIcon">
+        <i class="bi @iconType"></i>
+    </button>
+    <div class="card-body">
+        <h5 class="card-title title-smaller">@planName</h5>
+        <p class="card-text">@planDetail</p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string planImg { get; set; } = "";
+    [Parameter]
+    public string planName { get; set; } = "";
+    [Parameter]
+    public string planDetail { get; set; } = "";
+
+    private string iconType = "bi-plus-lg";
+    private void UpdateIcon()
+    {
+        iconType = "bi-check-lg";
+    }
+}

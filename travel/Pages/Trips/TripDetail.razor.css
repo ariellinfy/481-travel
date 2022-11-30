@@ -1,0 +1,99 @@
+﻿﻿.page-container {
+    width: 100%;
+    background: rgb(195,186,155);
+    background: linear-gradient(180deg, rgba(195,186,155,1) 0%, rgba(244,244,233,1) 35%, rgba(255,255,255,1) 100%);
+    padding: 0.5rem;
+}
+
+.page-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.page-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0 1em;
+    height: auto;
+}
+
+.btn-round {
+    border-radius: 5rem;
+    padding: 0.5rem;
+    position: absolute;
+    right: 1.5rem;
+}
+
+.page-title {
+    margin: 0;
+}
+
+.btn-fixed {
+    position: fixed;
+    bottom: 11rem;
+    right: 0;
+}
+
+.btn-add {
+    background-color: #4E7779;
+    color: white;
+}
+
+#quick-add {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: x-small;
+    gap: 0.5rem;
+    height: auto;
+}
+
+#new-plan {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: small;
+    width: 100%;
+    padding: 0 0.5rem;
+}
+
+.dropdown-menu-dark .dropdown-item.active, .dropdown-menu-dark .dropdown-item:active {
+    background-color: #4E7779;
+}
+
+.plan-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1.5rem 1em 2rem 1em;
+    height: auto;
+    width: 100%;
+}
+
+.form-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    padding: 0.75rem 0 0.25rem 0;
+    margin-top: 0.75rem;
+}
+
+.btn-save {
+    background-color: #4E7779;
+    margin: 1rem 0 0 0;
+    color: white;
+    width: 100%;
+    border: 2px solid transparent;
+}
+
+.btn-settings {
+    position: relative;
+    right: 0;
+}

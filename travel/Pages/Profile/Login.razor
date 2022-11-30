@@ -1,0 +1,87 @@
+﻿@page "/login"
+@layout PageLayout
+@inject AuthenticationStateProvider authenticationStateProvider
+@inject NavigationManager navigationManager
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+
+    @if (justLogout == true)
+    {
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Logout Successful!</h4>
+            <p>You have logged out of your account successfully. See the login page below to continue. </p>
+        </div>
+    }
+    
+    <div class="page-header">
+        <h3>Login</h3>   
+    </div>
+    <hr>
+
+    <EditForm Model="user" OnValidSubmit="ValidateUser">
+        <DataAnnotationsValidator />
+        <div class="input-box">
+            <div class="form-floating mt-3">
+            <InputText @bind-Value="user.Email" class="form-control" id="email" placeholder="name@example.com" />
+                <label for="email">Email</label>
+            </div>
+        <ValidationMessage For="() => user.Email" />
+        </div>
+        <div class="input-box">
+            <div class="form-floating mt-3">
+            <InputText type="password" @bind-Value="user.Password" class="form-control" id="pw" placeholder="Password" />
+                <label for="pw">Password</label>
+            </div>
+        <ValidationMessage For="() => user.Password" />
+        </div>
+        <div class="form-controls">
+            <input type="submit" class="btn btn-primary-filled" value="Login" />
+            <a href="/forget" type="button" class="btn">Forget Password?</a>
+        </div>
+    </EditForm>
+    <hr />
+    <div class="alterns">
+        <p> Do not have an account with us? </p>
+        <b>Signup or Continue as Guest below!</b>
+        <a href="/signup" class="btn btn-secondary-outline">Signup</a>
+        <a href="/explore" class="btn">Continue as Guest</a>
+    </div>
+
+
+
+
+@code {
+    private LoginModel user;
+    private bool justLogout;
+
+    protected override void OnInitialized()
+    {
+        user = new LoginModel();
+        justLogout = false;
+        base.OnInitialized();
+    }
+
+    private async Task<bool> ValidateUser()
+    {
+        ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserAuthentication(user.Email);
+        navigationManager.NavigateTo("/");
+        await sessionStorage.SetItemAsync("email", user.Email);
+        return await Task.FromResult(true);
+    }
+
+    //public void Logout()
+    //{
+    //    ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserLogout();
+    //    navigationManager.NavigateTo("/");
+    //}
+}
+
+
+@*        <AuthorizeView>
+            <Authorized>
+                <p>Welcome @context.User.Identity.Name</p>
+                <a href="/login" @onclick="(() => Logout())">Logout</a>
+            </Authorized>
+            <NotAuthorized>
+                <a href="/login"> Login</a>
+            </NotAuthorized>
+        </AuthorizeView>*@

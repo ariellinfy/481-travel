@@ -1,0 +1,110 @@
+﻿.page-container {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #F4F4E9;
+}
+
+.page-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.75rem 0 1rem 0;
+}
+
+.page-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0 1em;
+    height: auto;
+}
+
+.page-title {
+    margin: 0 0 0 1rem;
+}
+
+.btn-fixed {
+    position: fixed;
+    bottom: 7.85rem;
+    right: 1.5rem;
+}
+
+.btn-round {
+    border-radius: 5rem;
+    padding: 0.5rem;
+}
+
+.btn-add {
+    background-color: #4E7779;
+    color: white;
+}
+
+.form-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    padding: 0.75rem 0 0.25rem 0;
+    margin-top: 0.75rem;
+}
+
+.btn-save {
+    background-color: #4E7779;
+    margin: 0.5rem 0 0 0;
+    color: white;
+    width: 100%;
+    border: 2px solid transparent;
+}
+
+.btn-close {
+    margin: 0.5rem 0 0 0;
+    color: #7E6D53;
+    font-weight: 700;
+    width: 100%;
+    border: 2px solid #C3BA9B;
+    background: none;
+    padding: 0.3125rem 0.33rem;
+    height: auto;
+    opacity: 50;
+}
+
+.selected-type {
+    font-size: 0.85em;
+    padding: 0.5em 0.85em;
+    margin: 0.25em 0;
+    background-color: #C3BA9B;
+}
+
+.dropdown-menu-dark .dropdown-item.active, .dropdown-menu-dark .dropdown-item:active {
+    background-color: #4E7779;
+}
+
+#temp-trip {
+    margin: 0;
+    padding: 1rem;
+}
+
+.btn-regenerate {
+    background-color: #C3BA9B;
+    margin: 0.5rem 0 0 0;
+    color: white;
+    width: 100%;
+    border: 2px solid transparent;
+}
+
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

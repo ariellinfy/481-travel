@@ -1,0 +1,23 @@
+﻿.review-card {
+    box-shadow: 1px 1px 1px #ccc;
+}
+
+.review-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.card-body > p {
+    margin-bottom: 0;
+}
+
+.rating {
+    color: #C3BA9B;
+}
+
+.card-text {
+    color: #4E7779
+}
