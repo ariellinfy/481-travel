@@ -1,0 +1,16 @@
+﻿.card {
+    min-width: 220px;
+    width: 18rem;
+    border-radius: 10%;
+    border-color: rgba(111,111,111,0.2) transparent transparent;
+}
+
+.card-img-top {
+    border-radius: 5%;
+    width: 218px;
+    height: 146px;
+}
+
+.card-body {
+    padding: 0.75rem 0.25rem;
+}

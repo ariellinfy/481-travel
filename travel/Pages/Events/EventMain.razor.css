@@ -1,0 +1,14 @@
+﻿.list-container {
+    display: flex;
+    overflow: scroll;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+    .list-container::-webkit-scrollbar {
+        display: none;
+    }
+
+h4 {
+    margin-bottom: 0.75rem;
+}

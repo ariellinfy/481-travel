@@ -1,0 +1,18 @@
+﻿.category-card {
+    min-width: 10rem;
+    margin-right: 1.5rem;
+    width: min-content;
+    margin: 0;
+}
+
+.category-card-img {
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+}
+
+.category-card-text {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+}

@@ -5,9 +5,15 @@
 }
 
 .card-img-top {
-    width: 7rem;
+    width: 112px;
     margin: 1rem;
     border-radius: 0.5rem;
+}
+
+.bookmark-card {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 1px 1px 1px #ccc;
 }
 
 .card-body {
@@ -39,3 +45,4 @@
         color: #4E7779;
         outline: none;
     }
+

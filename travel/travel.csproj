@@ -19,10 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Events\" />
     <Folder Include="Pages\Amenities\" />
-    <Folder Include="Shared\Amenities\" />
-    <Folder Include="Shared\Events\" />
   </ItemGroup>
 
 </Project>

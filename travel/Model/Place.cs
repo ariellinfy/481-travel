@@ -4,17 +4,14 @@
     {
         public string Name { get; set; }
 
+        public string ImgUrl { get; set; }
+
         public string Address { get; set; }
 
         public string Description { get; set; }
 
         public List<Category> Categories { get; set; }
 
-        public List<Tag> Tags { get; set; }
-
-        public Place()
-        {
-
-        }
+        public List<string> Tags { get; set; }
     }
 }

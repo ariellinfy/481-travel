@@ -1,0 +1,207 @@
+﻿@page "/eventsearch"
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="page-container">
+    <nav class="navbar navbar-light">
+        <div class="input-group mb-3">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <a class="navbar-toggler" type="button" data-toggle="collapse" href="/EventsFilter" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </a>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle btn-sort" type="button" data-toggle="dropdown" style="background-color: white; color: #4E7779;"></button>
+                <div class="dropdown-content">
+                    <a href="#">Best Match</a>
+                    <a href="#">Most Popular</a>
+                    <a href="#">Newly Added</a>
+                </div>
+            </div>
+        </div>
+
+        @*        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        </div>*@
+    </nav>
+
+    <hr />
+
+    <div class="amenityList">
+        <a href="/EventPage">
+            <div class="amenityListImg">
+                <img class="card-img-top" src="https://secure-content.meetupstatic.com/images/classic-events/449771821/333x188.webp" alt="Card image cap">
+            </div>
+        </a>
+        <a href="/EventPage" style="width: 200px;">
+            <div class="description">
+                <h5>3-round Settlers Tournament</h5>
+                <h6>Sun, Nov. 13. 12:45 PM</h6>
+                <div class="tag-container">
+                    <button class="tag-btn">games</button>
+                    <button class="tag-btn">indoor</button>
+                    <button class="tag-btn">group-games</button>
+                    <button class="tag-btn">prizes</button>
+                </div>
+            </div>
+        </a>
+        <div class="btn-container">
+            <button class="search-event-button1 btn-notify" id="B1" type="submit"><i class="bi bi-bell-fill"></i></button>
+            <button class="search-event-button btn-add" id="B2" type="submit"><i class="bi bi-plus-lg"></i></button>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="amenityList">
+        <a href="/EventPage">
+            <div class="amenityListImg">
+                <img class="card-img-top" src="https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F479928127%2F676x380.webp&w=1920&q=75" alt="Card image cap">
+            </div>
+        </a>
+        <a href="/EventPage" style="width: 200px;">
+            <div class="description">
+                <h5>Downtown Chess Meetup</h5>
+                <h6>Thu, Nov. 17. 5:30 PM</h6>
+                <div class="tag-container">
+                    <button class="tag-btn">games</button>
+                    <button class="tag-btn">chess</button>
+                    <button class="tag-btn">indoor</button>
+                    <button class="tag-btn">Downtown</button>
+                </div>
+            </div>
+        </a>
+        <div class="btn-container">
+            <button class="search-event-button1 btn-notify" id="B1" type="submit"><i class="bi bi-bell-fill"></i></button>
+            <button class="search-event-button btn-add" id="B2" type="submit"><i class="bi bi-plus-lg"></i></button>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="amenityList">
+        <a href="/EventPage">
+            <div class="amenityListImg">
+                <img class="card-img-top" src="https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F507958160%2F676x380.webp&w=1920&q=75" alt="Card image cap">
+            </div>
+        </a>
+        <a href="/EventPage" style="width: 200px;">
+            <div class="description">
+                <h5>Gaming Legion</h5>
+                <h6>Wed, Nov. 16. 6:30 PM</h6>
+                <div class="tag-container">
+                    <button class="tag-btn">games</button>
+                    <button class="tag-btn">convention</button>
+                    <button class="tag-btn">indoor</button>
+                    <button class="tag-btn">Free-food</button>
+                </div>
+            </div>
+        </a>
+        <div class="btn-container">
+            <button class="search-event-button1 btn-notify" id="B1" type="submit"><i class="bi bi-bell-fill"></i></button>
+            <button class="search-event-button btn-add" id="B2" type="submit"><i class="bi bi-plus-lg"></i></button>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="amenityList">
+        <a href="/EventPage">
+            <div class="amenityListImg">
+                <img class="card-img-top" src="https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F504231601%2F676x380.webp&w=1920&q=75" alt="Card image cap">
+            </div>
+        </a>
+        <a href="/EventPage" style="width: 200px;">
+            <div class="description">
+                <h5>FallCon: Board Games</h5>
+                <h6>Sat, Nov. 19. 12:00 PM</h6>
+                <div class="tag-container">
+                    <button class="tag-btn">games</button>
+                    <button class="tag-btn">indoor</button>
+                    <button class="tag-btn">Kid-friendly</button>
+                    <button class="tag-btn">Free-food</button>
+                </div>
+            </div>
+        </a>
+        <div class="btn-container">
+            <button class="search-event-button1 btn-notify" id="B1" type="submit"><i class="bi bi-bell-fill"></i></button>
+            <button class="search-event-button btn-add" id="B2" type="submit"><i class="bi bi-plus-lg"></i></button>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="amenityList">
+        <a href="/EventPage">
+            <div class="amenityListImg">
+                <img class="card-img-top" src="https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F503270803%2F676x380.webp&w=1920&q=75" alt="Card image cap">
+            </div>
+        </a>
+        <a href="/EventPage" style="width: 200px;">
+            <div class="description">
+                <h5>Online Gaming: Dead by Daylight</h5>
+                <h6>Sat, Nov. 29. 8:00 PM</h6>
+                <div class="tag-container">
+                    <button class="tag-btn">games</button>
+                    <button class="tag-btn">online</button>
+                    <button class="tag-btn">teams</button>
+                    <button class="tag-btn">tags</button>
+                </div>
+            </div>
+        </a>
+        <div class="btn-container">
+            <button class="search-event-button1 btn-notify" id="B1" type="submit"><i class="bi bi-bell-fill"></i></button>
+            <button class="search-event-button btn-add" id="B2" type="submit"><i class="bi bi-plus-lg"></i></button>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="amenityList" style="margin-bottom: 20px;">
+        <a href="/EventPage">
+            <div class="amenityListImg">
+                <img class="card-img-top" src="https://secure-content.meetupstatic.com/images/classic-events/474784380/333x188.webp" alt="Card image cap">
+            </div>
+        </a>
+        <a href="/EventPage" style="width: 200px;">
+            <div class="description">
+                <h5>Dinner and a Boardgame</h5>
+                <h6>Fri, Nov. 9. 6:15 PM</h6>
+                <div class="tag-container">
+                    <button class="tag-btn">games</button>
+                    <button class="tag-btn">Downtown</button>
+                    <button class="tag-btn">icebreaker</button>
+                    <button class="tag-btn">chit-chat</button>
+                </div>
+            </div>
+        </a>
+        <div class="btn-container">
+            <button class="search-event-button1 btn-notify" id="B1" type="submit"><i class="bi bi-bell-fill"></i></button>
+            <button class="search-event-button btn-add" id="B2" type="submit"><i class="bi bi-plus-lg"></i></button>
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+}

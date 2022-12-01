@@ -1,0 +1,27 @@
+﻿<div class="card">
+    <a href="@eventLink">
+        <img class="card-img-top" src="@imgUrl" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">@eventName</h5>
+            <p class="card-text">@eventDate</p>
+            <p class="card-text">@eventTime</p>
+        </div>
+    </a>
+</div>
+
+@code {
+    [Parameter]
+    public string eventLink { get; set; }
+
+    [Parameter]
+    public string imgUrl { get; set; }
+
+    [Parameter]
+    public string eventName { get; set; }
+
+    [Parameter]
+    public string eventDate { get; set; }
+
+    [Parameter]
+    public string eventTime { get; set; }
+}

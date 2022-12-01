@@ -13,7 +13,8 @@ h3, h6, p {
 }
 
 a, .btn-link {
-    color: #0071c1;
+    color: #21130d;
+    text-decoration: none;
 }
 
 .btn-primary {

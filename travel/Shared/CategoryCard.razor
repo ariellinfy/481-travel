@@ -1,0 +1,17 @@
+﻿<div class="category-card">
+    <a href="@eventSearch">
+        <img class="category-card-img" src="@imgUrl" alt="Card image cap" />
+        <p class="category-card-text">@categoryName</p>
+    </a>
+</div>
+
+@code {
+    [Parameter]
+    public string eventSearch { get; set; }
+
+    [Parameter]
+    public string imgUrl { get; set; }
+
+    [Parameter]
+    public string categoryName { get; set; }
+}

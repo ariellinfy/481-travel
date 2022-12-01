@@ -1,0 +1,20 @@
+﻿<div class="event-info">
+    <p>@Description</p>
+    <h6><span class="fw-bold">Address: </span>@Address</h6>
+    <h6><span class="fw-bold">Time: </span>@Time</h6>
+    <h6><span class="fw-bold">Date: </span>@Date</h6>
+</div>
+
+@code {
+    [Parameter]
+    public string Description { get; set; }
+
+    [Parameter]
+    public string Address { get; set; }
+
+    [Parameter]
+    public string Time { get; set; }
+
+    [Parameter]
+    public string Date { get; set; }
+}

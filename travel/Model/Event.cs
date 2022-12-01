@@ -2,13 +2,8 @@
 {
     public class Event : Place
     {
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
-        public DateTime Time { get; set; }
-
-        public Event()
-        {
-
-        }
+        public string Time { get; set; }
     }
 }

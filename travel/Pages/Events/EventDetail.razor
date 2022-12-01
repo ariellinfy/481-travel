@@ -1,0 +1,124 @@
+﻿@page "/EventPage"
+@layout PageLayout
+@inject HttpClient Http
+@inject NavigationManager nav
+
+<PageHeader pageTitle="3-Round Settlers Tournament"/>
+@*<div class="page-header">
+    <h3 class="event-title-head">3-Round Settlers Tournament</h3>
+    <button id="btn-previous" type="button" class="btn"><i class="bi bi-x-lg"></i></button>
+</div>*@
+
+<img class="images-event" src="@TargetEvent.ImgUrl" alt="DogShow" style="width:100%;">
+
+<div class="tag-container">
+    @if(TargetEvent != null) {
+        @foreach (string tag in @TargetEvent.Tags)
+        {
+            <Tag TagName="@tag" />
+        }
+    }
+</div>
+
+<EventInfo Description="@TargetEvent.Description" Address="@TargetEvent.Address" Time="@TargetEvent.Time" Date="@TargetEvent.Date" />
+
+<div class="btn-container">
+    <button class="btn btn-bookmark">
+        <i class="bi bi-bookmark-plus"></i>
+    </button>
+    <a class="btn btn-add" type="button" data-bs-toggle="modal" href="#addToTripModalToggle" role="button">
+        <i class="bi bi-plus-circle"></i>
+    </a>
+</div>
+
+<!-- 2 Modal -->
+<div class="modal fade" id="addToTripModalToggle" aria-hidden="true" aria-labelledby="addToTripModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-end">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="btn btn-setting" data-bs-target="#existingTrips" data-bs-toggle="modal">Existing Trips</button>
+                <hr />
+                <button type="button" class="btn btn-setting" data-bs-target="#newTrip" data-bs-toggle="modal">Create a New Trip</button>
+                <hr />
+                <hr />
+                <button type="button" class="btn btn-setting btn-cancel" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="existingTrips" aria-hidden="true" aria-labelledby="existingTripsLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-end">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="btn btn-setting" data-bs-target="#tripConflict" data-bs-toggle="modal">Canadian Rockies Trip</button>
+                <hr />
+                <button type="button" class="btn btn-setting" data-bs-target="#tripSuccess" data-bs-toggle="modal">Winter Shopping</button>
+                <hr />
+                <hr />
+                <button type="button" class="btn btn-setting btn-cancel" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="newTrip" aria-hidden="true" aria-labelledby="newTripLabel" tabindex="-1">
+    <div id="modal-center" class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-background">
+            <div class="modal-body">
+                <form class="trip-form">
+                    <h5 class="create-option">Create a New Trip</h5>
+                    <div class="form-floating mt-3 mb-3">
+                        <input type="text" class="form-control" id="tripName" placeholder="unknown" required>
+                        <label for="tripName">Trip Name</label>
+                    </div>
+                    <div class="form-controls modal-footer">
+                        <button type="button" class="btn btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                        <button type="submit" class="btn btn-save" id="liveToastBtn">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="tripConflict" aria-hidden="true" aria-labelledby="tripConflictLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+            <div class="modal-body modal-info fw-bold" style="color: #f5ad03;">
+                <i class="bi bi-x-circle"></i>
+                Event timing conflicts with current Trip Plan
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="tripSuccess" aria-hidden="true" aria-labelledby="tripSuccessLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-center">
+        <div class="modal-content">
+            <div class="modal-body modal-info">
+                <i class="bi bi-check-circle"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h4> Similar Events</h4>
+
+<div class="list-container">
+    @foreach (var similarEvent in similarEvents)
+    {
+            <EventCard eventLink="/EventPage" imgUrl="@similarEvent.ImgUrl"
+                eventName="@similarEvent.Name" eventDate="@similarEvent.Date" eventTime="@similarEvent.Time" />
+    }
+</div>
+
+@code {
+    private Event[]? similarEvents = new Event[] { };
+
+    [Parameter]
+    public Event? TargetEvent { get; set; } = new Event();
+
+    protected override async Task OnInitializedAsync()
+    {
+        similarEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
+        TargetEvent = similarEvents[0];
+    }
+}
