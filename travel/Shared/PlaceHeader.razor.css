@@ -1,0 +1,36 @@
+﻿.page-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.bi-chevron-left {
+    font-size: 1.5rem;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    width: 5.75rem;
+}
+
+.bi-bookmark {
+    font-size: 1.5rem;
+    color: darkgray;
+}
+
+.bi-bookmark-fill {
+    font-size: 1.5rem;
+    color: #eab676;
+}
+
+.bi-plus-lg {
+    font-size: 1.75rem;
+    color: #074c07;
+}
+
+.btn-event {
+    padding: 0.25rem 0.5rem 0.1rem 0.5rem;
+}

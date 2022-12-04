@@ -1,5 +1,6 @@
 [
   {
+    "id": "0",
     "name": "Tarot Reading",
     "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F507603084%2F676x380.webp&w=1920&q=75",
     "date": "Sat, Nov 19, 2022",
@@ -15,9 +16,14 @@
       "Accessibility",
       "Kid-friendly",
       "Free-food"
+    ],
+    "categories": [
+      "games",
+      "indoor"
     ]
   },
   {
+    "id": "1",
     "name": "Darts and Drinks",
     "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F469047437%2F676x380.webp&w=1920&q=75",
     "date": "Sat, Nov 19, 2022",
@@ -33,9 +39,14 @@
       "Accessibility",
       "Kid-friendly",
       "Free-food"
+    ],
+    "categories": [
+      "games",
+      "indoor"
     ]
   },
   {
+    "id": "2",
     "name": "Condominium Discussion",
     "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F508465782%2F676x380.webp&w=1920&q=75",
     "date": "Sat, Nov 12, 2022",
@@ -51,9 +62,14 @@
       "Accessibility",
       "Kid-friendly",
       "Free-food"
+    ],
+    "categories": [
+      "games",
+      "indoor"
     ]
   },
   {
+    "id": "3",
     "name": "Learn to DJ",
     "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F505670929%2F676x380.webp&w=1920&q=75",
     "date": "Sun, Nov 27, 2022",
@@ -69,6 +85,10 @@
       "Accessibility",
       "Kid-friendly",
       "Free-food"
+    ],
+    "categories": [
+      "games",
+      "indoor"
     ]
   }
 ]

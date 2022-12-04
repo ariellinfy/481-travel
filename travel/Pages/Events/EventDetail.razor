@@ -1,35 +1,36 @@
-﻿@page "/EventPage"
-@layout PageLayout
+﻿@page "/event"
 @inject HttpClient Http
 @inject NavigationManager nav
 
-<PageHeader pageTitle="3-Round Settlers Tournament"/>
-@*<div class="page-header">
-    <h3 class="event-title-head">3-Round Settlers Tournament</h3>
-    <button id="btn-previous" type="button" class="btn"><i class="bi bi-x-lg"></i></button>
-</div>*@
+<PlaceHeader pageTitle="Event"/>
 
-<img class="images-event" src="@TargetEvent.ImgUrl" alt="DogShow" style="width:100%;">
+<img class="images-event" src="@TargetEvent.ImgUrl" alt="@TargetEvent.Name" style="width:100%;">
 
-<div class="tag-container">
-    @if(TargetEvent != null) {
-        @foreach (string tag in @TargetEvent.Tags)
-        {
-            <Tag TagName="@tag" />
+<div class="event-detail">
+    <h3>@TargetEvent.Name</h3>
+
+    <div class="tag-container">
+        @if (TargetEvent.Tags != null) {
+            @foreach (string tag in @TargetEvent.Tags)
+            {
+                <Tag TagName="@tag" />
+            }
         }
-    }
+    </div>
+
+    <EventInfo Description="@TargetEvent.Description" Address="@TargetEvent.Address" Time="@TargetEvent.Time" Date="@TargetEvent.Date" />
+
+    <h4> Similar Events</h4>
+
+    <div class="list-container">
+        @foreach (var similarEvent in similarEvents)
+        {
+            <EventCard eventLink="/event" imgUrl="@similarEvent.ImgUrl"
+                   eventName="@similarEvent.Name" eventDate="@similarEvent.Date" eventTime="@similarEvent.Time" />
+        }
+    </div>
 </div>
 
-<EventInfo Description="@TargetEvent.Description" Address="@TargetEvent.Address" Time="@TargetEvent.Time" Date="@TargetEvent.Date" />
-
-<div class="btn-container">
-    <button class="btn btn-bookmark">
-        <i class="bi bi-bookmark-plus"></i>
-    </button>
-    <a class="btn btn-add" type="button" data-bs-toggle="modal" href="#addToTripModalToggle" role="button">
-        <i class="bi bi-plus-circle"></i>
-    </a>
-</div>
 
 <!-- 2 Modal -->
 <div class="modal fade" id="addToTripModalToggle" aria-hidden="true" aria-labelledby="addToTripModalToggleLabel" tabindex="-1">
@@ -100,24 +101,23 @@
     </div>
 </div>
 
-<h4> Similar Events</h4>
 
-<div class="list-container">
-    @foreach (var similarEvent in similarEvents)
-    {
-            <EventCard eventLink="/EventPage" imgUrl="@similarEvent.ImgUrl"
-                eventName="@similarEvent.Name" eventDate="@similarEvent.Date" eventTime="@similarEvent.Time" />
-    }
-</div>
 
 @code {
+    [CascadingParameter]
+    public StateModel state { get; set; }
+
     private Event[]? similarEvents = new Event[] { };
 
     [Parameter]
     public Event? TargetEvent { get; set; } = new Event();
 
+    private int id { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
+        id = 0;
+        state.onTab = 2;
         similarEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
         TargetEvent = similarEvents[0];
     }

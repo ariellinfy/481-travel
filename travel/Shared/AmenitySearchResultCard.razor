@@ -1,0 +1,48 @@
+﻿<a href="/amenity/0">
+    <div class="amenity-container">
+        <div class="amenity-img">
+            <img class="card-img-top" src="@TargetAmenity.ImgUrl" alt="@TargetAmenity.Name">
+        </div>
+        <div class="description">
+            <h5>@TargetAmenity.Name</h5>
+            <h6>@TargetAmenity.Address</h6>
+            <div class="tag-container">
+                @if (TargetAmenity != null)
+                {
+                    @for (int x = 0; x < 3; x++)
+                    {
+                        <Tag TagName="@TargetAmenity.Tags[x]" />
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div class="card-bottom">
+@*        <p>@TargetAmenity.Address</p>*@
+    </div>
+</a>
+
+<div class="btn-container">
+    <button class="btn-search" type="button" @onclick="addPlan"><i class="bi bi-plus-lg"></i></button>
+    <button class="btn-search" type="button" @onclick="bookmark"><i class="bi @bookmarkIcon"></i></button>
+</div>
+
+@code {
+    [Parameter]
+    public Amenity TargetAmenity { get; set; }
+
+    public bool bookmarked = false; // depending on user
+    private string bookmarkIcon = "bi-bookmark";
+
+    private void bookmark()
+    {
+        bookmarked = !bookmarked;
+        if (bookmarked) bookmarkIcon = "bi-bookmark-fill";
+        else bookmarkIcon = "bi-bookmark";
+    }
+
+    private void addPlan()
+    {
+        // need to implement
+    }
+}

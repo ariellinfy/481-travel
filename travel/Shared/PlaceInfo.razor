@@ -1,0 +1,25 @@
+﻿<div class="place-info">
+    <div class="place-info-header">
+        <h3>@TargetPlace.Name</h3>
+        <RadzenRating ReadOnly="true" Stars="5" Value="@TargetPlace.Rating" />
+    </div>
+    
+    <h6 class="fw-bold">@TargetPlace.Address</h6>
+    
+    <p>@TargetPlace.Description</p>
+    <div class="tag-container">
+        @if (TargetPlace.Tags != null)
+        {
+            @foreach (string tag in @TargetPlace.Tags)
+            {
+                <Tag TagName="@tag" />
+            }
+        }
+    </div>
+    
+</div>
+
+@code {
+    [Parameter]
+    public Amenity? TargetPlace { get; set; }
+}

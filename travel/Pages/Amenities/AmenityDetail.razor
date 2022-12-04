@@ -1,0 +1,62 @@
+﻿@page "/amenity"
+@inject HttpClient Http
+@inject NavigationManager nav
+
+<PlaceHeader pageTitle="Amenity" />
+
+<img class="images-amenity" src="@TargetPlace.ImgUrl" alt="@TargetPlace.Name" style="width:100%;">
+
+<div class="place-detail">
+    <PlaceInfo TargetPlace="@TargetPlace" />
+
+    <div class="reviews">
+        <nav class="navbar navbar-expand-lg navbar-light review-header">
+            <h5 style="margin-bottom: 0;">Reviews</h5>
+            <a href="/addreview" class="btn add-review">
+                <i class="bi bi-pencil"></i>
+                Write a review
+            </a>
+        </nav>
+        <div class="review-body">
+            @if (TargetPlace.Reviews != null)
+            {
+                @foreach (var review in TargetPlace.Reviews)
+                {
+                    <AmenityDetailReviewCard User="@review.user" PublishedOn="@review.PublishedDate" Rate="@review.rating" ReviewContent="@review.review" />
+                    <hr />
+                }
+            }
+            <p class="show-more">Show More</p>
+        </div>
+    </div>
+
+    <h4> Similar Events</h4>
+
+    <div class="list-container">
+        @foreach (var similarPlace in similarPlaces)
+        {
+            <AmenityCard amenityLink="/amenity" imgUrl="@similarPlace.ImgUrl"
+                     amenityName="@similarPlace.Name" amenityAddress="@similarPlace.Address" />
+        }
+    </div>
+</div>
+
+@code {
+    [CascadingParameter]
+    public StateModel state { get; set; }
+
+    private Amenity[]? similarPlaces = new Amenity[] { };
+
+    [Parameter]
+    public Amenity? TargetPlace { get; set; } = new Amenity();
+
+    private int id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        id = 0;
+        state.onTab = 2;
+        similarPlaces = await Http.GetFromJsonAsync<Amenity[]>("sample-data/amenities.json");
+        TargetPlace = similarPlaces[0];
+    }
+}

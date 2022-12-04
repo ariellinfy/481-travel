@@ -42,6 +42,9 @@
 </EditForm>
 
 @code {
+    [CascadingParameter]
+    public StateModel state { get; set; }
+
     private SignupModel user;
 
     protected override void OnInitialized()
@@ -54,24 +57,10 @@
     {
         ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserAuthentication(user.Email);
         navigationManager.NavigateTo("/");
+        state.DisplayName = user.Name;
+        state.Email = user.Email;
+        state.Password = user.Password;
         await sessionStorage.SetItemAsync("email", user.Email);
         return await Task.FromResult(true);
     }
-
-    //public void Logout()
-    //{
-    //    ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserLogout();
-    //    navigationManager.NavigateTo("/");
-    //}
 }
-
-
-@*        <AuthorizeView>
-            <Authorized>
-                <p>Welcome @context.User.Identity.Name</p>
-                <a href="/login" @onclick="(() => Logout())">Logout</a>
-            </Authorized>
-            <NotAuthorized>
-                <a href="/login"> Login</a>
-            </NotAuthorized>
-        </AuthorizeView>*@

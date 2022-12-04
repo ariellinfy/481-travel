@@ -1,0 +1,24 @@
+﻿.review-box {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.25rem;
+    gap: 5%;
+}
+
+.review-box-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user-date {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.publish-date {
+    color: #b0a6ab;
+    font-size: 0.95rem;
+    padding-top: 0.025rem;
+}

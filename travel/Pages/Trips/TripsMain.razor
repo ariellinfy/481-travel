@@ -2,138 +2,151 @@
 
 <PageTitle>Trips</PageTitle>
 
-<div class="page-container">
-    <div class="page-header">
-        <p class="text-wrap fs-3 page-title">Trips</p>
-    </div>
-    <div class="page-body">
-        <TripCard tripName="@trip1" tripDate="@date1" tripDuration="@duration1" />
-        <TripCard tripName="@trip2" tripDate="@date2" tripDuration="@duration2" />
-        <TripCard tripName="@trip3" tripDate="@date3" tripDuration="@duration3" />
-        <TripCard tripName="@trip4" tripDate="@date4" tripDuration="@duration4" />
-        <TripCard tripName="@trip5" tripDate="@date5" tripDuration="@duration5" />
-        <TripCard tripName="@trip6" tripDate="@date6" tripDuration="@duration6" />
-        <TripCard tripName="@trip7" tripDate="@date7" tripDuration="@duration7" />
-        <TripCard tripName="@trip8" tripDate="@date8" tripDuration="@duration8" />
-        <TripCard tripName="@trip9" tripDate="@date9" tripDuration="@duration9" />
-        <TripCard tripName="@trip10" tripDate="@date10" tripDuration="@duration10" />
-    </div>
 
-    <div class="btn-fixed dropdown">
-        <button class="btn btn-round btn-add" type="button" data-bs-toggle="dropdown">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
-            </svg>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-dark">
-            <li>
-                <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#newTrip">
-                    Create a New Trip
+<AuthorizeView>
+    <Authorized>
+        <div class="page-container">
+            <div class="page-header">
+                <p class="text-wrap fs-3 page-title">Trips</p>
+            </div>
+            <div class="page-body">
+                <TripCard tripName="@trip1" tripDate="@date1" tripDuration="@duration1" />
+                <TripCard tripName="@trip2" tripDate="@date2" tripDuration="@duration2" />
+                <TripCard tripName="@trip3" tripDate="@date3" tripDuration="@duration3" />
+                <TripCard tripName="@trip4" tripDate="@date4" tripDuration="@duration4" />
+                <TripCard tripName="@trip5" tripDate="@date5" tripDuration="@duration5" />
+                <TripCard tripName="@trip6" tripDate="@date6" tripDuration="@duration6" />
+                <TripCard tripName="@trip7" tripDate="@date7" tripDuration="@duration7" />
+                <TripCard tripName="@trip8" tripDate="@date8" tripDuration="@duration8" />
+                <TripCard tripName="@trip9" tripDate="@date9" tripDuration="@duration9" />
+                <TripCard tripName="@trip10" tripDate="@date10" tripDuration="@duration10" />
+            </div>
+
+            <div class="btn-fixed dropdown">
+                <button class="btn btn-round btn-add" type="button" data-bs-toggle="dropdown">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                    </svg>
                 </button>
-            </li>
-            <li>
-                <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#suggestedTrip">
-                    Generate a Suggested Trip
-                </button>
-            </li>
-        </ul>
-    </div>
-    <div class="modal fade" id="newTrip" tabindex="-1" aria-labelledby="newTripLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <form class="trip-form">
-                        <h5 class="create-option">Create a New Trip</h5>
-                        <div class="form-floating mt-3 mb-3">
-                            <input type="text" class="form-control" id="tripName" placeholder="unknown" required>
-                            <label for="tripName">Trip Name</label>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li>
+                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#newTrip">
+                            Create a New Trip
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#suggestedTrip">
+                            Generate a Suggested Trip
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal fade" id="newTrip" tabindex="-1" aria-labelledby="newTripLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <form class="trip-form">
+                                <h5 class="create-option">Create a New Trip</h5>
+                                <div class="form-floating mt-3 mb-3">
+                                    <input type="text" class="form-control" id="tripName" placeholder="unknown" required>
+                                    <label for="tripName">Trip Name</label>
+                                </div>
+                                <div class="form-controls modal-footer">
+                                    <button type="button" class="btn btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                                    <button type="submit" class="btn btn-save">Create</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-controls modal-footer">
-                            <button type="button" class="btn btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Close</button>
-                            <button type="submit" class="btn btn-save">Create</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="suggestedTrip" tabindex="-1" aria-labelledby="suggestedTripLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <form class="trip-form">
+                                <h5 class="create-option">Create a Suggested Trip</h5>
+                                <div class="form-floating mt-3 mb-3">
+                                    <input type="date" class="form-control" id="startDate" required>
+                                    <label for="startDate&Time">Start Date</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control" id="endDate" required>
+                                    <label for="endDate">End Date</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" aria-label="trip types">
+                                        <option selected></option>
+                                        <option value="outdoor">Outdoor</option>
+                                        <option value="shopping">Shopping</option>
+                                        <option value="monuments">Monuments</option>
+                                        <option value="nature">Nature</option>
+                                        <option value="art">Art</option>
+                                        <option value="culture">Culture</option>
+                                        <option value="park">Park</option>
+                                        <option value="games">Games</option>
+                                        <option value="sports">Sports</option>
+                                        <option value="museums">Museums</option>
+                                    </select>
+                                    <label>Desired Types of Trip</label>
+                                </div>
+
+                                <div class="selected-types">
+                                    <span class="badge rounded-pill selected-type">Outdoor</span>
+                                    <span class="badge rounded-pill selected-type">Shopping</span>
+                                    <span class="badge rounded-pill selected-type">Monuments</span>
+                                    <span class="badge rounded-pill selected-type">Nature</span>
+                                    <span class="badge rounded-pill selected-type">Art</span>
+                                    <span class="badge rounded-pill selected-type">Culture</span>
+                                    <span class="badge rounded-pill selected-type">Park</span>
+                                    <span class="badge rounded-pill selected-type">Games</span>
+                                    <span class="badge rounded-pill selected-type">Sports</span>
+                                    <span class="badge rounded-pill selected-type">Museums</span>
+                                </div>
+
+                                <div class="form-controls modal-footer">
+                                    <button type="button" class="btn btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Close</button>
+        @*                            <button type="submit" class="btn btn-save">Create</button>*@
+                                    <button type="button" class="btn btn-save" data-bs-toggle="modal" data-bs-target="#generatedTrip">
+                                        Create
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="generatedTrip" tabindex="-1" aria-labelledby="generatedTripLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div id="temp-trip" class="form-controls modal-header">
+                            <button type="button" class="btn btn-regenerate" data-bs-dismiss="modal">Regenerate</button>
+                            <button type="button" class="btn btn-save" data-bs-dismiss="modal">Save</button>
+                        </div>
+                        <div class="modal-body">
+                            <DayPlans planDate="@day1" />
+                            <hr />
+                            <DayPlans planDate="@day2" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal fade" id="suggestedTrip" tabindex="-1" aria-labelledby="suggestedTripLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <form class="trip-form">
-                        <h5 class="create-option">Create a Suggested Trip</h5>
-                        <div class="form-floating mt-3 mb-3">
-                            <input type="date" class="form-control" id="startDate" required>
-                            <label for="startDate&Time">Start Date</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input type="date" class="form-control" id="endDate" required>
-                            <label for="endDate">End Date</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <select class="form-select" aria-label="trip types">
-                                <option selected></option>
-                                <option value="outdoor">Outdoor</option>
-                                <option value="shopping">Shopping</option>
-                                <option value="monuments">Monuments</option>
-                                <option value="nature">Nature</option>
-                                <option value="art">Art</option>
-                                <option value="culture">Culture</option>
-                                <option value="park">Park</option>
-                                <option value="games">Games</option>
-                                <option value="sports">Sports</option>
-                                <option value="museums">Museums</option>
-                            </select>
-                            <label>Desired Types of Trip</label>
-                        </div>
-
-                        <div class="selected-types">
-                            <span class="badge rounded-pill selected-type">Outdoor</span>
-                            <span class="badge rounded-pill selected-type">Shopping</span>
-                            <span class="badge rounded-pill selected-type">Monuments</span>
-                            <span class="badge rounded-pill selected-type">Nature</span>
-                            <span class="badge rounded-pill selected-type">Art</span>
-                            <span class="badge rounded-pill selected-type">Culture</span>
-                            <span class="badge rounded-pill selected-type">Park</span>
-                            <span class="badge rounded-pill selected-type">Games</span>
-                            <span class="badge rounded-pill selected-type">Sports</span>
-                            <span class="badge rounded-pill selected-type">Museums</span>
-                        </div>
-
-                        <div class="form-controls modal-footer">
-                            <button type="button" class="btn btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Close</button>
-@*                            <button type="submit" class="btn btn-save">Create</button>*@
-                            <button type="button" class="btn btn-save" data-bs-toggle="modal" data-bs-target="#generatedTrip">
-                                Create
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="generatedTrip" tabindex="-1" aria-labelledby="generatedTripLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div id="temp-trip" class="form-controls modal-header">
-                    <button type="button" class="btn btn-regenerate" data-bs-dismiss="modal">Regenerate</button>
-                    <button type="button" class="btn btn-save" data-bs-dismiss="modal">Save</button>
-                </div>
-                <div class="modal-body">
-                    <DayPlans planDate="@day1" />
-                    <hr />
-                    <DayPlans planDate="@day2" />
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    </Authorized>
+    <NotAuthorized>
+        <a href="/login"> Login</a>
+    </NotAuthorized>
+</AuthorizeView>
 
 @code {
+
+    [CascadingParameter]
+    public StateModel state { get; set; }
+
+
     private string trip1 = "Canadian Rockies Trip";
     private string date1 = "Sep 21, 2022 - Oct 31, 2022";
     private string duration1 = "40 days";

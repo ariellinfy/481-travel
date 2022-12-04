@@ -9,10 +9,10 @@
 <EditForm Model="user" OnValidSubmit="ValidateInput">
     <div class="input-box">
         <div class="form-floating mt-3">
-            <InputText @bind-Value="user.Name" class="form-control" id="name" placeholder="name" />
+            <InputText @bind-Value="user.DisplayName" class="form-control" id="name" placeholder="name" />
             <label for="name">Name</label>
         </div>
-        <ValidationMessage For="() => user.Name" />
+        <ValidationMessage For="() => user.DisplayName" />
     </div>
     <div class="input-box">
         <div class="form-floating mt-3">
@@ -27,11 +27,11 @@
 </EditForm>
 
 @code {
-    private UserModel user;
+    private StateModel user;
 
     protected override void OnInitialized()
     {
-        user = new UserModel();
+        user = new StateModel();
         base.OnInitialized();
     }
 

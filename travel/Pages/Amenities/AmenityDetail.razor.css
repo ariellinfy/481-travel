@@ -1,0 +1,63 @@
+﻿.list-container {
+    display: flex;
+    overflow: scroll;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+    .list-container::-webkit-scrollbar {
+        display: none;
+    }
+
+h4 {
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.place-detail {
+    padding: 1rem;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 0.275rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    outline: 0.15rem solid #C3BA9B;
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+.review-header {
+    background-color: #C3BA9B;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color: #7E6D53;
+}
+
+.add-review {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    color: #F4F4E9;
+    background-color: #7E6D53;
+}
+
+.review-body {
+    padding: 0.5rem;
+}
+
+.show-more {
+    background-color: white;
+    text-align: center;
+    justify-content: center;
+    color: blue;
+    width: fit-content;
+    margin: auto;
+}
+
+hr {
+    margin: 0.5rem 0;
+}

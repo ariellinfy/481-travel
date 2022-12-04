@@ -21,3 +21,17 @@ hr {
     text-align: center;
     margin-top: 2rem;
 }
+
+.rating-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.tickmarks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}

@@ -12,4 +12,17 @@
 h4 {
     margin-bottom: 0.75rem;
     font-weight: 500;
+    margin-top: 1rem;
+}
+
+.event-detail {
+    padding: 1rem;
+}
+
+.tag-container {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.25rem;
 }

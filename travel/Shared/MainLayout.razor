@@ -1,13 +1,21 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
+    <CascadingValue Value="@state">
     <main>
         <article class="content">
             @Body
         </article>
     </main>
 
-    <div class="navbar">
-        <NavMenu />
-    </div>
+    @if (state.showNav) {
+        <div class="navbar">
+            <NavMenu />
+        </div>
+    }
+    </CascadingValue>
 </div>
+
+@code {
+    StateModel state = new StateModel();
+}

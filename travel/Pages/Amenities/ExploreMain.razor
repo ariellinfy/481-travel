@@ -1,16 +1,16 @@
-﻿@page "/events"
+﻿@page "/explore"
 @layout PageLayout
 @inject HttpClient Http
 @inject NavigationManager nav
 
-<PageTitle>Events</PageTitle>
+<PageTitle>Explore</PageTitle>
 
 <div class="page-container">
     <nav class="navbar navbar-light">
         <div class="input-group mb-3">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search upcoming events" aria-label="Search"
-                    @bind-value="searchText" @bind-value:event="oninput" @onfocus="onSearch">
-            <button type="button" class="navbar-toggler" data-bs-toggle="modal" data-bs-target="#event-search-filter">
+            <input class="form-control mr-sm-2" type="search" placeholder="Where would you like to go?" aria-label="Search"
+                   @bind-value="searchText" @bind-value:event="oninput" @onfocus="onSearch">
+            <button type="button" class="navbar-toggler" data-bs-toggle="modal" data-bs-target="#amenity-search-filter">
                 <span class="navbar-toggler-icon"></span>
             </button>
             @if (state.onSearch == true)
@@ -25,29 +25,26 @@
         </div>
     </nav>
 
-    @if (state.onSearch == false)
+    @if (state.onSearch == false) 
     {
-        <h4>Popular Events</h4>
+        <h4>Popular Places</h4>
 
         <div class="list-container">
-            @foreach (var popularEvent in popularEvents)
+            @foreach (var popularPlace in popularPlaces)
             {
-                <EventCard eventLink="/event" imgUrl="@popularEvent.ImgUrl"
-                   eventName="@popularEvent.Name" eventDate="@popularEvent.Date" eventTime="@popularEvent.Time" />
+                <AmenityCard amenityLink="/amenity" imgUrl="@popularPlace.ImgUrl"
+                     amenityName="@popularPlace.Name" amenityAddress="@popularPlace.Address" />
             }
         </div>
 
-        <h4>Suggested Events</h4>
+        <h4>Suggested Places</h4>
 
         <div class="list-container">
-            <EventCard eventLink="/event" imgUrl="https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F479928127%2F676x380.webp&w=1920&q=75"
-                   eventName="Downtown Chess Meetup" eventDate="Thr, Nov 17, 2022" eventTime="5:30 PM - 8:30 PM MST" />
-            <EventCard eventLink="/event" imgUrl="https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F505359568%2F676x380.webp&w=1920&q=75"
-                   eventName="Rollerskating Pop Up" eventDate="Sat, Nov 19, 2022" eventTime="9:00 PM - 11:30 PM MST" />
-            <EventCard eventLink="/event" imgUrl="https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F508488837%2F676x380.webp&w=1920&q=75"
-                   eventName="Coloring and Coffee" eventDate="Sat, Nov 12, 2022" eventTime="12:00 PM - 2:00 PM MST" />
-            <EventCard eventLink="/event" imgUrl="https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F506683803%2F676x380.webp&w=1920&q=75"
-                   eventName="Badminton Meet Up" eventDate="Tue, Nov 15, 2022" eventTime="7:15 PM - 10:15 PM MST" />
+            @foreach (var popularPlace in suggestedPlaces)
+            {
+                <AmenityCard amenityLink="/amenity" imgUrl="@popularPlace.ImgUrl"
+                     amenityName="@popularPlace.Name" amenityAddress="@popularPlace.Address" />
+            }
         </div>
 
         <h4>Categories</h4>
@@ -66,20 +63,20 @@
                       categoryName="Writing" />
         </div>
     }
-    else
+    else 
     {
         <hr />
-        @if (popularEvents.Length > 0)
+        @if (suggestedPlaces.Length > 0)
         {
-            @foreach (var result in popularEvents)
+            @foreach (var result in suggestedPlaces)
             {
-                <EventSearchResultCard TargetEvent="@result" />
+                <AmenitySearchResultCard TargetAmenity="@result" />
                 <hr />
             }
         }
         else
         {
-            <div class="empty-result">Sorry, no event match your search...</div>
+            <div class="empty-result">Sorry, no amenity match your search...</div>
         }
     }
     
@@ -90,29 +87,30 @@
     public StateModel state { get; set; }
 
     private string searchText;
+    private int ratingValue = 3;
 
     private void onSearch()
     {
         state.onSearch = true;
-        state.onTab = 2;
+        state.onTab = 1;
     }
 
-    private Event[]? popularEvents = new Event[] { };
-    private Event[]? suggestedEvents = new Event[] { };
-    private Event[]? searchResults = new Event[] { };
+    private Amenity[]? popularPlaces = new Amenity[] { };
+    private Amenity[]? suggestedPlaces = new Amenity[] { };
+    private Amenity[]? searchResults = new Amenity[] { };
 
     protected override async Task OnInitializedAsync()
     {
-        state.onTab = 2;
+        state.onTab = 1;
         state.onSearch = false;
-        popularEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
-        suggestedEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
+        popularPlaces = await Http.GetFromJsonAsync<Amenity[]>("sample-data/amenities.json");
+        suggestedPlaces = await Http.GetFromJsonAsync<Amenity[]>("sample-data/amenities.json");
     }
 
-    // need popular events, suggested events, popular categories
+    // need popular amenities, suggested amenities, popular categories
 }
 
-<div class="modal fade" id="event-search-filter" tabindex="-1" aria-labelledby="eventSearchFilterModalLabel" aria-hidden="true">
+<div class="modal fade" id="amenity-search-filter" tabindex="-1" aria-labelledby="amenitySearchFilterModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -120,38 +118,6 @@
             </div>
             <form>
                 <div class="modal-body">
-                    <h5>Starting Time</h5>
-                    <div class="row">
-                        <div class="col">
-                            <input type="radio" class="btn-check" name="start_time" value="today" id="start_today" autocomplete="off">
-                            <label class="btn btn-filter-start" for="start_today">Today</label>
-                        </div>
-                        <div class="col">
-                            <input type="radio" class="btn-check" name="start_time" value="tomorrow" id="start_tomorrow" autocomplete="off">
-                            <label class="btn btn-filter-start" for="start_tomorrow">Tomorrow</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <input type="radio" class="btn-check" name="start_time" value="this weekend" id="start_this_weekend" autocomplete="off">
-                            <label class="btn btn-filter-start" for="start_this_weekend">This Weekend</label>
-                        </div>
-                        <div class="col">
-                            <input type="radio" class="btn-check" name="start_time" value="next week" id="start_next_week" autocomplete="off">
-                            <label class="btn btn-filter-start" for="start_next_week">Next Week</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <input type="radio" class="btn-check" name="start_time" value="next weekend" id="start_next_weekend" autocomplete="off">
-                            <label class="btn btn-filter-start" for="start_next_weekend">Next Weekend</label>
-                        </div>
-                        <div class="col">
-                            <input type="radio" class="btn-check" name="start_time" value="all" id="start_all_upcoming" autocomplete="off" checked>
-                            <label class="btn btn-filter-start" for="start_all_upcoming">All Upcoming</label>
-                        </div>
-                    </div>
-                    <br />
                     <h5>Category (Select one or more!)</h5>
                     <div class="row">
                         <div class="col">
@@ -159,44 +125,44 @@
                             <label class="btn btn-filter-category" for="cate-art">Art & Culture</label><br>
                         </div>
                         <div class="col">
-                            <input type="checkbox" class="btn-check" value="dancing" id="cate-dancing" autocomplete="off">
-                            <label class="btn btn-filter-category" for="cate-dancing">Dancing</label><br>
+                            <input type="checkbox" class="btn-check" value="shopping" id="cate-shopping" autocomplete="off">
+                            <label class="btn btn-filter-category" for="cate-shopping">Shopping</label><br>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <input type="checkbox" class="btn-check" value="games" id="cate-games" autocomplete="off">
-                            <label class="btn btn-filter-category" for="cate-games">Games</label><br>
+                            <label class="btn btn-filter-category" for="cate-games">Fun & Games</label><br>
                         </div>
                         <div class="col">
-                            <input type="checkbox" class="btn-check" value="hobbies" id="cate-hobbies" autocomplete="off">
-                            <label class="btn btn-filter-category" for="cate-hobbies">Hobbies</label><br>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <input type="checkbox" class="btn-check" value="language" id="cate-language" autocomplete="off">
-                            <label class="btn btn-filter-category" for="cate-language">Language</label><br>
-                        </div>
-                        <div class="col">
-                            <input type="checkbox" class="btn-check" value="politics" id="cate-politics" autocomplete="off">
-                            <label class="btn btn-filter-category" for="cate-politics">Politics</label><br>
+                            <input type="checkbox" class="btn-check" value="food" id="cate-food" autocomplete="off">
+                            <label class="btn btn-filter-category" for="cate-food">Food & Beverage</label><br>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input type="checkbox" class="btn-check" value="technology" id="cate-tech" autocomplete="off">
-                            <label class="btn btn-filter-category" for="cate-tech">Technology</label><br>
+                            <input type="checkbox" class="btn-check" value="museums" id="cate-museums" autocomplete="off">
+                            <label class="btn btn-filter-category" for="cate-museums">Museums</label><br>
                         </div>
                         <div class="col">
-                            <input type="checkbox" class="btn-check" value="writing" id="cate-writing" autocomplete="off">
-                            <label class="btn btn-filter-category" for="cate-writing">Writing</label><br>
+                            <input type="checkbox" class="btn-check" value="nightlife" id="cate-nightlife" autocomplete="off">
+                            <label class="btn btn-filter-category" for="cate-nightlife">Nightlife</label><br>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input type="checkbox" class="btn-check" value="travel" id="cate-travel" autocomplete="off">
-                            <label class="btn btn-filter-category" for="cate-travel">Travel</label><br>
+                            <input type="checkbox" class="btn-check" value="historic sites" id="cate-historic" autocomplete="off">
+                            <label class="btn btn-filter-category" for="cate-historic">Historic Sites</label><br>
+                        </div>
+                        <div class="col">
+                            <input type="checkbox" class="btn-check" value="wildlife" id="cate-wildlife" autocomplete="off">
+                            <label class="btn btn-filter-category" for="cate-wildlife">Wildlife</label><br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="checkbox" class="btn-check" value="parks" id="cate-parks" autocomplete="off">
+                            <label class="btn btn-filter-category" for="cate-parks">Parks</label><br>
                         </div>
                         <div class="col">
                             <input type="checkbox" class="btn-check" value="sports" id="cate-sports" autocomplete="off">
@@ -204,19 +170,32 @@
                         </div>
                     </div>
                     <br />
-                    <h5>Venue Type</h5>
+                    <div class="rating-header">
+                        <h5>Rating</h5>
+                        <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Over @ratingValue</RadzenText>
+                    </div>
+                        <RadzenSlider @bind-Value=@ratingValue TValue="int" Min="1" Max="5" Step="1" Class="w-100" />
+                    <div class="tickmarks">
+                        <div>1+</div>
+                        <div>2+</div>
+                        <div>3+</div>
+                        <div>4+</div>
+                        <div>5</div>
+                    </div>
+                    <br />
+                    <h5>Location</h5>
                     <div class="row">
                         <div class="col">
-                            <input type="radio" class="btn-check" name="venue" value="indoor" id="venue-any" autocomplete="off" checked>
-                            <label class="btn btn-filter-location" for="venue-any">Any</label>
+                            <input type="radio" class="btn-check" name="location" value="any" id="location-any" autocomplete="off" checked>
+                            <label class="btn btn-filter-location" for="vlocation-any">Any</label>
                         </div>
                         <div class="col">
-                            <input type="radio" class="btn-check" name="venue" value="inperson" id="venue-inperson" autocomplete="off">
-                            <label class="btn btn-filter-location" for="venue-inperson">In Person</label>
+                            <input type="radio" class="btn-check" name="location" value="indoor" id="location-indoor" autocomplete="off">
+                            <label class="btn btn-filter-location" for="location-indoor">Indoor</label>
                         </div>
                         <div class="col">
-                            <input type="radio" class="btn-check" name="venue" value="online" id="venue-online" autocomplete="off">
-                            <label class="btn btn-filter-location" for="venue-online">Online</label>
+                            <input type="radio" class="btn-check" name="location" value="outdoor" id="location-outdoor" autocomplete="off">
+                            <label class="btn btn-filter-location" for="location-outdoor">Outdoor</label>
                         </div>
                     </div>
                 </div>

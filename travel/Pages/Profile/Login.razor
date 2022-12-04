@@ -1,4 +1,5 @@
 ﻿@page "/login"
+@page "/"
 @layout PageLayout
 @inject AuthenticationStateProvider authenticationStateProvider
 @inject NavigationManager navigationManager
@@ -46,15 +47,16 @@
         <a href="/explore" class="btn">Continue as Guest</a>
     </div>
 
-
-
-
 @code {
+    [CascadingParameter]
+    public StateModel state { get; set; }
+
     private LoginModel user;
     private bool justLogout;
 
     protected override void OnInitialized()
     {
+        state.showNav = false;
         user = new LoginModel();
         justLogout = false;
         base.OnInitialized();
@@ -63,16 +65,15 @@
     private async Task<bool> ValidateUser()
     {
         ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserAuthentication(user.Email);
-        navigationManager.NavigateTo("/");
+        state.showNav = true;
+        state.DisplayName = "Testing Robot";
+        state.Email = user.Email;
+        state.Password = user.Password;
+        state.onTab = 1;
+        navigationManager.NavigateTo("/explore");
         await sessionStorage.SetItemAsync("email", user.Email);
         return await Task.FromResult(true);
     }
-
-    //public void Logout()
-    //{
-    //    ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserLogout();
-    //    navigationManager.NavigateTo("/");
-    //}
 }
 
 

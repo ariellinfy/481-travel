@@ -1,0 +1,24 @@
+﻿<div class="review-box">
+    <div class="review-box-header">
+        <div class="user-date">
+            <p class="fw-bold">@User</p>
+            <p class="publish-date">on @PublishedOn</p>
+        </div>
+        <RadzenRating ReadOnly="true" Stars="5" Value="@Rate" />
+    </div>
+    <p>@ReviewContent</p>
+</div>
+
+@code {
+    [Parameter]
+    public string User { get; set; }
+
+    [Parameter]
+    public string PublishedOn { get; set; }
+
+    [Parameter]
+    public int Rate { get; set; }
+
+    [Parameter]
+    public string ReviewContent { get; set; }
+}
