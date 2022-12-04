@@ -2,17 +2,31 @@
 @layout PageLayout
 @inject PageHistoryState PageHistoryState
 
-<PageHeader pageTitle="Reviews" />
-<hr>
-<div class="page-body">
-    @if(user.Reviews != null)
-    {
-        @foreach (Review review in user.Reviews)
-        {
-            <ReviewCard ReviewItem="review" />
-        }
-    }
-</div>
+<AuthorizeView>
+    <Authorized>
+        <PageHeader pageTitle="Reviews" />
+        <hr>
+        <div class="page-body">
+            @if (user.Reviews != null)
+            {
+                @foreach (Review review in user.Reviews)
+                {
+                    <ReviewCard ReviewItem="review" />
+                }
+            }
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="user-request">
+            <a href="/signup" class="btn btn-secondary-filled btn-larger-font">
+                Sign Up
+            </a>
+            <a href="/login" class="btn btn-primary-filled btn-larger-font">
+                Login
+            </a>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
 
 @code {
     [CascadingParameter]

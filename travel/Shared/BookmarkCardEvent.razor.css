@@ -1,0 +1,48 @@
+﻿.bookmark-card {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 1px 1px 1px #ccc;
+    width: 100%;
+}
+
+.card-img-top {
+    width: 112px;
+    margin: 1rem;
+    border-radius: 0.5rem;
+}
+
+.bookmark-card {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 1px 1px 1px #ccc;
+}
+
+.card-body {
+    padding: 1rem 0.75rem 1rem 0;
+}
+
+.card-title {
+    font-size: 1rem;
+}
+
+.rating {
+    color: #C3BA9B;
+}
+
+.btn-notify {
+    border-radius: 5rem;
+    padding: 0.75rem;
+    font-size: 1.35rem;
+    color: #C3BA9B;
+    display: flex;
+    flex-direction: column;
+}
+
+    .btn-notify:focus {
+        box-shadow: none;
+    }
+
+/*    .btn-notify:focus-within {
+        color: #4E7779;
+        outline: none;
+    }*/

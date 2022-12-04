@@ -133,3 +133,7 @@
         color: white;
         border-color: #904214;
     }
+
+.btn-larger-font {
+    font-size: larger;
+}

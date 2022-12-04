@@ -1,0 +1,35 @@
+﻿@inject NavigationManager nav
+
+<div class="card bookmark-card" @onclick="GoToPage">
+    <img class="card-img-top" src="@BookmarkedAmenity.ImgUrl" alt="@BookmarkedAmenity.Name" />
+    <div class="card-body">
+        <h5 class="card-title fw-bold">@BookmarkedAmenity.Name</h5>
+        <RadzenRating ReadOnly="true" Stars="5" Value="@BookmarkedAmenity.Rating" />
+    </div>
+    <button class="btn btn-notify" @onclick="Unbookmark">
+        <i class="bi bi-bookmark-fill"></i>
+    </button>
+</div>
+
+@code {
+    [Parameter]
+    public Amenity BookmarkedAmenity { get; set; }
+
+    [Parameter]
+    public int placeIndex { get; set; }
+
+    [Parameter]
+    public EventCallback<int> UnbookmarkItem { get; set; }
+
+    void Unbookmark()
+    {
+        UnbookmarkItem.InvokeAsync(placeIndex);
+    }
+
+    public void GoToPage()
+    {
+        string placeUrl = "\\amenity\\" + BookmarkedAmenity.id;
+        Console.WriteLine(placeUrl);
+        nav.NavigateTo(placeUrl);
+    }
+}

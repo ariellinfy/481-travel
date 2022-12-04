@@ -2,44 +2,57 @@
 @layout PageLayout
 @inject PageHistoryState PageHistoryState
 
-<PageHeader pageTitle="Settings" />
-<hr>
-<div class="page-body">
- 
-    <div class="setting-container">
-        <h4>Data</h4>
-        <p>Click the toggle switch to automatically save your trips so that you can access them offline</p>
-        <div class="offline">
-            <h5>Offline Trips</h5>
-            <RadzenSelectBar @bind-Value=@user.Offline TValue="bool">
-                <Items>
-                    <RadzenSelectBarItem Text="On" Value="true" />
-                    <RadzenSelectBarItem Text="Off" Value="false" />
-                </Items>
-            </RadzenSelectBar>
-        </div>
-    </div>
-    <hr />
-@*    <div class="setting-container">
-        <h4>Notifications</h4>
-        <p>Get notifications before your plan's timings start</p>
+<AuthorizeView>
+    <Authorized>
+        <PageHeader pageTitle="Settings" />
+        <hr>
+        <div class="page-body">
+            <div class="setting-container">
+                <h4>Data</h4>
+                <p>Click the toggle switch to automatically save your trips so that you can access them offline</p>
+                <div class="offline">
+                    <h5>Offline Trips</h5>
+                    <RadzenSelectBar @bind-Value=@user.Offline TValue="bool">
+                        <Items>
+                            <RadzenSelectBarItem Text="On" Value="true" />
+                            <RadzenSelectBarItem Text="Off" Value="false" />
+                        </Items>
+                    </RadzenSelectBar>
+                </div>
+            </div>
+            <hr />
+            @*    <div class="setting-container">
+            <h4>Notifications</h4>
+            <p>Get notifications before your plan's timings start</p>
             <InputSelect @bind-Value="user" class ="form-select" aria-label="notify-time">
             <option value="30" selected>30 min (default)</option>
             <option value="15">15 min</option>
             <option value="45">45 min</option>
             <option value="60">60 min</option>
-        </InputSelect>
-    </div>*@
-@*    <hr />*@
-    <div class="setting-container">
-        <h4>Account</h4>
-        <p>Click the button below to delete your account</p>
-        <button class="btn btn-delete">
-            Delete Account
-        </button>
-    </div>
+            </InputSelect>
+            </div>*@
+            @*    <hr />*@
+            <div class="setting-container">
+                <h4>Account</h4>
+                <p>Click the button below to delete your account</p>
+                <button class="btn btn-delete">
+                    Delete Account
+                </button>
+            </div>
 
-</div>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="user-request">
+            <a href="/signup" class="btn btn-secondary-filled btn-larger-font">
+                Sign Up
+            </a>
+            <a href="/login" class="btn btn-primary-filled btn-larger-font">
+                Login
+            </a>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
 
 @code {
     [CascadingParameter]

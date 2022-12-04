@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     box-shadow: 1px 1px 1px #ccc;
+    width: 100%;
 }
 
 .card-img-top {
@@ -17,7 +18,7 @@
 }
 
 .card-body {
-    padding: 1rem 1rem 1rem 0.5rem;
+    padding: 1rem 0.75rem 1rem 0;
 }
 
 .card-title {
@@ -41,8 +42,7 @@
         box-shadow: none;
     }
 
-    .btn-notify:focus-within {
+/*    .btn-notify:focus-within {
         color: #4E7779;
         outline: none;
-    }
-
+    }*/

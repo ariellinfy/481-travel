@@ -101,3 +101,27 @@ input[type=range]::-ms-thumb {
 .rz-rating .rzi-star {
     color: var(--rz-warning-light) !important;
 }
+
+.empty-result {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.rz-tabview-nav li {
+    width: 100% !important;
+}
+
+    .rz-tabview-nav li a {
+        justify-content: center;
+    }
+
+﻿.user-request {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}

@@ -5,27 +5,41 @@
 @inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 @inject PageHistoryState PageHistoryState
 
-<PageHeader pageTitle="Edit Profile" />
-<hr>
-<EditForm Model="user" OnValidSubmit="ValidateInput">
-    <div class="input-box">
-        <div class="form-floating mt-3">
-            <InputText @bind-Value="user.DisplayName" class="form-control" id="name" placeholder="name" />
-            <label for="name">Name</label>
+<AuthorizeView>
+    <Authorized>
+        <PageHeader pageTitle="Edit Profile" />
+        <hr>
+        <EditForm Model="user" OnValidSubmit="ValidateInput" Context="EditProfile">
+            <div class="input-box">
+                <div class="form-floating mt-3">
+                    <InputText @bind-Value="user.DisplayName" class="form-control" id="name" placeholder="name" />
+                    <label for="name">Name</label>
+                </div>
+                <ValidationMessage For="() => user.DisplayName" />
+            </div>
+            <div class="input-box">
+                <div class="form-floating mt-3">
+                    <InputText @bind-Value="user.Email" class="form-control" id="email" placeholder="name@example.com" />
+                    <label for="email">Email</label>
+                </div>
+                <ValidationMessage For="() => user.Email" />
+            </div>
+            <div class="form-controls">
+                <input type="submit" class="btn btn-primary-filled" value="Save" />
+            </div>
+        </EditForm>
+    </Authorized>
+    <NotAuthorized>
+        <div class="user-request">
+            <a href="/signup" class="btn btn-secondary-filled btn-larger-font">
+                Sign Up
+            </a>
+            <a href="/login" class="btn btn-primary-filled btn-larger-font">
+                Login
+            </a>
         </div>
-        <ValidationMessage For="() => user.DisplayName" />
-    </div>
-    <div class="input-box">
-        <div class="form-floating mt-3">
-            <InputText @bind-Value="user.Email" class="form-control" id="email" placeholder="name@example.com" />
-            <label for="email">Email</label>
-        </div>
-        <ValidationMessage For="() => user.Email" />
-    </div>
-    <div class="form-controls">
-        <input type="submit" class="btn btn-primary-filled" value="Save" />
-    </div>
-</EditForm>
+    </NotAuthorized>
+</AuthorizeView>
 
 @code {
     [CascadingParameter]
@@ -43,7 +57,7 @@
 
     private async Task<bool> ValidateInput()
     {
-        @if (PageHistoryState.CanGoBack())
+    @if (PageHistoryState.CanGoBack())
         {
             string backPage = PageHistoryState.GetGoBackPage();
             navigationManager.NavigateTo(backPage);
