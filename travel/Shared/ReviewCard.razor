@@ -12,42 +12,58 @@
 
 <!-- Modal -->
 <div class="modal fade" id="editReview" tabindex="-1" aria-labelledby="editReviewModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body">
+            <div class="modal-body" style="height: 54rem;">
                 <div class="page-header">
                     <h3>Rate <b>@ReviewItem.place.Name</b></h3>
-                    <button class="btn btn-close"></button>
+                    <button class="btn btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <hr>
 
                 <div class="page-body">
-                    <form class="forget-form">
+                    <div class="new-review-form">
                         <div class="rating">
-                            <p for="floatingTextarea">Your Rating</p>
-                            <RadzenRating Stars="5" Value="@ReviewItem.rating"/>
+                            <h2 for="floatingTextarea">Edit your review</h2>
+                            <RadzenRating Stars="5" Value="@ReviewItem.rating" />
                         </div>
-
                         <div class="review">
-                            <p for="floatingTextarea">Your Review</p>
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px">
-                                @ReviewItem.review
+                            <textarea @bind="ReviewItem.review" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 10rem;">
                             </textarea>
                         </div>
 
                         <div class="form-controls">
-                            <button type="submit" class="btn btn-submit">Submit</button>
+                            <button type="button" class="btn btn-primary-filled" data-bs-dismiss="modal">Submit</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>
 
 @code {
+    [CascadingParameter]
+    public StateModel state { get; set; }
+
+    [CascadingParameter]
+    public UserModel user { get; set; }
+
     [Parameter]
     public Review ReviewItem { get; set; }
+
+    //[Parameter]
+    //public EventCallback<int> EditItem { get; set; }
+
+    //void RatingOnChange(int value)
+    //{
+    //    ReviewItem.rating = value;
+    //}
+
+    //private void EditReview()
+    //{
+    //    //ReviewItem.PublishedDate = "Dec 9, 2022";
+    //    //user.Reviews.Add(ReviewItem
+    //    //EditItem.InvokeAsync(ItemIndex);
+    //}
 }

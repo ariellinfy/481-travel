@@ -3,6 +3,7 @@
 @layout MainLayout
 @inject HttpClient Http
 @inject NavigationManager nav
+@inject PageHistoryState PageHistoryState
 
 <PlaceHeader PageTitle="Amenity" TargetAmenity="@TargetPlace" />
 
@@ -14,10 +15,20 @@
     <div class="reviews">
         <nav class="navbar navbar-expand-lg navbar-light review-header">
             <h5 style="margin-bottom: 0;">Reviews</h5>
-            <a href="/addreview" class="btn add-review">
-                <i class="bi bi-pencil"></i>
-                Write a review
-            </a>
+            @if(!state.isGuest)
+            {
+                <button class="btn add-review" type="button" data-bs-toggle="modal" data-bs-target="#addReview">
+                    <i class="bi bi-pencil"></i>
+                    Write a review
+                </button>
+            }
+            else
+            {
+                <button class="btn add-review" type="button" data-bs-toggle="modal" data-bs-target="#addReview" disabled>
+                    <i class="bi bi-pencil"></i>
+                    Write a review
+                </button>
+            }
         </nav>
         <div class="review-body">
             @if (TargetPlace.Reviews != null)
@@ -47,10 +58,14 @@
     [CascadingParameter]
     public StateModel state { get; set; }
 
+    [CascadingParameter]
+    public UserModel user { get; set; }
+
     private List<int> similarPlacesId = new List<int> { };
     private List<Amenity> similarPlaces = new List<Amenity> { };
 
     public Amenity TargetPlace { get; set; }
+    private Review reviewItem = new Review();
 
     [Parameter]
     public int id { get; set; }
@@ -58,6 +73,8 @@
     protected override void OnInitialized()
     {
         state.OnTab = 2;
+        string currentUrl = "\\amenity\\" + id;
+        PageHistoryState.AddPageToHistory(currentUrl);
         TargetPlace = state.AllAmenities[id];
 
         if (TargetPlace.Similar != null)
@@ -67,5 +84,54 @@
                 similarPlaces.Add(state.AllAmenities[Int32.Parse(TargetPlace.Similar[i])]);
             }
         }
+        reviewItem.place = TargetPlace;
+    }    
+
+    void RatingOnChange(int value)
+    {
+        reviewItem.rating = value;
+    }
+
+    private void AddReview()
+    {
+        reviewItem.user = user.DisplayName;
+        reviewItem.PublishedDate = "Dec 9, 2022";
+        user.Reviews.Add(reviewItem);
+        TargetPlace.Reviews.Add(reviewItem);
+
+        reviewItem = new Review();
+        reviewItem.place = TargetPlace;
     }
 }
+
+<!-- Modal -->
+<div class="modal fade" id="addReview" tabindex="-1" aria-labelledby="editReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" >
+            <div class="modal-body" style="height: 54rem;">
+                <div class="page-header">
+                    <h3>Rate <b>@reviewItem.place.Name</b></h3>
+                    <button class="btn btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <hr>
+
+                <div class="page-body">
+                    <div class="new-review-form">
+                        <div class="rating">
+                            <h2 for="floatingTextarea">Give it a Rate!</h2>
+                            <RadzenRating Stars="5" Value="@reviewItem.rating" Change=@(args => RatingOnChange(args)) />
+                        </div>
+                        <div class="review">
+                            <textarea @bind="reviewItem.review" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 10rem;">
+                            </textarea>
+                        </div>
+
+                        <div class="form-controls">
+                            <button type="button" class="btn btn-primary-filled" data-bs-dismiss="modal" @onclick="AddReview">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

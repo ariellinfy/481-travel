@@ -1,6 +1,7 @@
 ﻿@page "/explore"
 @layout PageLayout
 @inject NavigationManager nav
+@inject PageHistoryState PageHistoryState
 
 <PageTitle>Explore</PageTitle>
 
@@ -108,6 +109,7 @@
     {
         state.OnTab = 1;
         state.OnSearch = false;
+        PageHistoryState.AddPageToHistory("/explore");
     }
 }
 

@@ -8,7 +8,7 @@
 
         public string PublishedDate { get; set; }
 
-        public int rating { get; set; }
+        public int rating { get; set; } = 3;
 
         public string review { get; set; }
     }

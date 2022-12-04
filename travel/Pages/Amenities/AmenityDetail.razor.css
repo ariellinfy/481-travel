@@ -60,4 +60,43 @@ h4 {
 
 hr {
     margin: 0.5rem 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.review-card {
+    box-shadow: 1px 1px 1px #ccc;
+}
+
+.rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+    gap: 0.5rem;
+}
+
+.card-body > p {
+    margin-bottom: 0;
+}
+
+.card-text {
+    color: #4E7779
+}
+
+.page-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rz-rating {
+    font-size: larger !important;
+    display:flex !important;
+    gap: 1rem !important;
+}
+
+.review {
+    margin-top: 1.5rem;
 }

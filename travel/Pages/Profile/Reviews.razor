@@ -11,7 +11,7 @@
             {
                 @foreach (Review review in user.Reviews)
                 {
-                    <ReviewCard ReviewItem="review" />
+                    <ReviewCard ReviewItem="review"/>
                 }
             }
         </div>
@@ -40,4 +40,9 @@
         PageHistoryState.AddPageToHistory("/reviews");
         base.OnInitialized();
     }
+
+    //void EditCallback(int index)
+    //{
+    //    user.Reviews.RemoveAt(index);
+    //}
 }
