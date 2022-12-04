@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@inject HttpClient Http
 
 <div class="page">
     <CascadingValue Value="@state">
@@ -26,5 +27,20 @@
     {
         state = new StateModel();
         user = new UserModel();
+        base.OnInitialized();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // need popular amenities: hard code
+        // suggested amenities: from user search result
+        // popular categories: hard code, go to search result by applying that filter
+
+        state.AllAmenities = await Http.GetFromJsonAsync<Amenity[]>("sample-data/amenities.json");
+        state.AllEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
+        state.PopularAmenities = await Http.GetFromJsonAsync<Amenity[]>("sample-data/amenities.json");
+        state.PopularEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
+        state.SuggestedAmenities = await Http.GetFromJsonAsync<Amenity[]>("sample-data/amenities.json");
+        state.SuggestedEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
     }
 }

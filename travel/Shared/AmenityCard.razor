@@ -1,16 +1,16 @@
-﻿<div class="card amenity-card">
-    <a href="@amenityLink">
-        <img class="card-img-top" src="@imgUrl" alt="@amenityName">
-        <div class="card-body">
-            <h5 class="card-title">@amenityName</h5>
-            <p class="card-text">@amenityAddress</p>
-        </div>
-    </a>
+﻿@inject NavigationManager nav
+
+<div class="card amenity-card" @onclick="GoToPage">
+    <img class="card-img-top" src="@imgUrl" alt="@amenityName">
+    <div class="card-body">
+        <h5 class="card-title">@amenityName</h5>
+        <p class="card-text">@amenityAddress</p>
+    </div>
 </div>
 
 @code {
     [Parameter]
-    public string amenityLink { get; set; }
+    public string amenityId { get; set; }
 
     [Parameter]
     public string imgUrl { get; set; }
@@ -20,4 +20,10 @@
 
     [Parameter]
     public string amenityAddress { get; set; }
+
+    public void GoToPage()
+    {
+        string placeUrl = "\\amenity\\" + amenityId;
+        nav.NavigateTo(placeUrl);
+    }
 }

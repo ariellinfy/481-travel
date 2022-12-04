@@ -1,8 +1,10 @@
 ﻿@page "/amenity"
+@page "/amenity/{id:int}"
+@layout MainLayout
 @inject HttpClient Http
 @inject NavigationManager nav
 
-<PlaceHeader pageTitle="Amenity" />
+<PlaceHeader PageTitle="Amenity" TargetAmenity="@TargetPlace" />
 
 <img class="images-amenity" src="@TargetPlace.ImgUrl" alt="@TargetPlace.Name" style="width:100%;">
 
@@ -30,12 +32,12 @@
         </div>
     </div>
 
-    <h4> Similar Events</h4>
+    <h4>Similar Places</h4>
 
     <div class="list-container">
         @foreach (var similarPlace in similarPlaces)
         {
-            <AmenityCard amenityLink="/amenity" imgUrl="@similarPlace.ImgUrl"
+            <AmenityCard amenityId="@similarPlace.id" imgUrl="@similarPlace.ImgUrl"
                      amenityName="@similarPlace.Name" amenityAddress="@similarPlace.Address" />
         }
     </div>
@@ -45,18 +47,25 @@
     [CascadingParameter]
     public StateModel state { get; set; }
 
-    private Amenity[]? similarPlaces = new Amenity[] { };
+    private List<int> similarPlacesId = new List<int> { };
+    private List<Amenity> similarPlaces = new List<Amenity> { };
+
+    public Amenity TargetPlace { get; set; }
 
     [Parameter]
-    public Amenity? TargetPlace { get; set; } = new Amenity();
+    public int id { get; set; }
 
-    private int id { get; set; }
-
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        id = 0;
         state.OnTab = 2;
-        similarPlaces = await Http.GetFromJsonAsync<Amenity[]>("sample-data/amenities.json");
-        TargetPlace = similarPlaces[0];
+        TargetPlace = state.AllAmenities[id];
+
+        if (TargetPlace.Similar != null)
+        {
+            for (int i = 0; i < TargetPlace.Similar.Count; i++)
+            {
+                similarPlaces.Add(state.AllAmenities[Int32.Parse(TargetPlace.Similar[i])]);
+            }
+        }
     }
 }

@@ -17,10 +17,5 @@
         public string Notes { get; set; }
 
         public bool toNotify { get; set; }
-
-        public Plan()
-        {
-
-        }
     }
 }

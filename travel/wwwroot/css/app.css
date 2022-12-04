@@ -125,3 +125,96 @@ input[type=range]::-ms-thumb {
     flex-direction: column;
     gap: 2rem;
 }
+
+.modal-start {
+    align-items: start !important;
+}
+
+.modal-center {
+    align-items: center !important;
+}
+
+.modal-end {
+    align-items: end !important;
+}
+
+.modal-background {
+    background-color: white !important;
+}
+
+.modal-info {
+    display: flex;
+    flex-direction: row;
+    font-size: x-large;
+    color: #90C7CA;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-content {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem;
+}
+
+.btn-setting {
+    color: #4E7779;
+    padding: 0.25rem 0;
+    font-weight: 700;
+    background-color: #e9e9e9;
+    border-radius: 0.5rem;
+    font-size: large;
+}
+
+.btn-cancel {
+    color: #7E6D53;
+}
+
+.bi-check-circle, .bi-x-circle {
+    font-size: 10rem;
+}
+
+.form-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    padding: 0.75rem 0 0.25rem 0;
+    margin-top: 0.75rem;
+}
+
+.btn-save {
+    background-color: #4E7779;
+    margin: 0.5rem 0 0 0;
+    color: white;
+    width: 100%;
+    border: 2px solid transparent;
+}
+
+.btn-close {
+    margin: 0.5rem 0 0 0;
+    color: #7E6D53;
+    font-weight: 700;
+    width: 100%;
+    border: 2px solid #C3BA9B;
+    background: none;
+    padding: 0.3125rem 0.33rem;
+    height: auto;
+    opacity: 50;
+}
+
+hr {
+    margin: 0.25rem 0;
+    background-color: transparent;
+}
+
+.btn-check:focus + .btn, .btn:focus {
+    box-shadow: none;
+}

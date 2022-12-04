@@ -1,6 +1,5 @@
 ﻿@page "/explore"
 @layout PageLayout
-@inject HttpClient Http
 @inject NavigationManager nav
 
 <PageTitle>Explore</PageTitle>
@@ -30,20 +29,26 @@
         <h4>Popular Places</h4>
 
         <div class="list-container">
-            @foreach (var popularPlace in popularPlaces)
+            @if (state.PopularAmenities != null)
             {
-                <AmenityCard amenityLink="/amenity" imgUrl="@popularPlace.ImgUrl"
-                     amenityName="@popularPlace.Name" amenityAddress="@popularPlace.Address" />
+                @foreach (var popularPlace in state.PopularAmenities)
+                {
+                    <AmenityCard amenityId="@popularPlace.id" imgUrl="@popularPlace.ImgUrl"
+                         amenityName="@popularPlace.Name" amenityAddress="@popularPlace.Address" />
+                }
             }
         </div>
 
         <h4>Suggested Places</h4>
 
         <div class="list-container">
-            @foreach (var popularPlace in suggestedPlaces)
+            @if (state.SuggestedAmenities != null)
             {
-                <AmenityCard amenityLink="/amenity" imgUrl="@popularPlace.ImgUrl"
+                @foreach (var popularPlace in state.SuggestedAmenities)
+                {
+                    <AmenityCard amenityId="@popularPlace.id" imgUrl="@popularPlace.ImgUrl"
                      amenityName="@popularPlace.Name" amenityAddress="@popularPlace.Address" />
+                }
             }
         </div>
 
@@ -66,9 +71,9 @@
     else 
     {
         <hr />
-        @if (suggestedPlaces.Length > 0)
+        @if (searchResults.Count > 0)
         {
-            @foreach (var result in suggestedPlaces)
+            @foreach (var result in searchResults)
             {
                 <AmenitySearchResultCard TargetAmenity="@result" />
                 <hr />
@@ -86,8 +91,12 @@
     [CascadingParameter]
     public StateModel state { get; set; }
 
-    private string searchText;
+    // for filter
     private int ratingValue = 3;
+
+    // for search bar
+    private string searchText;
+    private List<Amenity> searchResults = new List<Amenity> { };
 
     private void onSearch()
     {
@@ -95,19 +104,11 @@
         state.OnTab = 1;
     }
 
-    private Amenity[]? popularPlaces = new Amenity[] { };
-    private Amenity[]? suggestedPlaces = new Amenity[] { };
-    private Amenity[]? searchResults = new Amenity[] { };
-
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         state.OnTab = 1;
         state.OnSearch = false;
-        popularPlaces = await Http.GetFromJsonAsync<Amenity[]>("sample-data/amenities.json");
-        suggestedPlaces = await Http.GetFromJsonAsync<Amenity[]>("sample-data/amenities.json");
     }
-
-    // need popular amenities, suggested amenities, popular categories
 }
 
 <div class="modal fade" id="amenity-search-filter" tabindex="-1" aria-labelledby="amenitySearchFilterModalLabel" aria-hidden="true">

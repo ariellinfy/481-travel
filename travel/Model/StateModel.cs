@@ -14,5 +14,17 @@ namespace travel.Model
         public int OnTab { get; set; }
 
         public bool JustLogout { get; set; } = false;
+
+        public Amenity[]? AllAmenities { get; set; }
+
+        public Event[]? AllEvents { get; set; }
+
+        public Amenity[]? PopularAmenities { get; set; }
+
+        public Event[]? PopularEvents { get; set; }
+
+        public Amenity[]? SuggestedAmenities { get; set; }
+
+        public Event[]? SuggestedEvents { get; set; }
     }
 }
