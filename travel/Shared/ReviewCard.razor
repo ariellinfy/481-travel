@@ -1,31 +1,53 @@
-﻿<div class="card review-card">
+﻿<div class="card review-card" type="button" data-bs-toggle="modal" data-bs-target="#editReview">
     <div class="card-body">
         <div class="review-header">
-            <div class="rating">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
-            </div>
-            <p class="card-text">@publishDate</p>
+            <RadzenRating ReadOnly="true" Stars="5" Value="@ReviewItem.rating" />
+            <p class="card-text">@ReviewItem.PublishedDate</p>
         </div>
 
-        <h5 class="card-title">@name</h5>
-        <p>@content</p>
+        <h5 class="card-title">@ReviewItem.user</h5>
+        <p>@ReviewItem.review</p>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editReview" tabindex="-1" aria-labelledby="editReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="page-header">
+                    <h3>Rate <b>@ReviewItem.place.Name</b></h3>
+                    <button class="btn btn-close"></button>
+                </div>
+                <hr>
+
+                <div class="page-body">
+                    <form class="forget-form">
+                        <div class="rating">
+                            <p for="floatingTextarea">Your Rating</p>
+                            <RadzenRating Stars="5" Value="@ReviewItem.rating"/>
+                        </div>
+
+                        <div class="review">
+                            <p for="floatingTextarea">Your Review</p>
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px">
+                                @ReviewItem.review
+                            </textarea>
+                        </div>
+
+                        <div class="form-controls">
+                            <button type="submit" class="btn btn-submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
     </div>
 </div>
 
 @code {
     [Parameter]
-    public double rating { get; set; }
-
-    [Parameter]
-    public string publishDate { get; set; }
-
-    [Parameter]
-    public string name { get; set; }
-
-    [Parameter]
-    public string content { get; set; }
+    public Review ReviewItem { get; set; }
 }

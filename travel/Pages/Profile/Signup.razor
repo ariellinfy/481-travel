@@ -6,35 +6,35 @@
 
 <PageHeader pageTitle="Signup" />
 <hr>
-<EditForm Model="user" OnValidSubmit="ValidateUser">
+<EditForm Model="signup" OnValidSubmit="ValidateUser">
     <DataAnnotationsValidator />
     <div class="input-box">
         <div class="form-floating mt-3">
-            <InputText @bind-Value="user.Name" class="form-control" id="name" placeholder="name" />
+            <InputText @bind-Value="signup.Name" class="form-control" id="name" placeholder="name" />
             <label for="name">Name</label>
         </div>
-        <ValidationMessage For="() => user.Name" />
+        <ValidationMessage For="() => signup.Name" />
     </div>
     <div class="input-box">
         <div class="form-floating mt-3">
-            <InputText @bind-Value="user.Email" class="form-control" id="email" placeholder="name@example.com" />
+            <InputText @bind-Value="signup.Email" class="form-control" id="email" placeholder="name@example.com" />
             <label for="email">Email</label>
         </div>
-        <ValidationMessage For="() => user.Email" />
+        <ValidationMessage For="() => signup.Email" />
     </div>
     <div class="input-box">
         <div class="form-floating mt-3">
-            <InputText type="password" @bind-Value="user.Password" class="form-control" id="pw" placeholder="Password" />
+            <InputText type="password" @bind-Value="signup.Password" class="form-control" id="pw" placeholder="Password" />
             <label for="pw">Password</label>
         </div>
-        <ValidationMessage For="() => user.Password" />
+        <ValidationMessage For="() => signup.Password" />
     </div>
     <div class="input-box">
         <div class="form-floating mt-3">
-            <InputText type="password" @bind-Value="user.ConfirmPassword" class="form-control" id="cpw" placeholder="Confirm Password" />
+            <InputText type="password" @bind-Value="signup.ConfirmPassword" class="form-control" id="cpw" placeholder="Confirm Password" />
             <label for="cpw">Confirm Password</label>
         </div>
-        <ValidationMessage For="() => user.ConfirmPassword" />
+        <ValidationMessage For="() => signup.ConfirmPassword" />
     </div>
     <div class="form-controls">
         <input type="submit" class="btn btn-primary-filled" value="Create Account" />
@@ -45,21 +45,28 @@
     [CascadingParameter]
     public StateModel state { get; set; }
 
-    private SignupModel user;
+    [CascadingParameter]
+    public UserModel user { get; set; }
+
+    private SignupModel signup;
 
     protected override void OnInitialized()
     {
-        user = new SignupModel();
+        state.ShowNav = true;
+        signup = new SignupModel();
         base.OnInitialized();
     }
 
     private async Task<bool> ValidateUser()
     {
-        ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserAuthentication(user.Email);
-        navigationManager.NavigateTo("/");
-        state.DisplayName = user.Name;
-        state.Email = user.Email;
-        state.Password = user.Password;
+        ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserAuthentication(signup.Email);
+        state.isGuest = false;
+        state.ShowNav = true;
+        state.OnTab = 1;
+        user.DisplayName = signup.Name;
+        user.Email = signup.Email;
+        user.Password = signup.Password;
+        navigationManager.NavigateTo("/explore");
         await sessionStorage.SetItemAsync("email", user.Email);
         return await Task.FromResult(true);
     }

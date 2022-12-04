@@ -2,7 +2,7 @@
 {
     public class Review
     {
-        //public Place place { get; set; }
+        public Place place { get; set; }
 
         public string user { get; set; }
 

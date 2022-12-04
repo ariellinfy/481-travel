@@ -2,20 +2,29 @@
 
 <div class="page">
     <CascadingValue Value="@state">
-    <main>
-        <article class="content">
-            @Body
-        </article>
-    </main>
+        <CascadingValue Value="@user">
+            <main>
+                <article class="content">
+                    @Body
+                </article>
+            </main>
 
-    @if (state.showNav) {
-        <div class="navbar">
-            <NavMenu />
-        </div>
-    }
+            @if (state.ShowNav) {
+                <div class="navbar">
+                    <NavMenu />
+                </div>
+            }
+        </CascadingValue>
     </CascadingValue>
 </div>
 
 @code {
-    StateModel state = new StateModel();
+    StateModel state;
+    UserModel user;
+
+    protected override void OnInitialized()
+    {
+        state = new StateModel();
+        user = new UserModel();
+    }
 }

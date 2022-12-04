@@ -1,17 +1,29 @@
 ﻿@page "/reviews"
 @layout PageLayout
+@inject PageHistoryState PageHistoryState
 
 <PageHeader pageTitle="Reviews" />
 <hr>
 <div class="page-body">
-    <ReviewCard rating="4.5" publishDate="2020/09/30" name="Calgary Towers" 
-                content="If you are looking for the perfect view of the Calgary Skyline then this is the building you need to visit. The views of the Downtown Calgary and all the buildings is awesome." />
-    <ReviewCard rating="4" publishDate="2020/10/26" name="Wyndham Garden Calgary Airport"
-                content="Staff was nice. Room was great. Very clean. Food service in lounge was slow although food was good. Shuttle staff was great." />
-    <ReviewCard rating="5" publishDate="2020/11/10" name="Peace Bridge"
-                content="Great landmark. Gives helpful views of the city and river parks. There is an app that one can use for info but not necessary." />
+    @if(user.Reviews != null)
+    {
+        @foreach (Review review in user.Reviews)
+        {
+            <ReviewCard ReviewItem="review" />
+        }
+    }
 </div>
 
 @code {
+    [CascadingParameter]
+    public StateModel state { get; set; }
 
+    [CascadingParameter]
+    public UserModel user { get; set; }
+
+    protected override void OnInitialized()
+    {
+        PageHistoryState.AddPageToHistory("/reviews");
+        base.OnInitialized();
+    }
 }

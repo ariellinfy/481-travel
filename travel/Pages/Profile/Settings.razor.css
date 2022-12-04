@@ -7,6 +7,7 @@
     flex-direction: row;
     align-items: center;
     gap: 2rem;
+    margin-top: 1rem;
 }
 
     .offline > h6 {
@@ -21,4 +22,5 @@
 .btn-delete {
     background-color: #7E6D53;
     color: #F4F4E9;
+    margin-top: 1rem;
 }

@@ -1,49 +1,86 @@
 ﻿@page "/profile"
+@inject AuthenticationStateProvider authenticationStateProvider
+@inject NavigationManager navigationManager
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject PageHistoryState PageHistoryState
 
-<div>
-    <div class="profile-background">
-        <div class="user-info">
-            <h1 class="fw-bold">Profile</h1>
-            <h5>Adam Smith</h5>
+<AuthorizeView>
+    <Authorized>
+        <div>
+            <div class="profile-background">
+                <div class="user-info">
+                    <h1 class="fw-bold">Profile</h1>
+                    <h5>@user.DisplayName</h5>
+                </div>
+            </div>
+            <div class="user-choices">
+                <a class="btn btn-no-outline btn-choice" href="bookmarks">
+                    <div class="btn-description">
+                        <i class="bi bi-bookmarks"></i>
+                        <span>Bookmarks</span>
+                    </div>
+                    <i class="bi bi-chevron-right"></i>
+                </a>
+                <a class="btn btn-no-outline btn-choice" href="reviews">
+                    <div class="btn-description">
+                        <i class="bi bi-book"></i>
+                        <span>Reviews</span>
+                    </div>
+                    <i class="bi bi-chevron-right"></i>
+                </a>
+                <a class="btn btn-no-outline btn-choice" href="editUserInfo">
+                    <div class="btn-description">
+                        <i class="bi bi-pencil-square"></i>
+                        <span>Edit Profile</span>
+                    </div>
+                    <i class="bi bi-chevron-right"></i>
+                </a>
+                <a class="btn btn-no-outline btn-choice" href="settings">
+                    <div class="btn-description">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </div>
+                    <i class="bi bi-chevron-right"></i>
+                </a>
+                <a class="btn btn-logout" href="login" @onclick="Logout">Sign Out</a>
+            </div>
         </div>
-    </div>
-    <div class="user-choices">
-        <a class="btn btn-no-outline btn-choice" href="bookmarks">
-            <div class="btn-description">
-                <i class="bi bi-bookmarks"></i>
-                <span>Bookmarks</span>
-            </div>
-            <i class="bi bi-chevron-right"></i>
-        </a>
-        <a class="btn btn-no-outline btn-choice" href="reviews">
-            <div class="btn-description">
-                <i class="bi bi-book"></i>
-                <span>Reviews</span>
-            </div>
-            <i class="bi bi-chevron-right"></i>
-        </a>
-        <a class="btn btn-no-outline btn-choice" href="edit">
-            <div class="btn-description">
-                <i class="bi bi-pencil-square"></i>
-                <span>Edit Profile</span>
-            </div>
-            <i class="bi bi-chevron-right"></i>
-        </a>
-        <a class="btn btn-no-outline btn-choice" href="settings">
-            <div class="btn-description">
-                <i class="bi bi-gear"></i>
-                <span>Settings</span>
-            </div>
-            <i class="bi bi-chevron-right"></i>
-        </a>
-        <a class="btn btn-logout" href="login">Sign Out</a>
-    </div>
-</div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="page-container">
+            <a href="/signup" class="btn btn-secondary-filled btn-user">
+                Sign Up
+            </a>
+            <a href="/login" class="btn btn-primary-filled btn-user">
+                Login
+            </a>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
 
 @code {
-    //public void Logout()
-    //{
-    //    ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserLogout();
-    //    navigationManager.NavigateTo("/");
-    //}
+    [CascadingParameter]
+    public StateModel state { get; set; }
+
+    [CascadingParameter]
+    public UserModel user { get; set; }
+
+    protected override void OnInitialized()
+    {
+        state.OnTab = 4;
+        PageHistoryState.AddPageToHistory("/profile");
+        base.OnInitialized();
+    }
+
+    public void Logout()
+    {
+        ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserLogout();
+        state.isGuest = true;
+        user.ClearUserData();
+        state.JustLogout = true;
+        state.ShowNav = false;
+        state.OnTab = 1;
+        navigationManager.NavigateTo("/login");
+    }
 }

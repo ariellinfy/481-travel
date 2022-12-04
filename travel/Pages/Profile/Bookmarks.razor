@@ -1,22 +1,69 @@
 ﻿@page "/bookmarks"
 @layout PageLayout
+@inject PageHistoryState PageHistoryState
 
 <PageHeader pageTitle="Bookmarks" />
 <hr>
 <div class="page-body">
-    <BookmarkCard imgUrl="https://cdn.getyourguide.com/img/tour/6141925c2a7c0.jpeg/146.jpg"
-                  name="Calgary Towers"
-                  rating="5" />
-    <BookmarkCard imgUrl="http://az837918.vo.msecnd.net/publishedimages/Listings/2979/en-CA/images/1/wyndham-garden-calgary-airport-L-19.jpg"
-                  name="Wyndham Garden Calgary Airport"
-                  rating="5" />
-                  <BookmarkCard imgUrl="https://cdn.getyourguide.com/img/tour/6141925c2a7c0.jpeg/146.jpg"
-                  name="Calgary Towers"
-                  rating="3.5" />
-    <BookmarkCard imgUrl="http://az837918.vo.msecnd.net/publishedimages/Listings/2979/en-CA/images/1/wyndham-garden-calgary-airport-L-19.jpg"
-                  name="Wyndham Garden Calgary Airport"
-                  rating="3.5" />
-    <BookmarkCard imgUrl="https://img.atlasobscura.com/1pWgdedWbwnLpwqQCe5hg_JkeHE7UF7LIimICQ7YB-0/rs:fill:780:520:1/g:ce/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy9kNWY2/MzliNS0yYTVkLTRk/ZDItYjkyOS04ZDQx/YTdiNjk0M2E0Y2E5/NmU3MDkyYjFmZWU2/ZTRfODA2ODExODYw/MV8zZmU5MmZjMWNk/X28uanBn.jpg"
-                  name="Peace Bridge"
-                  rating="4.5" />
+    @if (user.Bookmarks.Count > 0)
+    {
+        <RadzenTabs TabPosition="@tabPosition" Class="w-75 my-5 mx-auto" RenderMode="TabRenderMode.Client" >
+            <Tabs>
+                <RadzenTabsItem Text="Amenity">
+                    <div>
+                        @foreach (Amenity amenity in AmenityBookmarks)
+                        {
+                            <BookmarkCard BookmarkedAmenity="amenity" />
+                        }
+                        
+                    </div>
+                    
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="Event">
+
+
+                </RadzenTabsItem>
+            </Tabs>
+        </RadzenTabs>
+    }
+    else
+    {
+        <div>
+
+        </div>
+    }
 </div>
+
+@code {
+    [CascadingParameter]
+    public StateModel state { get; set; }
+
+    [CascadingParameter]
+    public UserModel user { get; set; }
+
+    TabPosition tabPosition = TabPosition.Top;
+
+    List<Amenity> AmenityBookmarks = new List<Amenity>();
+    List<Event> EventBookmarks = new List<Event>();
+
+    protected override void OnInitialized()
+    {
+        state.OnTab = 4;
+        PageHistoryState.AddPageToHistory("/bookmarks");
+        if (user.Bookmarks != null && user.Bookmarks.Count > 0)
+        {
+            foreach (Place place in user.Bookmarks)
+            {
+                if (place is Amenity)
+                {
+                    AmenityBookmarks.Add((Amenity)place);
+                }
+                else
+                {
+                    EventBookmarks.Add((Event)place);
+                }
+            }
+        }
+        base.OnInitialized();
+    }
+}

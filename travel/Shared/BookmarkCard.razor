@@ -1,16 +1,21 @@
-﻿<div class="card bookmark-card">
-    <img class="card-img-top" src="@imgUrl" alt="Card image cap" />
-    <div class="card-body">
-        <h5 class="card-title">@name</h5>
-        <div class="rating">
-            <i class="bi bi-star-fill"></i>
-            <i class="bi bi-star-fill"></i>
-            <i class="bi bi-star-fill"></i>
-            <i class="bi bi-star-fill"></i>
-            <i class="bi bi-star-fill"></i>
+﻿<div class="card bookmark-card" @onclick="GoToPage">
+    @if (BookmarkedAmenity != null)
+    {
+        <img class="card-img-top" src="@BookmarkedAmenity.ImgUrl" alt="@BookmarkedAmenity.Name" />
+        <div class="card-body">
+            <h5 class="card-title">@BookmarkedAmenity.Name</h5>
+            <RadzenRating ReadOnly="true" Stars="5" Value="@BookmarkedAmenity.Rating" />
         </div>
-    </div>
-    <button class="btn btn-notify">
+    }
+    else
+    {
+        <img class="card-img-top" src="@BookmarkedEvent.ImgUrl" alt="@BookmarkedEvent.Name" />
+        <div class="card-body">
+            <h5 class="card-title fw-bold">@BookmarkedEvent.Name</h5>
+            <h5 class="card-title">@BookmarkedEvent.Time</h5>
+        </div>
+    }
+    <button class="btn btn-notify" @onclick="Unbookmark">
         <i class="bi bi-bookmark-fill"></i>
     </button>
 </div>
@@ -18,11 +23,19 @@
 
 @code {
     [Parameter]
-    public string imgUrl { get; set; }
+    public Amenity BookmarkedAmenity { get; set; }
 
     [Parameter]
-    public string name { get; set; }
+    public Event BookmarkedEvent { get; set; }
 
-    [Parameter]
-    public double rating { get; set; }
+    public void Unbookmark()
+    {
+        // child and parent
+
+    }
+
+    public void GoToPage() 
+    {
+
+    }
 }

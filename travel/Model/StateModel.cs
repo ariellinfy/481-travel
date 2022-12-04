@@ -6,31 +6,13 @@ namespace travel.Model
 {
     public class StateModel
     {
-        public bool showNav { get; set; }
+        public bool isGuest { get; set; } = true;
+        public bool ShowNav { get; set; } = false; 
 
-        public bool onSearch { get; set; }
+        public bool OnSearch { get; set; } = false;
 
-        public int onTab { get; set; }
+        public int OnTab { get; set; }
 
-        public string Email { get; set; }
-
-        public string Password { get; set; }
-
-        public string DisplayName { get; set; }
-        //public string Location { get; set; }
-
-        public List<Trip> Trips { get; set; }
-
-        public List<Place> Bookmarks { get; set; }
-
-        public List<Review> Reviews { get; set; }
-
-        public bool Offline { get; set; }
-
-        public List<Place> Notifications { get; set; }
-
-        public List<Amenity> SuggestedAmenity { get; set; } // searched
-
-        public List<Event> SuggestedEvent { get; set; } // searched
+        public bool JustLogout { get; set; } = false;
     }
 }

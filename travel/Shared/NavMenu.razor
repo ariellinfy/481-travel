@@ -1,6 +1,6 @@
 ﻿<div class="navbar navbar-light">
     <ul class="navbar-nav mr-auto">
-        @if (state.onTab == 1) {
+        @if (state.OnTab == 1) {
             <li class="nav-item">
                 <a class="nav-link active-tab" href="explore" @onclick="navClick">
                     <i class="bi bi-house-door"></i>
@@ -17,7 +17,7 @@
                 </a>
             </li>
         }
-        @if (state.onTab == 2) {
+        @if (state.OnTab == 2) {
             <li class="nav-item">
                 <a class="nav-link active-tab" href="events" @onclick="navClick">
                     <i class="bi bi-calendar-week"></i>
@@ -34,7 +34,7 @@
                 </a>
             </li>
         }
-        @if (state.onTab == 3) {
+        @if (state.OnTab == 3) {
             <li class="nav-item">
                 <a class="nav-link active-tab" href="trips" @onclick="navClick">
                     <i class="bi bi-airplane"></i>
@@ -51,7 +51,7 @@
                 </a>
             </li>
         }
-        @if (state.onTab == 4) {
+        @if (state.OnTab == 4) {
             <li class="nav-item">
                 <a class="nav-link active-tab" href="profile" @onclick="navClick">
                     <i class="bi bi-person-circle"></i>
@@ -76,6 +76,6 @@
     public StateModel state { get; set; }
 
     private void navClick() {
-        state.onSearch = false;
+        state.OnSearch = false;
     }
 }

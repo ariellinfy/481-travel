@@ -13,7 +13,7 @@
             <button type="button" class="navbar-toggler" data-bs-toggle="modal" data-bs-target="#event-search-filter">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            @if (state.onSearch == true)
+            @if (state.OnSearch == true)
             {
                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
@@ -25,7 +25,7 @@
         </div>
     </nav>
 
-    @if (state.onSearch == false)
+    @if (state.OnSearch == false)
     {
         <h4>Popular Events</h4>
 
@@ -93,8 +93,8 @@
 
     private void onSearch()
     {
-        state.onSearch = true;
-        state.onTab = 2;
+        state.OnSearch = true;
+        state.OnTab = 2;
     }
 
     private Event[]? popularEvents = new Event[] { };
@@ -103,8 +103,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        state.onTab = 2;
-        state.onSearch = false;
+        state.OnTab = 2;
+        state.OnSearch = false;
         popularEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
         suggestedEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
     }

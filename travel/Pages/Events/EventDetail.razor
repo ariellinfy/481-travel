@@ -117,7 +117,7 @@
     protected override async Task OnInitializedAsync()
     {
         id = 0;
-        state.onTab = 2;
+        state.OnTab = 2;
         similarEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
         TargetEvent = similarEvents[0];
     }

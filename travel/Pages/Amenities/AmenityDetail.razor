@@ -55,7 +55,7 @@
     protected override async Task OnInitializedAsync()
     {
         id = 0;
-        state.onTab = 2;
+        state.OnTab = 2;
         similarPlaces = await Http.GetFromJsonAsync<Amenity[]>("sample-data/amenities.json");
         TargetPlace = similarPlaces[0];
     }

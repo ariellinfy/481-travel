@@ -1,8 +1,9 @@
-﻿@page "/edit"
+﻿@page "/editUserInfo"
 @layout PageLayout
 @inject AuthenticationStateProvider authenticationStateProvider
 @inject NavigationManager navigationManager
 @inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject PageHistoryState PageHistoryState
 
 <PageHeader pageTitle="Edit Profile" />
 <hr>
@@ -27,18 +28,27 @@
 </EditForm>
 
 @code {
-    private StateModel user;
+    [CascadingParameter]
+    public StateModel state { get; set; }
+
+    [CascadingParameter]
+    public UserModel user { get; set; }
 
     protected override void OnInitialized()
     {
-        user = new StateModel();
+        state.OnTab = 4;
+        PageHistoryState.AddPageToHistory("/editUserInfo");
         base.OnInitialized();
     }
 
     private async Task<bool> ValidateInput()
     {
-        ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserAuthentication(user.Email);
-        navigationManager.NavigateTo("/");
+        @if (PageHistoryState.CanGoBack())
+        {
+            string backPage = PageHistoryState.GetGoBackPage();
+            navigationManager.NavigateTo(backPage);
+        }
+        await sessionStorage.RemoveItemAsync("email");
         await sessionStorage.SetItemAsync("email", user.Email);
         return await Task.FromResult(true);
     }

@@ -1,29 +1,36 @@
 ﻿@page "/settings"
 @layout PageLayout
+@inject PageHistoryState PageHistoryState
 
 <PageHeader pageTitle="Settings" />
 <hr>
 <div class="page-body">
+ 
     <div class="setting-container">
         <h4>Data</h4>
         <p>Click the toggle switch to automatically save your trips so that you can access them offline</p>
         <div class="offline">
             <h5>Offline Trips</h5>
-            <i class="bi bi-toggle-on"></i>
+            <RadzenSelectBar @bind-Value=@user.Offline TValue="bool">
+                <Items>
+                    <RadzenSelectBarItem Text="On" Value="true" />
+                    <RadzenSelectBarItem Text="Off" Value="false" />
+                </Items>
+            </RadzenSelectBar>
         </div>
     </div>
     <hr />
-    <div class="setting-container">
+@*    <div class="setting-container">
         <h4>Notifications</h4>
         <p>Get notifications before your plan's timings start</p>
-        <select class="form-select" aria-label="notify-time">
+            <InputSelect @bind-Value="user" class ="form-select" aria-label="notify-time">
             <option value="30" selected>30 min (default)</option>
             <option value="15">15 min</option>
             <option value="45">45 min</option>
             <option value="60">60 min</option>
-        </select>
-    </div>
-    <hr />
+        </InputSelect>
+    </div>*@
+@*    <hr />*@
     <div class="setting-container">
         <h4>Account</h4>
         <p>Click the button below to delete your account</p>
@@ -31,8 +38,25 @@
             Delete Account
         </button>
     </div>
+
 </div>
 
 @code {
+    [CascadingParameter]
+    public StateModel state { get; set; }
 
+    [CascadingParameter]
+    public UserModel user { get; set; }
+
+    protected override void OnInitialized()
+    {
+        state.OnTab = 4;
+        PageHistoryState.AddPageToHistory("/settings");
+        base.OnInitialized();
+    }
+
+    //private void HandleValidSubmit()
+    //{
+
+    //}
 }
