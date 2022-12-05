@@ -24,3 +24,8 @@
     color: #F4F4E9;
     margin-top: 1rem;
 }
+
+hr {
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 1rem 0;
+}

@@ -45,10 +45,10 @@
         <div class="list-container">
             @if (state.SuggestedAmenities != null)
             {
-                @foreach (var popularPlace in state.SuggestedAmenities)
+                @foreach (var suggestedPlace in state.SuggestedAmenities)
                 {
-                    <AmenityCard amenityId="@popularPlace.id" imgUrl="@popularPlace.ImgUrl"
-                     amenityName="@popularPlace.Name" amenityAddress="@popularPlace.Address" />
+                    <AmenityCard amenityId="@suggestedPlace.id" imgUrl="@suggestedPlace.ImgUrl"
+                     amenityName="@suggestedPlace.Name" amenityAddress="@suggestedPlace.Address" />
                 }
             }
         </div>

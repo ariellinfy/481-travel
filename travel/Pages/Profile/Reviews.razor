@@ -7,12 +7,18 @@
         <PageHeader pageTitle="Reviews" />
         <hr>
         <div class="page-body">
-            @if (user.Reviews != null)
+            @if (user.Reviews != null && user.Reviews.Count > 0)
             {
                 @foreach (Review review in user.Reviews)
                 {
                     <ReviewCard ReviewItem="review"/>
                 }
+            }
+            else
+            {
+                <div class="empty-result">
+                    You haven't written any review yet.
+                </div>
             }
         </div>
     </Authorized>

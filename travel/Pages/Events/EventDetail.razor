@@ -1,8 +1,9 @@
 ﻿@page "/event/{id:int}"
 @inject HttpClient Http
 @inject NavigationManager nav
+@inject PageHistoryState PageHistoryState
 
-<PlaceHeader pageTitle="Event"/>
+<PlaceHeaderEvent PageTitle="Event" TargetEvent="@TargetEvent"/>
 
 <img class="images-event" src="@TargetEvent.ImgUrl" alt="@TargetEvent.Name" style="width:100%;">
 
@@ -25,12 +26,43 @@
     <div class="list-container">
         @foreach (var similarEvent in similarEvents)
         {
-            <EventCard eventLink="/event" imgUrl="@similarEvent.ImgUrl"
-                   eventName="@similarEvent.Name" eventDate="@similarEvent.Date" eventTime="@similarEvent.Time" />
+            <EventCard eventId="@similarEvent.id" imgUrl="@similarEvent.ImgUrl"
+                   eventName="@similarEvent.Name" eventDate="@similarEvent.Date" eventStart="@similarEvent.Time" eventEnd="@similarEvent.Time" />
         }
     </div>
 </div>
 
+@code {
+    [CascadingParameter]
+    public StateModel state { get; set; }
+
+    [CascadingParameter]
+    public UserModel user { get; set; }
+
+    private List<int> similarEventsId = new List<int> { };
+    private List<Event> similarEvents = new List<Event> { };
+
+    public Event TargetEvent { get; set; }
+
+    [Parameter]
+    public int id { get; set; }
+
+    protected override void OnInitialized()
+    {
+        state.OnTab = 2;
+        string currentUrl = "\\event\\" + id;
+        PageHistoryState.AddPageToHistory(currentUrl);
+        TargetEvent = state.AllEvents[id];
+
+        if (TargetEvent.Similar != null)
+        {
+            for (int i = 0; i < TargetEvent.Similar.Count; i++)
+            {
+                similarEvents.Add(state.AllEvents[Int32.Parse(TargetEvent.Similar[i])]);
+            }
+        }
+    }
+}
 
 <!-- 2 Modal -->
 <div class="modal fade" id="addToTripModalToggle" aria-hidden="true" aria-labelledby="addToTripModalToggleLabel" tabindex="-1">
@@ -100,25 +132,3 @@
         </div>
     </div>
 </div>
-
-
-
-@code {
-    [CascadingParameter]
-    public StateModel state { get; set; }
-
-    private Event[]? similarEvents = new Event[] { };
-
-    [Parameter]
-    public Event? TargetEvent { get; set; } = new Event();
-
-    private int id { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        id = 0;
-        state.OnTab = 2;
-        similarEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
-        TargetEvent = similarEvents[0];
-    }
-}

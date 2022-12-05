@@ -2,6 +2,7 @@
 @layout PageLayout
 @inject HttpClient Http
 @inject NavigationManager nav
+@inject PageHistoryState PageHistoryState
 
 <PageTitle>Events</PageTitle>
 
@@ -30,24 +31,27 @@
         <h4>Popular Events</h4>
 
         <div class="list-container">
-            @foreach (var popularEvent in popularEvents)
+            @if (state.PopularEvents != null)
             {
-                <EventCard eventLink="/event" imgUrl="@popularEvent.ImgUrl"
-                   eventName="@popularEvent.Name" eventDate="@popularEvent.Date" eventTime="@popularEvent.Time" />
+                @foreach (var popularEvent in state.PopularEvents)
+                {
+                    <EventCard eventId="@popularEvent.id" imgUrl="@popularEvent.ImgUrl"
+                   eventName="@popularEvent.Name" eventDate="@popularEvent.Date" eventStart="@popularEvent.Time" eventEnd="@popularEvent.Time" />
+                }
             }
         </div>
 
         <h4>Suggested Events</h4>
 
         <div class="list-container">
-            <EventCard eventLink="/event" imgUrl="https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F479928127%2F676x380.webp&w=1920&q=75"
-                   eventName="Downtown Chess Meetup" eventDate="Thr, Nov 17, 2022" eventTime="5:30 PM - 8:30 PM MST" />
-            <EventCard eventLink="/event" imgUrl="https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F505359568%2F676x380.webp&w=1920&q=75"
-                   eventName="Rollerskating Pop Up" eventDate="Sat, Nov 19, 2022" eventTime="9:00 PM - 11:30 PM MST" />
-            <EventCard eventLink="/event" imgUrl="https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F508488837%2F676x380.webp&w=1920&q=75"
-                   eventName="Coloring and Coffee" eventDate="Sat, Nov 12, 2022" eventTime="12:00 PM - 2:00 PM MST" />
-            <EventCard eventLink="/event" imgUrl="https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F506683803%2F676x380.webp&w=1920&q=75"
-                   eventName="Badminton Meet Up" eventDate="Tue, Nov 15, 2022" eventTime="7:15 PM - 10:15 PM MST" />
+            @if (state.SuggestedEvents != null)
+            {
+                @foreach (var suggestedEvent in state.SuggestedEvents)
+                {
+                    <EventCard eventId="@suggestedEvent.id" imgUrl="@suggestedEvent.ImgUrl"
+                   eventName="@suggestedEvent.Name" eventDate="@suggestedEvent.Date" eventStart="@suggestedEvent.Time" eventEnd="@suggestedEvent.Time" />
+                }
+            }
         </div>
 
         <h4>Categories</h4>
@@ -69,9 +73,9 @@
     else
     {
         <hr />
-        @if (popularEvents.Length > 0)
+        @if (searchResults.Count > 0)
         {
-            @foreach (var result in popularEvents)
+            @foreach (var result in searchResults)
             {
                 <EventSearchResultCard TargetEvent="@result" />
                 <hr />
@@ -90,6 +94,7 @@
     public StateModel state { get; set; }
 
     private string searchText;
+    private List<Event> searchResults = new List<Event> { };
 
     private void onSearch()
     {
@@ -97,19 +102,12 @@
         state.OnTab = 2;
     }
 
-    private Event[]? popularEvents = new Event[] { };
-    private Event[]? suggestedEvents = new Event[] { };
-    private Event[]? searchResults = new Event[] { };
-
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         state.OnTab = 2;
         state.OnSearch = false;
-        popularEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
-        suggestedEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
+        PageHistoryState.AddPageToHistory("/events");
     }
-
-    // need popular events, suggested events, popular categories
 }
 
 <div class="modal fade" id="event-search-filter" tabindex="-1" aria-labelledby="eventSearchFilterModalLabel" aria-hidden="true">

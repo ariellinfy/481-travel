@@ -15,5 +15,7 @@
         public List<string> Categories { get; set; }
 
         public List<string> Tags { get; set; }
+
+        public List<string> Similar { get; set; }
     }
 }

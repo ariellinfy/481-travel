@@ -4,18 +4,16 @@
     {
         public string Name { get; set; }
 
-        public DateTime StartDate { get; set; }
+        public string Date { get; set; }
 
-        public DateTime EndDate { get; set; }
+        public string Start { get; set; }
 
-        public DateTime StartTime { get; set; }
-
-        public DateTime EndTime { get; set; }
+        public string End { get; set; }
 
         public string Address { get; set; }
 
         public string Notes { get; set; }
 
-        public bool toNotify { get; set; }
+        public bool Notify { get; set; }
     }
 }

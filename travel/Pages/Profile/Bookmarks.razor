@@ -6,7 +6,7 @@
     <Authorized>
         <PageHeader pageTitle="Bookmarks" />
         <div class="page-body">
-            @if (user.Bookmarks.Count == 0)
+            @if (user.Bookmarks.Count != 0)
             {
                 <RadzenTabs TabPosition="@tabPosition" RenderMode="TabRenderMode.Client">
                     <Tabs>

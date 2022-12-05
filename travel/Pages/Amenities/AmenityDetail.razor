@@ -1,11 +1,9 @@
-﻿@page "/amenity"
-@page "/amenity/{id:int}"
-@layout MainLayout
+﻿@page "/amenity/{id:int}"
 @inject HttpClient Http
 @inject NavigationManager nav
 @inject PageHistoryState PageHistoryState
 
-<PlaceHeader PageTitle="Amenity" TargetAmenity="@TargetPlace" />
+<PlaceHeaderAmenity PageTitle="Amenity" TargetAmenity="@TargetPlace" />
 
 <img class="images-amenity" src="@TargetPlace.ImgUrl" alt="@TargetPlace.Name" style="width:100%;">
 
@@ -72,7 +70,7 @@
 
     protected override void OnInitialized()
     {
-        state.OnTab = 2;
+        state.OnTab = 1;
         string currentUrl = "\\amenity\\" + id;
         PageHistoryState.AddPageToHistory(currentUrl);
         TargetPlace = state.AllAmenities[id];
