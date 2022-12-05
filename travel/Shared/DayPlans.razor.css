@@ -1,0 +1,11 @@
+﻿.day-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+    .day-container:last-child {
+        margin-bottom: 2rem;
+    }

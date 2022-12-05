@@ -89,16 +89,16 @@ else
         }
     }
 
-    private Trip newtrip = new Trip();
+    private Trip newTrip = new Trip();
 
     private void ValidateTripCreation()
     {
         Plan planToAdd = new Plan();
         planToAdd.Name = TargetAmenity.Name;
         planToAdd.Address = TargetAmenity.Address;
-        newtrip.Plans.Add(planToAdd);
-        user.Trips.Add(newtrip);
-        newtrip = new Trip();
+        newTrip.Plans.Add(planToAdd);
+        user.Trips.Add(newTrip);
+        newTrip = new Trip();
     }
 
     private void AddToExistingTrip(){}
@@ -169,7 +169,7 @@ else
                 <div class="trip-form">
                     <h5 class="create-option">Create a New Trip</h5>
                     <div class="form-floating mt-3 mb-3">
-                        <input @bind="newtrip.Name" class="form-control" id="tripName" placeholder="Happy Trip" />
+                        <input @bind="newTrip.Name" class="form-control" id="tripName" placeholder="Happy Trip" />
                         <label for="tripName">Trip Name</label>
                     </div>
                     <div class="form-controls modal-footer">

@@ -3,6 +3,7 @@
     background: rgb(195,186,155);
     background: linear-gradient(180deg, rgba(195,186,155,1) 0%, rgba(244,244,233,1) 35%, rgba(255,255,255,1) 100%);
     padding: 0.5rem;
+    height: 720px;
 }
 
 .page-header {
@@ -24,9 +25,8 @@
 
 .btn-round {
     border-radius: 5rem;
-    padding: 0.5rem;
-    position: absolute;
-    right: 1.5rem;
+    padding: 0.5rem 0.95rem;
+
 }
 
 .page-title {
@@ -35,13 +35,15 @@
 
 .btn-fixed {
     position: fixed;
-    bottom: 11rem;
+    bottom: 11.6rem;
     right: 0;
 }
 
 .btn-add {
     background-color: #4E7779;
     color: white;
+    position: absolute;
+    right: 1.5rem;
 }
 
 #quick-add {
@@ -96,4 +98,20 @@
 .btn-settings {
     position: relative;
     right: 0;
+}
+
+.bi-plus-lg {
+    font-size: 1.75rem;
+}
+
+.bi-three-dots-vertical {
+    font-size: 1.5rem;
+}
+
+.bi-chevron-left {
+    font-size: 1.5rem;
+}
+
+.add-new-plan{
+    background-color: white;
 }

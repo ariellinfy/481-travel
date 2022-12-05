@@ -1,12 +1,12 @@
 ﻿<button type="button" class="plan-card card shadow-sm" data-bs-toggle="modal" data-bs-target="#planSetting">
     <div class="card-body">
-        <h5 class="card-title">@planName</h5>
-        <p class="card-text">@planTime</p>
-        <p class="card-text">@planAddress</p>
+        <h5 class="card-title">@TargetPlan.Name</h5>
+        <p class="card-text">@TargetPlan.Start - @TargetPlan.End</p>
+        <p class="card-text">@TargetPlan.Address</p>
     </div>
-    <button class="btn btn-notify">
-        <i class="bi bi-bell-fill"></i>
-    </button>
+</button>
+<button class="btn btn-notify">
+    <i class="bi bi-bell-fill"></i>
 </button>
 
 <div class="modal fade" id="planSetting" tabindex="-1" aria-labelledby="planSettingLabel" aria-hidden="true">
@@ -28,9 +28,5 @@
 
 @code {
     [Parameter]
-    public string planName { get; set; } = "";
-    [Parameter]
-    public string planTime { get; set; } = "";
-    [Parameter]
-    public string planAddress { get; set; } = "";
+    public Plan TargetPlan { get; set; }
 }

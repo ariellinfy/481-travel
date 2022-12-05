@@ -1,0 +1,17 @@
+﻿<div class="day-container">
+    <h5 class="fw-bold">@PlanDate</h5>
+
+    @foreach(Plan plan in Plans)
+    {
+        <PlanCard TargetPlan="@plan" />
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string PlanDate { get; set; }
+
+    [Parameter]
+    public List<Plan> Plans { get; set; }
+
+}

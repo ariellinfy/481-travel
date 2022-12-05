@@ -30,6 +30,7 @@
     padding: 0;
     font-size: 1.35rem;
     color: darkgray;
+    position: absolute;
 }
 
     .btn-notify:focus {

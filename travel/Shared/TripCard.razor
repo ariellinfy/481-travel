@@ -1,18 +1,20 @@
-﻿<a href="Trips/@tripid" class="trip-card btn card shadow-sm" target="_self">
+﻿@inject NavigationManager nav
+
+<div class="trip-card btn card shadow-sm" @onclick="GoToPage">
     <div class="card-body">
-        <h5 class="card-title">@tripName</h5>
-        <p class="card-text">@tripDate</p>
-        <p class="card-text">@tripDuration</p>
+        <h5 class="card-title">@TargetTrip.Name</h5>
+        <p class="card-text">@TargetTrip.StartDay - @TargetTrip.EndDay</p>
+        <p class="card-text">@TargetTrip.Days</p>
     </div>
-</a>
+</div>
 
 @code {
     [Parameter]
-    public int tripid { get; set; } = 0;
-    [Parameter]
-    public string tripName { get; set; } = "";
-    [Parameter]
-    public string tripDate { get; set; } = "";
-    [Parameter]
-    public string tripDuration { get; set; } = "";
+    public Trip TargetTrip { get; set; }
+
+    public void GoToPage()
+    {
+        string placeUrl = "\\trips\\" + TargetTrip.id;
+        nav.NavigateTo(placeUrl);
+    }
 }

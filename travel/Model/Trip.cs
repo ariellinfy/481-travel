@@ -4,6 +4,8 @@ namespace travel.Model
 {
     public class Trip
     {
+        public string id { get; set; }
+
         [DataType(DataType.Text)]
         public string Name { get; set; }
 
