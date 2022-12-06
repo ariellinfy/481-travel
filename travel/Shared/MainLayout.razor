@@ -36,8 +36,8 @@
         // suggested amenities: from user search result - random then search result
         // popular categories: hard code, go to search result by applying that filter
 
-        state.AllAmenities = await Http.GetFromJsonAsync<Amenity[]>("sample-data/amenities_sample.json");
-        state.AllEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events_sample.json");
+        state.AllAmenities = await Http.GetFromJsonAsync<Amenity[]>("sample-data/amenities.json");
+        state.AllEvents = await Http.GetFromJsonAsync<Event[]>("sample-data/events.json");
         state.DummyTrips = await Http.GetFromJsonAsync<Trip[]>("sample-data/trips.json");
         state.DummyPlans = await Http.GetFromJsonAsync<Plan[]>("sample-data/plans.json");
         state.GenTrip1 = await Http.GetFromJsonAsync<Plan[]>("sample-data/genTrip1.json");
