@@ -4,7 +4,8 @@
     "name": "Tarot Reading",
     "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F507603084%2F676x380.webp&w=1920&q=75",
     "date": "Sat, Nov 19, 2022",
-    "time": "7:00 PM - 9:00 PM MST",
+    "startTime": "7:00 PM",
+    "endTime": "9:00 PM",
     "address": "1000 9 Avenue SW, CA, AB",
     "description": "This will be a 3-round Settlers tournament for fame, glory and prizes. $10 registration at the door. All proceeds will go towards prizes. There will be 3 rounds. All players are guaranteed to play 2 games for a chance to play at a Round 3 Final Table.",
     "tags": [
@@ -20,6 +21,15 @@
     "categories": [
       "games",
       "indoor"
+    ],
+    "similar": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
     ]
   },
   {
@@ -27,7 +37,8 @@
     "name": "Darts and Drinks",
     "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F469047437%2F676x380.webp&w=1920&q=75",
     "date": "Sat, Nov 19, 2022",
-    "time": "5:00 PM - 10:00 PM MST",
+    "startTime": "5:00 PM",
+    "endTime": "10:00 PM",
     "address": "1000 9 Avenue SW, CA, AB",
     "description": "This will be a 3-round Settlers tournament for fame, glory and prizes. $10 registration at the door. All proceeds will go towards prizes. There will be 3 rounds. All players are guaranteed to play 2 games for a chance to play at a Round 3 Final Table.",
     "tags": [
@@ -43,6 +54,15 @@
     "categories": [
       "games",
       "indoor"
+    ],
+    "similar": [
+      "0",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
     ]
   },
   {
@@ -50,7 +70,8 @@
     "name": "Condominium Discussion",
     "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F508465782%2F676x380.webp&w=1920&q=75",
     "date": "Sat, Nov 12, 2022",
-    "time": "12:00 PM - 2:00 PM MST",
+    "startTime": "12:00 PM",
+    "endTime": "2:00 PM",
     "address": "1000 9 Avenue SW, CA, AB",
     "description": "This will be a 3-round Settlers tournament for fame, glory and prizes. $10 registration at the door. All proceeds will go towards prizes. There will be 3 rounds. All players are guaranteed to play 2 games for a chance to play at a Round 3 Final Table.",
     "tags": [
@@ -66,6 +87,15 @@
     "categories": [
       "games",
       "indoor"
+    ],
+    "similar": [
+      "0",
+      "1",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
     ]
   },
   {
@@ -73,7 +103,8 @@
     "name": "Learn to DJ",
     "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F505670929%2F676x380.webp&w=1920&q=75",
     "date": "Sun, Nov 27, 2022",
-    "time": "6:30 PM - 8:30 PM MST",
+    "startTime": "6:30 PM",
+    "endTime": "8:30 PM",
     "address": "1000 9 Avenue SW, CA, AB",
     "description": "This will be a 3-round Settlers tournament for fame, glory and prizes. $10 registration at the door. All proceeds will go towards prizes. There will be 3 rounds. All players are guaranteed to play 2 games for a chance to play at a Round 3 Final Table.",
     "tags": [
@@ -89,6 +120,404 @@
     "categories": [
       "games",
       "indoor"
+    ],
+    "similar": [
+      "0",
+      "1",
+      "2",
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Wolf Game: Hallows Hill",
+    "imgUrl": "Chill couples game night with board games, drinks and fun for all. We will book a space in one of NY fine, and currently mostly empty office buildings, and your experienced hosts will provide enough games for 6-20 people. We will go Dutch on drinks, venue fees and refreshments.",
+    "date": "Sat, Dec 10, 2022",
+    "startTime": "3:00 PM",
+    "endTime": "5:00 PM",
+    "address": "Online event",
+    "description": "PG13 not recommended for children under 13, IT'S TIME TO ESCAPE! Work together (1-6 players recommended) to solve intricate puzzles and unlock the mystery of what became of the family who once called it home.",
+    "tags": [
+      "games",
+      "indoor",
+      "group-games",
+      "prizes",
+      "animal",
+      "Accessibility",
+      "Kid-friendly",
+      "Free-food"
+    ],
+    "categories": [
+      "games",
+      "indoor"
+    ],
+    "similar": [
+      "0",
+      "1",
+      "2",
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Couples Game Night",
+    "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F508875173%2F676x380.webp&w=1920&q=75",
+    "date": "Fri, Dec 09, 2022",
+    "startTime": "7:45 PM",
+    "endTime": "10:00 PM",
+    "address": "429 11 St NW, Calgary, AB T2N 1X5",
+    "description": "Chill couples game night with board games, drinks and fun for all. We will book a space in one of NY fine, and currently mostly empty office buildings, and your experienced hosts will provide enough games for 6-20 people. We will go Dutch on drinks, venue fees and refreshments.",
+    "tags": [
+      "games",
+      "indoor",
+      "group-games",
+      "prizes",
+      "animal",
+      "Accessibility",
+      "Kid-friendly",
+      "Free-food"
+    ],
+    "categories": [
+      "games",
+      "indoor"
+    ],
+    "similar": [
+      "0",
+      "1",
+      "2",
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Pokemon swap meet",
+    "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F508652618%2F676x380.webp&w=1920&q=75",
+    "date": "Sun, Dec 11, 2022",
+    "startTime": "11:00 AM",
+    "endTime": "1:00 PM",
+    "address": "909 2 Ave NW, Calgary, AB T2N 0E7",
+    "description": "The next meet will be Sunday December 11th, starting at 10:00 A.M. ending at 1:00 P.M. There is a $5 admission fee to attend the swap meet as a player which can be paid the day of – however: the first twenty-four (24) players to pre-register online below and pay the $5.00 admission fee will receive one free booster pack at the end of the event.",
+    "tags": [
+      "games",
+      "indoor",
+      "group-games",
+      "prizes",
+      "animal",
+      "Accessibility",
+      "Kid-friendly",
+      "Free-food"
+    ],
+    "categories": [
+      "games",
+      "indoor"
+    ],
+    "similar": [
+      "0",
+      "1",
+      "2",
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Weekly Williams Center Boardgames Night",
+    "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F507953531%2F676x380.webp&w=1920&q=75",
+    "date": "Thu, Dec 08, 2022",
+    "startTime": "8:00 PM",
+    "endTime": "10:00 PM",
+    "address": "330 10 St NW, Calgary, AB T2N 1V8",
+    "description": "The event is centered around playing contemporary boardgames of various types. Bring a game and a friend!",
+    "tags": [
+      "games",
+      "indoor",
+      "group-games",
+      "prizes",
+      "animal",
+      "Accessibility",
+      "Kid-friendly",
+      "Free-food"
+    ],
+    "categories": [
+      "games",
+      "indoor"
+    ],
+    "similar": [
+      "0",
+      "1",
+      "2",
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  },
+
+  {
+    "id": "8",
+    "name": "Salsa Night",
+    "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F508434752%2F676x380.webp&w=1920&q=75",
+    "date": "Tue, Dec 6, 2022",
+    "startTime": "7:00 PM",
+    "endTime": "9:00 PM",
+    "address": "1000 9 Avenue SW, CA, AB",
+    "description": "Join us on Tuesdays in December from 5:00-8:00pm for dinner and dancing to a live band, with classic salsa, and some mambo/chacha/bolero y mas!",
+    "tags": [
+      "dancing",
+      "music",
+      "indoor",
+      "groups",
+      "prizes",
+      "Accessibility",
+      "Kid-friendly"
+    ],
+    "categories": [
+      "dancing",
+      "indoor"
+    ],
+    "similar": [
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Monday Night Hustle Social",
+    "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMp_atyaHe7xlUAXvZZ2MGzK6Ll21EDuQuQ&usqp=CAU",
+    "date": "Mon, Dec 05, 2022",
+    "startTime": "9:00 PM",
+    "endTime": "12:00 PM",
+    "address": "412 8th Ave, CA, AB",
+    "description": "Social dance featuring hustle music hosted by Lori Brizzi at Ballroom Hub (formerly Club 412).",
+    "tags": [
+      "dancing",
+      "music",
+      "indoor",
+      "groups",
+      "prizes",
+      "Accessibility",
+      "Kid-friendly"
+    ],
+    "categories": [
+      "dancing",
+      "indoor"
+    ],
+    "similar": [
+      "8",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
+    ]
+  },
+  {
+    "id": "10",
+    "name": "Oriental dance classes",
+    "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F501597755%2F676x380.webp&w=1920&q=75",
+    "date": "Wed, Dec 07, 2022",
+    "startTime": "7:00 PM",
+    "endTime": "8:00 PM",
+    "address": "30-16 Steinway St, CA, AB",
+    "description": "With this master you will be able to get focused on excelling your individual style as a dancer. In this class, you will learn foundational movement that will help create diversity in your dance ability as well as adding dynamics to your aesthetic.",
+    "tags": [
+      "dancing",
+      "music",
+      "indoor",
+      "groups",
+      "prizes",
+      "Accessibility",
+      "Kid-friendly"
+    ],
+    "categories": [
+      "dancing",
+      "indoor"
+    ],
+    "similar": [
+      "8",
+      "9",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
+    ]
+  },
+  {
+    "id": "11",
+    "name": "Adult Jazz Dance Class",
+    "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTelEFummr3gAErlPVugDwDmwa3AL5un0VSw&usqp=CAU",
+    "date": "Tue, Dec 6, 2022",
+    "startTime": "8:15 PM",
+    "endTime": "9:00 PM",
+    "address": "819 Van Houten Ave, CA, AB",
+    "description": "Experience the fun of movement, expression and rhythm with a great community of people looking to fill their week with some fun. You do not even realize it is exercise.",
+    "tags": [
+      "dancing",
+      "music",
+      "indoor",
+      "groups",
+      "prizes",
+      "Accessibility",
+      "Kid-friendly"
+    ],
+    "categories": [
+      "dancing",
+      "indoor"
+    ],
+    "similar": [
+      "8",
+      "9",
+      "10",
+      "12",
+      "13",
+      "14",
+      "15"
+    ]
+  },
+  {
+    "id": "12",
+    "name": "New Years Party Dance",
+    "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F508713551%2F676x380.webp&w=1920&q=75",
+    "date": "Sat, Dec 31, 2022",
+    "startTime": "9:00 PM",
+    "endTime": "2:00 PM",
+    "address": "319 19 St NW, Calgary, AB T2N 2J2",
+    "description": "Join Us For A Huge NEW YEARS EVE PARTY At Redd's In Carlstadt NJ! A Mega Multigroup Event. Over 15 Meetup Groups Attending!",
+    "tags": [
+      "dancing",
+      "music",
+      "indoor",
+      "groups",
+      "prizes",
+      "Accessibility",
+      "Kid-friendly"
+    ],
+    "categories": [
+      "dancing",
+      "indoor"
+    ],
+    "similar": [
+      "8",
+      "9",
+      "10",
+      "11",
+      "13",
+      "14",
+      "15"
+    ]
+  },
+  {
+    "id": "13",
+    "name": "Afterwork Wednesday Dance",
+    "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F508946688%2F676x380.webp&w=1920&q=75",
+    "date": "Wed, Dec 07, 2022",
+    "startTime": "5:30 PM",
+    "endTime": "11:00 PM",
+    "address": "429 11 St NW, Calgary, AB T2N 1X5",
+    "description": "Wednesday. The middle of the road. The point where the weekend begins to take shape.",
+    "tags": [
+      "dancing",
+      "music",
+      "indoor",
+      "groups",
+      "prizes",
+      "Accessibility",
+      "Kid-friendly"
+    ],
+    "categories": [
+      "dancing",
+      "indoor"
+    ],
+    "similar": [
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "14",
+      "15"
+    ]
+  },
+  {
+    "id": "14",
+    "name": "Beginners Tango",
+    "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F502194379%2F676x380.webp&w=1920&q=75",
+    "date": "Tue, Dec 6, 2022",
+    "startTime": "6:30 PM",
+    "endTime": "7:30 PM",
+    "address": "1135 Kensington Rd NW, Calgary, AB T2N 4P4",
+    "description": "In this semanal one hour beginner class you will get all the basic fundamentals of tango. It's a great way to begin tango for those who have never danced it before. Every week we meet to dance, enjoy and do new friends!",
+    "tags": [
+      "dancing",
+      "music",
+      "indoor",
+      "groups",
+      "prizes",
+      "Accessibility",
+      "Kid-friendly"
+    ],
+    "categories": [
+      "dancing",
+      "indoor"
+    ],
+    "similar": [
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "15"
+    ]
+  },
+  {
+    "id": "15",
+    "name": "Salsa thursday",
+    "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F508921713%2F676x380.webp&w=1920&q=75",
+    "date": "Thu, Dec 22, 2022",
+    "startTime": "9:00 PM",
+    "endTime": "11:00 PM",
+    "address": "1940 6 Ave NW, Calgary, AB T2N 0W3",
+    "description": "Free Salsa Class 9PM. Admission: Ladies Free bef. 10PM. $10 Before 10pm, $15 After",
+    "tags": [
+      "dancing",
+      "music",
+      "indoor",
+      "groups",
+      "prizes",
+      "Accessibility",
+      "Kid-friendly"
+    ],
+    "categories": [
+      "dancing",
+      "indoor"
+    ],
+    "similar": [
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14"
     ]
   }
 ]

@@ -35,3 +35,7 @@ hr {
     justify-content: space-between;
     width: 100%;
 }
+
+.modal-content{
+    background-color: white;
+}

@@ -16,3 +16,7 @@ h4 {
 hr {
     margin: 0.5rem 0;
 }
+
+.modal-content {
+    background-color: white;
+}

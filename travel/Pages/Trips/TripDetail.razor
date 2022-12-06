@@ -34,11 +34,15 @@
         </div>
     </div>
     <div class="page-body">
-        @foreach (KeyValuePair<string, List<Plan>> dayplans in plans)
+@*        @foreach (KeyValuePair<string, List<Plan>> dayplans in plans)
             {
                 <DayPlans PlanDate="@dayplans.Key" Plans="@dayplans.Value" />
-            <hr />
-            }
+                <hr />
+            }*@
+        @foreach (Plan plan in TargetTrip.Plans)
+        {
+            <PlanCard TargetPlan="@plan" />
+        }
     </div>
     <div class="btn-fixed dropdown">
         <button class="btn btn-round btn-add" type="button" data-bs-toggle="dropdown">
@@ -113,8 +117,21 @@
 
     private void ValidatePlanCreation()
     {
+        NewPlan.Date = "Dec 22, 2022";
+        NewPlan.Start = "6:00 PM";
+        NewPlan.End = " 8:00 PM";
         TargetTrip.Plans.Add(NewPlan);
+        if (!plans.ContainsKey(NewPlan.Date))
+        {
+            plans.Add(NewPlan.Date, new List<Plan>());
+            plans[NewPlan.Date].Add(NewPlan);
+        }
+        else
+        {
+            plans[NewPlan.Date].Add(NewPlan);
+        }
         NewPlan = new Plan();
+        StateHasChanged();
     }
 }
 
@@ -129,8 +146,8 @@
                         <label for="tripName">Trip Name</label>
                     </div>
                     <div class="form-controls modal-footer">
-                        <button type="button" class="btn btn-close-variant btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Close</button>
-                        <button type="button" class="btn btn-save" data-bs-target="#tripSuccess" data-bs-toggle="modal">Create New Trip</button>
+                        <button type="button" class="btn btn-close-variant btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                        <button type="button" class="btn btn-save" data-bs-target="#tripSuccess" data-bs-toggle="modal">Rename</button>
                     </div>
                 </div>
             </div>
@@ -188,13 +205,13 @@
                         <label for="notes">Notes</label>
                     </div>
 
-                    <button type="button" class="btn btn-save">Save</button>
                     <button type="button" class="btn btn-save" data-bs-target="#tripSuccess" data-bs-toggle="modal" @onclick="ValidatePlanCreation">Save</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <div class="modal fade" id="quickAdd" tabindex="-1" aria-labelledby="quickAddLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content add-new-plan">

@@ -199,14 +199,14 @@ input[type=range]::-ms-thumb {
 
 .btn-save {
     background-color: #4E7779;
-    margin: 0.5rem 0 0 0;
+    margin: 1rem 0 0 0;
     color: white;
     width: 100%;
     border: 2px solid transparent;
 }
 
 .btn-close-variant {
-    margin: 0.5rem 0 0 0;
+    margin: 1rem 0 0 0;
     color: #7E6D53;
     font-weight: 700;
     width: 100%;
@@ -215,6 +215,7 @@ input[type=range]::-ms-thumb {
     padding: 0.3125rem 0.33rem;
     height: auto;
     opacity: 50;
+
 }
 
 hr {

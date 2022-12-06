@@ -1,0 +1,58 @@
+[
+  {
+    "id":  "0",
+    "name": "Core Shopping Center",
+    "startDate": "Fri, Jan 27, 2023",
+    "endDate": "Sun, Jan 29, 2023",
+    "days": "3 days"
+  },
+  {
+    "id": "1",
+    "name": "Winter Trip",
+    "startDate": "Fri, Feb 3, 2023",
+    "endDate": "Thu, Feb 23, 2023",
+    "days": "20 days"
+  },
+  {
+    "id": "2",
+    "name": "Banff Area",
+    "startDate": "Wed, March 15, 2023",
+    "endDate": "Wed, March 22, 2023",
+    "days": "7 days"
+  },
+  {
+    "id": "3",
+    "name": "Toronto Conference",
+    "startDate": "Sat, Apr 1, 2023",
+    "endDate": "Wed, Apr 5, 2023",
+    "days": "5 days"
+  },
+  {
+    "id": "4",
+    "name": "Trip 1",
+    "startDate": "Tue, Apr 18, 2023",
+    "endDate": "Tue, Apr 21, 2023",
+    "days": "4 days"
+  },
+  {
+    "id": "5",
+    "name": "Trip 2",
+    "startDate": "Thu, Apr 29, 2023",
+    "endDate": "Tue, May 1, 2023",
+    "days": "3 days"
+  },
+  {
+    "id": "6",
+    "name": "Trip 3",
+    "startDate": "Sat, May 6, 2023",
+    "endDate": "Fri, May 8, 2023",
+    "days": "3 days"
+  },
+  {
+    "id": "7",
+    "name": "Trip 4",
+    "startDate": "Wed, May 31, 2023",
+    "endDate": "Sat, Jun 3, 2023",
+    "days": "4 days"
+  }
+]
