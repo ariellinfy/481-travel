@@ -9,7 +9,7 @@
     <nav class="navbar navbar-light">
         <div class="input-group mb-3">
             <input class="form-control mr-sm-2" type="search" placeholder="Where would you like to go?" aria-label="Search"
-                   @bind-value="searchText" @bind-value:event="oninput" @onfocus="onSearch">
+                   value="@searchText" @onfocus="onSearch" @oninput="(e) => Searching(e.Value.ToString())">
             <button type="button" class="navbar-toggler" data-bs-toggle="modal" data-bs-target="#amenity-search-filter">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -97,7 +97,8 @@
 
     // for search bar
     private string searchText;
-    private List<Amenity> searchResults = new List<Amenity> { };
+    private HashSet<Amenity> searchResults = new HashSet<Amenity> { };
+    private List<string> filters = new List<string> { };
 
     private void onSearch()
     {
@@ -112,6 +113,38 @@
         PageHistoryState.AddPageToHistory("/explore");
         base.OnInitialized();
     }
+
+    private void ApplyFilters()
+    {
+        filters.Add("art & culture");
+        filters.Add("indoor");
+        foreach (Amenity amenity in state.AllAmenities)
+        {
+            if (amenity.Categories.Contains(filters[0]) && amenity.Categories.Contains(filters[1]))
+            {
+                searchResults.Add(amenity);
+            }
+        }
+        //if(searchText.Length > 0)
+        //{
+        //    Console.WriteLine(searchText);
+        //    Searching(searchText);
+        //}
+    }
+
+    private void Searching(string searchText)
+    {
+        searchText = searchText.Trim();
+        if (searchText.Length > 0)
+        {
+            searchResults = state.AllAmenities.Where(p => p.Name.Contains(searchText)).ToHashSet();
+            base.OnParametersSet();
+        }
+        else
+        {
+            searchResults.Clear();
+        }
+    }
 }
 
 <div class="modal fade" id="amenity-search-filter" tabindex="-1" aria-labelledby="amenitySearchFilterModalLabel" aria-hidden="true">
@@ -125,7 +158,7 @@
                     <h5>Category (Select one or more!)</h5>
                     <div class="row">
                         <div class="col">
-                            <input type="checkbox" class="btn-check" value="art" id="cate-art" checked autocomplete="off">
+                            <input type="checkbox" class="btn-check" value="art & culture" id="cate-art" checked autocomplete="off">
                             <label class="btn btn-filter-category" for="cate-art">Art & Culture</label><br>
                         </div>
                         <div class="col">
@@ -139,7 +172,7 @@
                             <label class="btn btn-filter-category" for="cate-games">Fun & Games</label><br>
                         </div>
                         <div class="col">
-                            <input type="checkbox" class="btn-check" value="food" id="cate-food" autocomplete="off">
+                            <input type="checkbox" class="btn-check" value="Food & Beverage" id="cate-food" autocomplete="off">
                             <label class="btn btn-filter-category" for="cate-food">Food & Beverage</label><br>
                         </div>
                     </div>
@@ -204,7 +237,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary-filled">Apply</button>
+                    <button type="button" class="btn btn-primary-filled" data-bs-dismiss="modal" aria-label="Close" @onclick="ApplyFilters">Apply</button>
                 </div>
             </form>
         </div>

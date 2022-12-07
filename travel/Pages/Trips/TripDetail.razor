@@ -113,7 +113,7 @@
 
     private void GoBack()
     {
-        @if (PageHistoryState.CanGoBack())
+    @if (PageHistoryState.CanGoBack())
         {
             string backPage = PageHistoryState.GetGoBackPage();
             nav.NavigateTo(backPage);
@@ -300,6 +300,11 @@
                     {
                         <QuickAddCard TargetPlace="@place" />
                     }
+                }
+                else
+                {
+                    <div style="font-size: large; text-align:center;">No recommendation right Now, try to Explore More!</div>
+                    <button type="button" class="btn btn-secondary-filled" data-bs-dismiss="modal" aria-label="Close">Got it!</button>
                 }
             </div>
         </div>
