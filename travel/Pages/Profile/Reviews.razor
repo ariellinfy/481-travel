@@ -11,7 +11,7 @@
             {
                 @foreach (Review review in user.Reviews)
                 {
-                    <ReviewCard ReviewItem="review"/>
+                    <ReviewCard ReviewItem="review" DeleteItem="@DeleteReviewCallback"/>
                 }
             }
             else
@@ -47,8 +47,8 @@
         base.OnInitialized();
     }
 
-    //void EditCallback(int index)
-    //{
-    //    user.Reviews.RemoveAt(index);
-    //}
+    void DeleteReviewCallback(Review toDelete)
+    {
+        user.Reviews.Remove(toDelete);
+    }
 }

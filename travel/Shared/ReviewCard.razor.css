@@ -7,7 +7,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    margin: 1rem;
+    margin: 0 1rem 1rem 1rem;
     gap: 0.5rem;
 }
 
@@ -34,4 +34,18 @@
 
 .review {
     margin-top: 1.5rem;
+}
+
+.form-controls {
+    display:flex;
+    flex-direction: column;
+}
+
+.btn-danger{
+    width: 100%;
+}
+
+hr {
+    background-color: black;
+    margin: 1rem 0;
 }
