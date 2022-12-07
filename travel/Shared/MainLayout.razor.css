@@ -23,6 +23,10 @@ article {
     padding: 0;
 }
 
+.content > a {
+    margin: 2rem;
+}
+
 .navbar {
     padding: 0;
     height: fit-content;

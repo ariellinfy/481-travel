@@ -4,7 +4,9 @@
     {
         public string Date { get; set; }
 
-        public string Time { get; set; }
+        public string StartTime { get; set; }
+
+        public string EndTime { get; set; }
 
         public List<int> SimilarEvents { get; set; }
     }

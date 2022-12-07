@@ -1,23 +1,23 @@
-﻿<button type="button" class="plan-card card shadow-sm" data-bs-toggle="modal" data-bs-target="#planSetting">
+﻿<div type="button" class="plan-card card shadow-sm" data-bs-toggle="modal" data-bs-target="#planSetting">
     <div class="card-body">
         <h5 class="card-title">@TargetPlan.Name</h5>
         <p class="card-text">@TargetPlan.Start - @TargetPlan.End</p>
         <p class="card-text">@TargetPlan.Address</p>
     </div>
-</button>
-<button class="btn btn-notify">
-    <i class="bi bi-bell-fill"></i>
+</div>
+<button class="btn btn-notify" @onclick="notifyToggle">
+    <i class="bi @bellIcon"></i>
 </button>
 
 <div class="modal fade" id="planSetting" tabindex="-1" aria-labelledby="planSettingLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div id="plan-setting" class="modal-body">
-                <button type="button" class="btn btn-setting">Edit</button>
+                <button type="button" class="btn btn-setting" data-bs-toggle="modal" data-bs-target="#editPlan" @onclick="EditPlan">Edit</button>
                 <hr />
-                <button type="button" class="btn btn-setting">Copy Address</button>
+                <button type="button" class="btn btn-setting" data-bs-toggle="modal" data-bs-target="#copyPlanAddress">Copy Address</button>
                 <hr />
-                <button type="button" class="btn btn-setting">Delete</button>
+                <button type="button" class="btn btn-setting" data-bs-toggle="modal" data-bs-target="#deletePlan">Delete</button>
                 <hr />
                 <hr />
                 <button type="button" class="btn btn-setting btn-cancel" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
@@ -29,4 +29,161 @@
 @code {
     [Parameter]
     public Plan TargetPlan { get; set; }
+
+    [Parameter]
+    public int PlanIndex { get; set; }
+
+    [Parameter]
+    public EventCallback<Plan> ToEdit { get; set; }
+
+    [Parameter]
+    public EventCallback<Plan> ToDelete { get; set; }
+
+    private string bellIcon;
+
+    protected override void OnInitialized()
+    {
+        if (TargetPlan.Notify)
+        {
+            bellIcon = "bi-bell-fill";
+        }
+        else
+        {
+            bellIcon = "bi-bell";
+        }
+    }
+
+    private void notifyToggle()
+    {
+        TargetPlan.Notify = !TargetPlan.Notify;
+        if (TargetPlan.Notify)
+        {
+            bellIcon = "bi-bell-fill";
+        }
+        else
+        {
+            bellIcon = "bi-bell";
+        }
+    }
+
+    private DateTime planDate;
+
+    void OnDateChange(DateTime? value, string format)
+    {
+        if (value != null)
+        {
+            TargetPlan.Date = value?.ToString(format);
+        }
+    }
+
+    void OnStartTimeChange(DateTime? value, string format)
+    {
+        if (value != null)
+        {
+            TargetPlan.Start = value?.ToString(format);
+        }
+    }
+
+    void OnEndTimeChange(DateTime? value, string format)
+    {
+        if (value != null)
+        {
+            TargetPlan.End = value?.ToString(format);
+        }
+    }
+
+    private void EditPlan()
+    {
+        if (TargetPlan.Date.Length > 12) {
+            TargetPlan.Date = TargetPlan.Date.Substring(5);
+        }
+        planDate = DateTime.Parse(TargetPlan.Date);
+    }
+
+    private void SavePlan()
+    {
+        ToEdit.InvokeAsync(TargetPlan);
+    }
+
+    private void CopyPlanAddress() {}
+
+    void DeletePlan()
+    {
+        ToDelete.InvokeAsync(TargetPlan);
+    }
 }
+
+<div class="modal fade" id="editPlan" tabindex="-1" aria-labelledby="editPlanLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-center">
+        <div class="modal-content edit-plan">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Edit Plan <b>@TargetPlan.Name</b></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="new-plan" class="modal-body">
+                <div class="plan-form">
+                    <div class="mb-3">
+                        <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Activity Name</RadzenText>
+                        <input type="text" @bind="@TargetPlan.Name" class="form-control" id="activityName" placeholder="Fun Activity" required>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Date</RadzenText>
+                        <RadzenDatePicker @bind-Value=@planDate DateFormat="d" Change=@(args => OnDateChange(args, "MMM dd, yyyy")) Class="w-100" />
+
+                    </div>
+
+                    <div class="time-picker">
+                        <div class="form-floating mb-3">
+                            <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Start Time</RadzenText>
+                            <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" HourFormat="12" DateFormat="HH:mm" Change=@(args => OnStartTimeChange(args, "HH:mm tt")) Class="w-100" />
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">End Time</RadzenText>
+                            <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" HourFormat="12" DateFormat="HH:mm" Change=@(args => OnEndTimeChange(args, "HH:mm tt")) Class="w-100" />
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Address</RadzenText>
+                        <input type="text" @bind="@TargetPlan.Address" class="form-control" id="address" placeholder="101 9 Ave SW, Calgary, AB T2P 1J9">
+                    </div>
+
+                    <div>
+                        <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Notes</RadzenText>
+                        <textarea class="form-control" @bind="@TargetPlan.Notes" placeholder="N/A" id="notes" style="height: 100px"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-save" data-bs-target="#planSuccess" data-bs-toggle="modal" @onclick="SavePlan">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="copyPlanAddress" tabindex="-1" aria-labelledby="copyPlanAddressLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-center">
+        <div class="modal-content">
+            <div id="plan-setting" class="modal-body">
+                <h5>Under Development</h5>
+                <button type="button" class="btn btn-save" data-bs-dismiss="modal" aria-label="Close">Dismiss</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deletePlan" tabindex="-1" aria-labelledby="deletePlanLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-center">
+        <div class="modal-content">
+            <div id="plan-setting" class="modal-body">
+                <h5 class="create-option">Are you sure to delete <b>@TargetPlan.Name</b>?</h5>
+                <div class="form-controls modal-footer">
+                    <button type="button" class="btn btn-close-variant btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                    <button type="button" class="btn btn-save" data-bs-toggle="modal" @onclick="DeletePlan">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

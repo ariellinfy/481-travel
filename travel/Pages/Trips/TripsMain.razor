@@ -46,7 +46,7 @@
         </div>
     </Authorized>
     <NotAuthorized>
-        <div class="user-request">
+        <div style="width: 100%; height: 100%; align-items: center; justify-content: center; padding: 3rem; display: flex; flex-direction: column; gap: 2rem;">
             <a href="/signup" class="btn btn-secondary-filled btn-larger-font">
                 Sign Up
             </a>
@@ -73,39 +73,81 @@
         state.OnTab = 3;
         state.OnSearch = false;
         PageHistoryState.AddPageToHistory("/trips");
+        base.OnInitialized();
     }
 
     private void ValidateTripCreation()
     {
         newTrip.id = user.Trips.Count.ToString();
-        if (newTrip.Name == null) newTrip.Name = "Default" + newTrip.id;
+        if (newTrip.Name == null) newTrip.Name = "Default " + newTrip.id;
         user.Trips.Add(newTrip);
         newTrip = new Trip();
     }
 
     string selected;
+    Dictionary<string, List<Plan>> currentRecommend = new Dictionary<string, List<Plan>>();
 
     private void TypeSelection(ChangeEventArgs e) => desiredTypes.Add(e.Value.ToString());
 
-    private void ReviewSelected(string tag) {
+    private void RemoveSelected(string tag) {
         desiredTypes.Remove(tag);
         selected = "";
     }
 
+    private void GenerateTrip()
+    {
+        foreach (Plan plan in state.GenTrip1)
+        {
+            if (!currentRecommend.ContainsKey(plan.Date))
+            {
+                currentRecommend.Add(plan.Date, new List<Plan>());
+                currentRecommend[plan.Date].Add(plan);
+            }
+            else
+            {
+                currentRecommend[plan.Date].Add(plan);
+            }
+        }
+    }
+
     private void Regenerate()
     {
-
+        currentRecommend.Clear();
+        foreach (Plan plan in state.GenTrip2)
+        {
+            if (!currentRecommend.ContainsKey(plan.Date))
+            {
+                currentRecommend.Add(plan.Date, new List<Plan>());
+                currentRecommend[plan.Date].Add(plan);
+            }
+            else
+            {
+                currentRecommend[plan.Date].Add(plan);
+            }
+        }
     }
 
     private void SaveTrip()
     {
         newTrip = new Trip();
         newTrip.id = user.Trips.Count.ToString();
-        newTrip.Name = "Default" + newTrip.id;
-        newTrip.Plans = recommendedTrip.Plans;
-        newTrip.StartDay = recommendedTrip.StartDay;
-        newTrip.EndDay = recommendedTrip.EndDay;
-        newTrip.Days = recommendedTrip.Days;
+
+        foreach (string tag in desiredTypes)
+        {
+            newTrip.Name = newTrip.Name + " " + tag;
+        }
+        //newTrip.Name = "Default" + newTrip.id;
+
+        foreach (List<Plan> plans in currentRecommend.Values)
+        {
+            foreach (Plan plan in plans)
+            {
+                newTrip.Plans.Add(plan);
+            }
+        }
+        newTrip.StartDate = "Tue, Apr 18, 2023";
+        newTrip.EndDate = "Tue, Apr 21, 2023";
+        newTrip.Days = "4 Days";
         user.Trips.Add(newTrip);
     }
 }
@@ -166,13 +208,13 @@
                     <div class="selected-types">
                         @foreach (string tag in desiredTypes)
                         {
-                                <span class="badge rounded-pill selected-type" @onclick="() => ReviewSelected(tag)">@tag</span>
+                                <span class="badge rounded-pill selected-type" @onclick="() => RemoveSelected(tag)">@tag</span>
                         }
                     </div>
 
                     <div class="form-controls modal-footer">
                         <button type="button" class="btn btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Close</button>
-                        <button type="button" class="btn btn-save" data-bs-toggle="modal" data-bs-target="#generatedTrip">
+                        <button type="button" class="btn btn-save" data-bs-toggle="modal" data-bs-target="#generatedTrip" @onclick="GenerateTrip">
                             Create
                         </button>
                     </div>
@@ -186,13 +228,15 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content create-new-trip">
             <div id="temp-trip" class="form-controls modal-header">
-                <button type="button" class="btn btn-regenerate" data-bs-dismiss="modal" @onclick="Regenerate">Regenerate</button>
+                <button type="button" class="btn btn-regenerate" @onclick="Regenerate">Regenerate</button>
                 <button type="button" class="btn btn-save" data-bs-dismiss="modal" @onclick="SaveTrip">Save</button>
             </div>
             <div class="modal-body">
-                @*<DayPlans planDate="@day1" />*@
-                <hr />
-                @*<DayPlans planDate="@day2" />*@
+                @foreach (KeyValuePair<string, List<Plan>> dayplans in currentRecommend)
+                {
+                    <DayPlans PlanDate="@dayplans.Key" Plans="@dayplans.Value" />
+                    <hr />
+                }
             </div>
         </div>
     </div>

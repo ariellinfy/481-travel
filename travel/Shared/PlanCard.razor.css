@@ -30,24 +30,32 @@
     padding: 0;
     font-size: 1.35rem;
     color: darkgray;
-    position: absolute;
+    position: relative;
+    right: -20.65rem;
+    top: -4.85rem;
+    height: 0;
+    width: 0;
 }
 
     .btn-notify:focus {
         box-shadow: none;
     }
 
-    .btn-notify:focus-within {
-        color: #4E7779;
+/*    .btn-notify:focus-within {
+        color: #eab676;
         outline: none;
-    }
+    }*/
+
+.bi-bell-fill {
+    color: #eab676;
+}
 
 .modal-dialog-centered {
     align-items: end;
 }
 
 .modal-content {
-    background-color: transparent;
+    /*background-color: transparent;*/
     border-color: transparent;
 }
 
@@ -73,4 +81,17 @@
 hr {
     margin: 0.25rem 0;
     background-color: transparent;
+}
+
+.edit-plan {
+    background-color: white;
+}
+
+.time-picker {
+    display: flex;
+    flex-direction: row;
+}
+
+.rz-calendar .rz-inputtext {
+    height: calc(3.5rem + 2px) !important;
 }

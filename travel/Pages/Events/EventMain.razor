@@ -36,7 +36,7 @@
                 @foreach (var popularEvent in state.PopularEvents)
                 {
                     <EventCard eventId="@popularEvent.id" imgUrl="@popularEvent.ImgUrl"
-                   eventName="@popularEvent.Name" eventDate="@popularEvent.Date" eventStart="@popularEvent.Time" eventEnd="@popularEvent.Time" />
+                   eventName="@popularEvent.Name" eventDate="@popularEvent.Date" eventStart="@popularEvent.StartTime" eventEnd="@popularEvent.EndTime" />
                 }
             }
         </div>
@@ -49,7 +49,7 @@
                 @foreach (var suggestedEvent in state.SuggestedEvents)
                 {
                     <EventCard eventId="@suggestedEvent.id" imgUrl="@suggestedEvent.ImgUrl"
-                   eventName="@suggestedEvent.Name" eventDate="@suggestedEvent.Date" eventStart="@suggestedEvent.Time" eventEnd="@suggestedEvent.Time" />
+                   eventName="@suggestedEvent.Name" eventDate="@suggestedEvent.Date" eventStart="@suggestedEvent.StartTime" eventEnd="@suggestedEvent.EndTime" />
                 }
             }
         </div>
@@ -107,6 +107,7 @@
         state.OnTab = 2;
         state.OnSearch = false;
         PageHistoryState.AddPageToHistory("/events");
+        base.OnInitialized();
     }
 }
 

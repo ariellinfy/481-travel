@@ -34,14 +34,10 @@
         </div>
     </div>
     <div class="page-body">
-@*        @foreach (KeyValuePair<string, List<Plan>> dayplans in plans)
-            {
-                <DayPlans PlanDate="@dayplans.Key" Plans="@dayplans.Value" />
-                <hr />
-            }*@
-        @foreach (Plan plan in TargetTrip.Plans)
+        @foreach (KeyValuePair<string, List<Plan>> dayplans in plans)
         {
-            <PlanCard TargetPlan="@plan" />
+            <DayPlans PlanDate="@dayplans.Key" Plans="@dayplans.Value" ToEdit="@EditPlanCallback" ToDelete="@DeletePlanCallback" />
+            <hr />
         }
     </div>
     <div class="btn-fixed dropdown">
@@ -72,12 +68,11 @@
 
     public Trip TargetTrip { get; set; }
 
-    private Plan NewPlan = new Plan();
-
     [Parameter]
     public int id { get; set; }
 
     Dictionary<string, List<Plan>> plans = new Dictionary<string, List<Plan>>();
+    HashSet<Place> toQuickAdd { get; set; } = new HashSet<Place>();
 
     protected override void OnInitialized()
     {
@@ -98,9 +93,19 @@
                 plans[plan.Date].Add(plan);
             }
         }
+
+        foreach(Place place in user.Bookmarks)
+        {
+            toQuickAdd.Add(place);
+        }
+
+        foreach (Place place in user.Visited)
+        {
+            toQuickAdd.Add(place);
+        }
     }
 
-    private void Delete()
+    private void DeleteTrip()
     {
         user.Trips.Remove(TargetTrip);
         nav.NavigateTo("/trips");
@@ -115,11 +120,75 @@
         }
     }
 
+    void EditPlanCallback()
+    {
+        StateHasChanged();
+    }
+
+    void DeletePlanCallback(Plan toDelete)
+    {
+        StateHasChanged();
+    }
+
+    private Plan NewPlan = new Plan();
+    DateTime? DateValue = DateTime.Now;
+
+    void OnDateChange(DateTime? value, string format)
+    {
+        if (value != null) {
+            NewPlan.Date = value?.ToString(format);
+        }
+        else
+        {
+            NewPlan.Date = DateValue?.ToString(format);
+        }
+    }
+
+    void OnStartTimeChange(DateTime? value, string format)
+    {
+        if (value != null) {
+            NewPlan.Start = value?.ToString(format);
+        }
+        else
+        {
+            NewPlan.Start = DateValue?.ToString(format);
+        }
+    }
+
+    void OnEndTimeChange(DateTime? value, string format)
+    {
+        if (value != null)
+        {
+            NewPlan.End = value?.ToString(format);
+        }
+        else
+        {
+            NewPlan.End = DateValue?.ToString(format);
+        }
+    }
+
     private void ValidatePlanCreation()
     {
-        NewPlan.Date = "Dec 22, 2022";
-        NewPlan.Start = "6:00 PM";
-        NewPlan.End = " 8:00 PM";
+        if (NewPlan.Name == null)
+        {
+            NewPlan.Name = "Default Plan " + TargetTrip.Plans.Count;
+        }
+
+        if (NewPlan.Date == null)
+        {
+            NewPlan.Date = DateValue?.ToString("MMM dd, yyyy");
+        }
+        if (NewPlan.Start == null)
+        {
+            NewPlan.Start = DateValue?.ToString("HH:mm tt");
+        }
+        if (NewPlan.End == null)
+        {
+            NewPlan.End = DateValue?.ToString("HH:mm tt");
+        }
+
+        NewPlan.Id = TargetTrip.Plans.Count;
+
         TargetTrip.Plans.Add(NewPlan);
         if (!plans.ContainsKey(NewPlan.Date))
         {
@@ -147,7 +216,7 @@
                     </div>
                     <div class="form-controls modal-footer">
                         <button type="button" class="btn btn-close-variant btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                        <button type="button" class="btn btn-save" data-bs-target="#tripSuccess" data-bs-toggle="modal">Rename</button>
+                        <button type="button" class="btn btn-save" data-bs-toggle="modal">Rename</button>
                     </div>
                 </div>
             </div>
@@ -159,12 +228,10 @@
     <div id="modal-center" class="modal-dialog modal-dialog-centered">
         <div class="modal-content modal-background">
             <div class="modal-body">
-                <div class="trip-form">
-                    <h5 class="create-option">Are you sure to delete the <b>@TargetTrip.Name</b> Trip?</h5>
-                    <div class="form-controls modal-footer">
-                        <button type="button" class="btn btn-close-variant btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                        <button type="button" class="btn btn-save" data-bs-target="#tripSuccess" data-bs-toggle="modal" @onclick="Delete">Delete</button>
-                    </div>
+                <h5 class="create-option">Are you sure to delete the <b>@TargetTrip.Name</b> Trip?</h5>
+                <div class="form-controls modal-footer">
+                    <button type="button" class="btn btn-close-variant btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                    <button type="button" class="btn btn-save" data-bs-toggle="modal" @onclick="DeleteTrip">Delete</button>
                 </div>
             </div>
         </div>
@@ -180,32 +247,39 @@
             </div>
             <div id="new-plan" class="modal-body">
                 <div class="plan-form">
-                    <div class="form-floating mb-3">
-                        <input type="text" @bind="@NewPlan.Name" class="form-control" id="activityName" placeholder="unknown" required>
-                        <label for="activityName">Activity Name</label>
+                    <div class="mb-3">
+                        <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Activity Name</RadzenText>
+                        <input type="text" @bind="@NewPlan.Name" class="form-control" id="activityName" placeholder="Fun Activity" required>
                     </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="datetime-local" class="form-control" id="startDate&Time" required>
-                        <label for="startDate&Time">Start Date & Time</label>
+                    <div class="mb-3">
+                        <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Date</RadzenText>
+                        <RadzenDatePicker @bind-Value=@DateValue DateFormat="d" Change=@(args => OnDateChange(args, "MMM dd, yyyy")) Class="w-100" />
                     </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="datetime-local" class="form-control" id="endDate&Time" required>
-                        <label for="endDate&Time">End Date & Time</label>
+                    <div class="time-picker">
+                        <div class="mb-3">
+                            <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Start Time</RadzenText>
+                            <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" HourFormat="12" DateFormat="HH:mm" Change=@(args => OnStartTimeChange(args, "HH:mm tt")) Class="w-100" />
+                        </div>
+
+                        <div class="mb-3">
+                            <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">End Time</RadzenText>
+                            <RadzenDatePicker TValue="DateTime?" ShowTime="true" TimeOnly="true" HourFormat="12" DateFormat="HH:mm" Change=@(args => OnEndTimeChange(args, "HH:mm tt")) Class="w-100" />
+                        </div>
                     </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="text" @bind="@NewPlan.Address" class="form-control" id="address" placeholder="unknown">
-                        <label for="address">Address</label>
+                    <div class="mb-3">
+                        <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Address</RadzenText>
+                        <input type="text" @bind="@NewPlan.Address" class="form-control" id="address" placeholder="101 9 Ave SW, Calgary, AB T2P 1J9">
                     </div>
 
-                    <div class="form-floating">
+                    <div>
+                        <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Notes</RadzenText>
                         <textarea class="form-control" @bind="@NewPlan.Notes" placeholder="N/A" id="notes" style="height: 100px"></textarea>
-                        <label for="notes">Notes</label>
                     </div>
 
-                    <button type="button" class="btn btn-save" data-bs-target="#tripSuccess" data-bs-toggle="modal" @onclick="ValidatePlanCreation">Save</button>
+                    <button type="submit" class="btn btn-save" data-bs-target="#planSuccess" data-bs-toggle="modal" @onclick="ValidatePlanCreation">Save</button>
                 </div>
             </div>
         </div>
@@ -220,11 +294,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div id="quick-add" class="modal-body">
-@*                <QuickAddCard planImg="@img1" planName="@name1" planDetail="@detail1" />
-                <QuickAddCard planImg="@img3" planName="@name3" planDetail="@detail3" />
-                <QuickAddCard planImg="@img2" planName="@name2" planDetail="@detail2" />
-                <QuickAddCard planImg="@img5" planName="@name5" planDetail="@detail5" />
-                <QuickAddCard planImg="@img4" planName="@name4" planDetail="@detail4" />*@
+                @if(user.Visited.Count > 0)
+                {
+                    @foreach (Place place in toQuickAdd)
+                    {
+                        <QuickAddCard TargetPlace="@place" />
+                    }
+                }
             </div>
         </div>
     </div>

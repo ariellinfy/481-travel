@@ -9,9 +9,9 @@ namespace travel.Model
         [DataType(DataType.Text)]
         public string Name { get; set; }
 
-        public string StartDay { get; set; }
+        public string StartDate { get; set; }
 
-        public string EndDay { get; set; }
+        public string EndDate { get; set; }
 
         public string Days { get; set; }
 

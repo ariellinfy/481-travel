@@ -3,15 +3,44 @@
 
     @foreach(Plan plan in Plans)
     {
-        <PlanCard TargetPlan="@plan" />
+        <PlanCard TargetPlan="@plan" ToEdit="@EditPlanCallback" ToDelete="@DeletePlanCallback" />
     }
 </div>
 
 @code {
+
+
     [Parameter]
     public string PlanDate { get; set; }
 
     [Parameter]
     public List<Plan> Plans { get; set; }
 
+    [Parameter]
+    public EventCallback<Plan> ToEdit { get; set; }
+
+    [Parameter]
+    public EventCallback<Plan> ToDelete { get; set; }
+
+
+    private void SavePlan()
+    {
+        ToEdit.InvokeAsync();
+    }
+
+    void DeletePlan(Plan toDelete)
+    {
+        ToDelete.InvokeAsync(toDelete);
+    }
+
+    void EditPlanCallback(Plan toEdit)
+    {
+        SavePlan();
+    }
+
+    void DeletePlanCallback(Plan toDelete)
+    {
+        Plans.Remove(toDelete);
+        DeletePlan(toDelete);
+    }
 }

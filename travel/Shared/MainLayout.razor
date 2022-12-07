@@ -48,9 +48,22 @@
         for (int i = 0; i < 10; i++)
         {
             state.PopularAmenities.Add(state.AllAmenities[i]);
-            state.SuggestedAmenities.Add(state.AllAmenities[state.AllAmenities.Length - i]);
+            state.SuggestedAmenities.Add(state.AllAmenities[state.AllAmenities.Length - 1 - i]);
             state.PopularEvents.Add(state.AllEvents[i]);
-            state.SuggestedEvents.Add(state.AllEvents[state.AllEvents.Length - i]);
+            state.SuggestedEvents.Add(state.AllEvents[state.AllEvents.Length - 1 - i]);
+        }
+
+        Console.WriteLine(state.AllAmenities.Length);
+        Console.WriteLine(state.AllEvents.Length);
+
+        foreach (Trip trip in state.DummyTrips)
+        {
+            user.Trips.Add(trip);
+        }
+
+        foreach (Plan plan in state.DummyPlans)
+        {
+            user.Trips[0].Plans.Add(plan);
         }
     }
 }

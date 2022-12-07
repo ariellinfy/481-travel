@@ -19,7 +19,7 @@
         }
     </div>
 
-    <EventInfo Description="@TargetEvent.Description" Address="@TargetEvent.Address" Time="@TargetEvent.Time" Date="@TargetEvent.Date" />
+    <EventInfo Description="@TargetEvent.Description" Address="@TargetEvent.Address" Time="@TargetEvent.StartTime" Date="@TargetEvent.Date" />
 
     <h4> Similar Events</h4>
 
@@ -27,7 +27,7 @@
         @foreach (var similarEvent in similarEvents)
         {
             <EventCard eventId="@similarEvent.id" imgUrl="@similarEvent.ImgUrl"
-                   eventName="@similarEvent.Name" eventDate="@similarEvent.Date" eventStart="@similarEvent.Time" eventEnd="@similarEvent.Time" />
+                   eventName="@similarEvent.Name" eventDate="@similarEvent.Date" eventStart="@similarEvent.StartTime" eventEnd="@similarEvent.EndTime" />
         }
     </div>
 </div>
@@ -53,12 +53,14 @@
         string currentUrl = "\\event\\" + id;
         PageHistoryState.AddPageToHistory(currentUrl);
         TargetEvent = state.AllEvents[id];
+        user.Visited.Add(TargetEvent);
 
         if (TargetEvent.Similar != null)
         {
             for (int i = 0; i < TargetEvent.Similar.Count; i++)
             {
                 similarEvents.Add(state.AllEvents[Int32.Parse(TargetEvent.Similar[i])]);
+                user.Visited.Add(state.AllEvents[Int32.Parse(TargetEvent.Similar[i])]);
             }
         }
     }

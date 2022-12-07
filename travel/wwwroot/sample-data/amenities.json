@@ -1,6 +1,6 @@
 [
   {
-    "id":  "0",
+    "id": "0",
     "name": "Contemporary Calgary",
     "imgUrl": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYVFRgVFhUYGBgYGBgeHBwYGhkYHBwaGBoaGhwcGBgcIS4lHB4rIRwaJjgmKy8xNTU1HCQ7QDs0Py40NTEBDAwMBg8GEAYRGTEdFh0xMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMf/AABEIALcBEwMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAAAwECBAUGBwj/xABFEAABAwICBgcFBQYFAwUAAAABAAIRAyESMQRBUWFxkQUGIoGhsfATMsHR4QdCUmLCcoKSstLxFCOTouIkU1QVFzM0RP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwBTGJgartarBqCoarBquGqcKCkIhXhQQgpCghXIUEIFkKITCFBCBcKITIVYQUhRCuQohBSFBCvCiEFIRCtCIQUhRCvCIQUhRCZCiEFIRCvCIQLhEJkKIQUhEK8IhBSFEJkIhAotVS1Pwqpagxy1Lc1ZJaquYgxPZoWRgQg3LWq4arhqkNQVwohMwowoFQohMhEIFEKCE2FBCBUKpCaWqC1AuFEJhCqWoFwohOZTJIAEk5AKKjMLnMPvNMOGsepzFkCYUQmwohAuFEJmFEIFQiE+lSL3BozcQBxKWLoFwiEyEQgVCITIRhQLhEJmFTCBWFGFNhEIFYUYU2EQgVhRhTMKMKBRallqyC1VLUGPgQnYUINwGq2FXDVOFAvCowpuFGFAnCowp2FRCBOFGFMwqC1AqFBCbhVS1AvCpp0i4hrQSTkAn6PoznuDWiSeQG0nUF1HRvRjWC1yfedkTuGweuAI6I6JDLmC7W7UNobPiVw/Sj8dR7wfee5wIsRJMQvSdPqBlJ7hHZY/waYAXmobI9eSAoaUMnkA/iyB47D4cFlFq19RiilpTmC4xN2ax+z8kGwwqYU0nhwlpkeW4jUVbCg2fVzRS6pj+6wZxrNgL69a0GnH2Vd7Pu43d0mQeULvOgtGDKbcyX9ozqkDILkOt+jxpDjqe1rvDD+lAmEYVh9HV/uH93hsWfCCmFGFXhEIKYUQmYUYUC8KnCr4UYUFMKghNwpb3gXJEat6CIRhV2gxKthQKwqpanYVBagRgQmYTsQg3AaphMwowoFYUYUyEQgVhVS1OhQQgSWqC1OhQWoElqZo2iue7C0X8ANpT9G0Rz3QO86guk0LQwxsCw+8dvHb61IF9H6E1ghuvN2tx+S2DW2Q1iHP9esz6ug1XWcgaO8DNxYDcCxcM+ULgizYV13XKrDKbNZc5xHARJ73LlHRrCBD2JJasgjYTwN/NVLNw8kGIx7mmWmD58dRWXT6RkQ4Q4i0XaSY7xn4JLm3uOapgg5epCDOpuIuDB2g38ErTtIe89t5dAi5mBMxOau1I0g3yQYdQZESDq1ZR81t9A0nG29nD3h8eBWuc620H1I3rHp1nMcHtzGYyxDYUHR4VOFFCoHtDm3B9Qd6ZhQLwowpmFQ5m+OXjKDF0iqWFogHEb3vETIbm7uSK3SwYMVMMeQcMEF78USP8sFpDT+JxGYWg6TFd7nYHS1mLEWvLIaQYILYc4ADEQZFxAOSx9I6WYxjRRYWOcxxa8lriQJbjEMbLzYSRaHRsAb3pTpfskw1htjaJsXCcDDEE2vcAbzIV9H6RY89im+b4ccBztsRJIFp2WXDU/b0yMfZALXtL5AsQQ4lwuHRtvlrK6PQ8FRmJ7MLiCZAwNdaA5rGEYgdUYReBmg6Uh0Akhs7ASb7CfknMZa7ieMfAAKKVHIuvlGeUDMHXmn4UCcKMKdhRhQIwoTsKEGzwowrkaXXB4EvosOXuvLfAg+ay6HXXR3Weyozfha4eDp8EHRQiFgaP0/oz5iuwR+PEz+YBbCi9r7se142tc13kUFS1RhTixQWoE4VSpUYyC92EHYCSeAHmthouhuebC3qwXO6S1xcS9pYQTYyI3GR396DoaPTujsaA0PI/YzPeVtOiul6dcuazGCwBxxAD3pg5m9u5cFW0hrW4jYDWtx1EOOpVfPZwNzG02Pgbb0HbZ8OXoK3h61evkpJVZnh58EHGddKk1mNEdlgnX7zjblHNc615/sth1irY9JqRkCGz+yADPfK1xYRrB8fr4IAkA7OIjxUNnhw+iHOi8H1slG/6eKCCDx9dyUW32Jpdx7iD9UsVBtHl4IGMkj5oqti8wbRFioom0bzr+Siu60W+KBNRu7j61LFe3vWUakj47t6x37EDejtL9k6/uOzGz8wXStuARcHIhcgVtehNOwkU3nsn3TsJ1cD5oN5hUOECTqTsKMKDi+tTHNAe+mHteQC6WzTLZc2Ac4Aucs9q5DSWTVFNvs2EkAmzmnFF8TpgRr12XqvTGi46NRoaC57HNFpuZAPcTPcuK6f6sikHVLhoc9waHRhY14m5u5xYcQFoh25Bp62jvL2NY51Qg4Q5xGbSRgaHHsxsMACNt930YKr6rXPacbXOLwTiGHCC0Yw4tdGJsgBsGAVi6JTDmspPP8A8j2Nw1BLhMMY4Gey9oIGH8Iz7UDoa3RTaD2hlBruziwtGIPDCcbTi++WvkTrY3aYDfaM5jgcBBixiJB2OAyT8KnR2sID2Rhc0EEZFpEghOwoEYUYU/CjCgRhUJ+FCDziu2B6C12jiXznmtjpz7ZRZYWjszM+SBzafYcdrtibo1EG4gEWttPA7FZzSGAW8lk6M0xlr3FBl6Np1ZjgG1XiBliJHJyz6XT+kNmSx4ERiYB4tie9aumbkxuVcY25k7EHbaB10LW9uizL7jiPAz5rr9CrB9NlQD32hwGzH2o7pjuXjNR8gZL1DqZWxaIz8pe09zzAPcRZBk9NdC09IpPZgZiIOF+EAhwuIMTE57pUdWeiP8NTLXEOc5wccOQgAAAm52zvW0adXM+s1cWGyf7CUAYzPr5oDjmgD18Al6XUDWPIzaxx4QDeUHmOmVCaj3CCHPeRrzJ+ax52g94kILwMkZoJFQiYMcCRzhDahmdo3HvtmUpzh6so4SgCQZnPUcufrWgTrtbj3D0FLnnWARvsUYxsj1uQVpvF8onhq38EVH7ByCS5/aMbAPO6pUftKBzHy3vPh8FFRnfwWNo1WHRly4Zd6e94OVjs1HePl5oEF11Dr22plVtgbXmMp7wlsMj1Y2z2cUHUdB9IY24HHttGZ+8Br4jXzW2wrg2Pcxwc0kOabHhu+C7borTW1mYhZws5uw/I6kD8K1HWrRg/Rasz2W4hGfZzHeJbwcV0AY0NxvdhbeNZcRqYJEnwGsrWaW8PpVG6wLjOzrgzAkZiY+6UGi6c6NDqcNBxUy2rRc33ixkF1MHWQ09kb2bCtr/iRUosrtIOAteSLgBstqRt7JqR3JnRWil9FlNtnswYDExLQ5lsy0NdgO0BwWB1Zp4HVqDhDfaVIYb4CAwuZIsRheyDrhxFkG4o0MHZA7FyPykmS3heR3jYnQqdHg4A03cyWEnMlhwyeIAd+8snAgTCITsKMKBMITsKEHk+mkf2soYyGjP1xS9IMuj14J7AZF/XegY99xY23fJZlIDCDbvt5rCBJd9R9FmAkZhBdht9Ul4GseuSu42v65pNR4G31wQQHS5ek9QH/wDTvByFR0bPdZPrevMqLpufQXsfV3QvZ6PSbEOwBxtfE8SZG6Y7kGzn16yCuBFtgsPrrUuAVoQVMk7d2U9/NYHWOoWaNVMx2Y2AYiGx4rZYtny8VouuVcDRy0/fewDZY4vJqDz5zQsF+nAOLdhjJZbmDOw4WXI1dNON9xhxO3Wkwg6EVxtVHaXGu/rNc2NNd+IZ3j4K3+L3oOhGnjX68IVjpwhc57YuylZWjtJMR670G5p1A8zqEiVkhjdgWLozMIAT5KCr2A2jhq5JT2xncDw4hNLyDIz+apVfJvbwid2xAtrxeZ7sxvjWqubexF9d471V9jkOKox972nLegyGkjPPXex5b0/QekH6O/GwA7WunC8ZwYg7Db6LGAPr4blDig6LR+s7arsVWWkjUJaAMgAMhuAVelukGtBqsc1wLSx8Z4SJEjO0EjfxK5amYJG9TpTuw4/lPkUHqHQrmDA5pBDw+kSLwGOeWX1SA8fvtGtavrRWNGsysAMGElx1h1KYI1SabqjTsAByavPILXOwmDiJBFjMyLrYO6arYWONVz2se14a84hbPOT7pcI3lB6HRgVXARhqMD2xrLIY48MJpeKzMK5vo6sWvjH2KXs3UmQP/r1BgJx5nBjLXA/9pp1rq8KBGFGFPwowoEYUJ2BCDxOnBcVlUBc38fqqf+nOYe0xwzsWuaR4KabmCxB5/VA2ld2evd8lkn1HoLCoOZMz8fNPaG/i8QgY9+88/wC6xKzybTfePonPbvKxmtl4Qbnq/oPtK1KnE4ntkflF3f7Q5e1AXzjWvN/s70WazqpEhjQ0ftvMWP7IdkvR2X18pHjmUEkgW295PdmeKHMkQZE8JN921BtAECXaraj8vFX4D4fVAMHfvPyXLdfT2KTZuXuOrICP1DkuqbI+QBJ9dy4fr1WPtWNvApzGwuc4G37o5IOTeYBk9+zuXnntWuviF/WRuu56UrkUajhm1jjw7J5LzSj7w4hBtXAAKWOVXiwUsHBBmUz6lZ+jk7gtfQHBbCgg2jX+gEwPWG13FXadx5oGVXxeUw1Q73hN8wb77/OUhwJGQV2Hsidmv5oKVIEQZB3XG7ODzSHtzuCCfUjV9UxxIBwvjaDMH4EcVjOdBEgjf9Pkgcw7VkBwOsccp3HZ9c1jMJixBGvXmNY1cYUtvcXgchvCAqe9IyI8knSqjcDgXNBLTYuAOWxTWy4ELA0/o/2l2ktdt1HjrQZNTS2SSXtz1SfutB92dYSR0hTuMU3MQDr1QY1ytJpWhmmQC7ESJ129XQzRZbMnJB3HQ/WPRxRDKrngsa5o7Le010WMEnXUERlUdrgj0Tq50szSqIqMMw4sdOeJsXNhmCDlrXj3VXRaFWsxldpc0uAMOLey7szIvYkE8F7d0N0FR0VpZQZga52Igue+XQGzLydQHJBk4VGBZGFRgQIwKU3ChBz4Pb3D4D/l4JZYHNcXAESLEA5wSfHwVmXxHbA/iv8AqHJDrsaPxEnucY8neCDGd0XRJYDRpyQJ/wAtozBOobjzWNU6v6M8OJpAAH7rnt8nbCFuCe2T+EH4R+pUDexG1xHdPs/kg0dTqhoxIEPZLZOGo622MU+iks6oUWtJFSoDe78L8idQDfNdO73nbhH8Rj9KxtIuxg2uZP77wT4SgyerLGaIx7CS9xfiLsIFiAAIk7Dr1res6Vp2gOEictXorQPdZ57uWI+SY9wBP5Wgc4+SDfM6SYYh0SJydlxhZOj1GPaXNfijZ8jmuUNTDG5kd5wrV6N07VpV2M7JpgMLyAQ/CbEYsUHI6hkg9GY/sg3K84656SHaU9v4GMbq1tx/qK9GnWBI46tS8t0+m/SNMqsYGlzqj4kkDsCCSQfy+KDlOsNaKFQz92P4iG/FcHo3vN4r17pj7P8ASarCxr6DZIkmo8gQZiBTWto/ZBXBBOlUZBvDXnllKDg3lSwr0V/2T1f/ACqf+m7+pXb9ktX/AMtn+m7+u6Dg6T1sNHeu1Z9lTx/+pn+k7+tZVL7MXCJ0of6X/NBxAqxqVm1+C9Ab9m7Nekk8KYF/4ins+zylN6743Bvysg859qd3JP0esMJBGRzuDe8bNexehnqBo/8A3a38TP6FkU+oGjNGdYzn2hPcAxB5LpD+3hFuQ1Sq1KrGi9anwx+YDSvXHfZ/oUhxpvLt73jVFwCBrVP/AG26OcR/0xdtmpWE7zDxtQeaaB0a+qzGwsLTvI/TlnyTj0ZUGZZzPyXrXR/VDRaILaej4QQJGJ5EAuIjE7OXFZDurlDM0GwJzvbvKDx89E1CLYTOx0HxWLpGiPpxjbhnLIi28Er2un0PQblRYOLQU5/R9IwDSYY/I35IPmPT64c95kZwL6hb1xWdS0R5AwseRAiGuI8Avo2no9Np7Aa0x93CDvyHqVcXycedstaD5ypaFXa8PZRqmMwKbySDYiANcr6B6Eqvq6PTe9j2uLBiD2uaQ4dl0tNxcE96zmx7pcYvrOvPdc3VfYsmZy2k5Z67d6CRTJ1JOmNe1stYS6RbdN+Qmya5jYEet6p7NokiJtqvffyQVxDaObfmoTMMf3HzQg5UnsCPvFxHfZvm1Ow9to1D4D/k1ULe01uoR4Au+DFLDJed0DiSQPANQDHWc7eOXvn+Y8k1jfcadQE8iT4gJRHYA/ETyccI8HDknT2nHY0+MAeLXIFOd2Xnabfw4vOVL/faPw+Qaf6kamja4nuxj9KSHS952NeOZAH8qC7T2RvcP0tKiu+z99uUn4oafc4k/wAUuHkseo+w3uB5Q0oKaXW97ujumfJaetONxIiYjeNXxWZpFT+Y8oPzWvqVi95IE5AXzgBoy2xKDv8Aqv0p7Vgpk9pjBc/eAJG3UMI71ynUqH6U98yA17gdfbe2OYJSOj+kTRPtLggERbCQRBvN+WcLYfZzRj2r4Fgxs7+0T8EHbkZADXcxEW1mPUpkD+ys0qS4bRzQQwxcG8bk3G7aOQS2ics9yHMI9cUFsbp963Bu+dSqWeslAgCI+VypgG4AQGHegMQ5oRhCCCzjkrF5H3jz5qoaEGmDq9SgkDXKIg70YRwz1n4KIBO/adSAfx1pdcEjsxMt96YiROWuJUvYCBxFp4HbuTIGZnmQghwAHBQ6IBBzjVyUtY3ZqtJJsVV1PWLHvtCCQAb2y8pQIn67d3rWqCmM7mc7lDaLRYC/PzQWn18wqu2bs1DKLW2ueJJ29231CltMb7a/HvQGHfISy0CfW9D2XBM23owNcAbwLiDYjPvQWhCo0gWE23koQcox/ac78LXHmYHgwc1DThYT+Y/7BA8WDmqtOFhP5o7mCD/I7mrlsYGa4bPEkOPgx3NA4N7TG/hA8AfjhQHw17t45Ae0/UVVru087GmOJOH9Hipqe40ficeRdhH+1wQSBDmN/C0eDSD5hYdB9nO/Yn90lx8Cn133edjTH73Z82LEpns/tPP8opnxQPeY/dZ4tA/qWLVd7vf4kkeSbWfd53jxOE/yrC0h8dzBzA+qDA05/YF4lrr7xA1JGgsGcgQJ96NgAz2kKekDJZrEHh2iCP5UtgAabETA3RcnyCCdJb2H4QXRGRxQTYXyvK6z7N2/5NS5n2pkawMDYkEbcXJcRprg1neOQXT/AGf1SwtY4T7QTM5ES4eFu4IPRGi3rzViN3iqtEGxPn5p4qnWAUCiN3kjVr8Qm4m6wRwuoOEZE3OxAphGQMxxKvBUZ7CpLBs5W8kFTO1SJOz1uVWUhECR3/NTg/MfBBJHeeXzVra1Vs7R5IIOzxQWI4+u9LJvmpy2jx2KodeL9/z70EkXG68Ad3mpc8DWFQOEi9925WnOcuGQ3oKvI5bDCGkn1KtMgRCMPPuQDgdqrGzPh5qXMsjCgqD9fpfJT3qhp3zPee+3rUgAn73kgHbYVCSggjWO8JOkTHfns7hmgZjQsamx0CXDkUIOXeLU27hPFxAPhiTw6ahJ1T4BoH8zlKEFaToaXHOR/taHHxDuaa4Q6m38LR4B3xDUIQYekP7Dj+JzR5P/AFFK0d0hm+XfxOx/AoQgXVdIO8+YLh5rE0l13cR4wPgpQg1mn1O2APutHMzHx5qzX9kCAZkzcHOIsd3ipQg13TJlhjZIvOUbhtW+6Mqmm5jm5tw+EA+EqEIPT9Gqh7Q5uTgCJ2EWlNKEIIaDu8lId3etXNCEApc23oeSEIKCnrE89StLtyEIKOfGrimB02m4t3oQgIQhCCHRclUJm0ZoQgkgDUpCEIIwTsPFXeRBImwOsbOChCCjakgEax8EAAIQggpRduQhBj4gpQhB/9k=",
     "address": "701 11 St SW, Calgary, AB T2P 2C4",
@@ -22,31 +22,31 @@
     "reviews": [
       {
         "user": "Hannah G",
-        "published": "Dec, 1, 2022",
+        "ublishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "We absolutely love this space. We enjoy the various exhibitions, and the perspective film series they have put on in their beautiful theatre. Their annual membership fees are so inexpensive [$20 Individual] [$40 Dual] [$50 Family]. "
       },
       {
         "user": "Aly F",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 3,
         "review": "I am a member at the contemporary art museum. I absolutely love it here. The art is often done by local artists. Everything is memorable and I always leave thinking about the art for months. The building itself is unique and interesting done with a brutalist minimalist design. Great for pictures!"
       },
       {
         "user": "Maurice T",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 4,
         "review": "Great space! With several exhibitions. The venue is beautiful, well designed. Warm"
       },
       {
         "user": "Paula",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "Beautiful gallery! My bf and I saw Robert Houle's 'Red is Beautiful' exhibit and it is so breathtaking and so rich in history.100% recommend the free tour that comes with admission because it made SUCH a huge difference in understanding the artist and the exhibit!"
       },
       {
         "user": "eric",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 3,
         "review": "The best art gallery in the province! Don’t be deceived by the old and forgotten look of the building exterior. This museum was amazing and hopefully will get more funds and sponsorships.We paid $10-12/day on a Sunday afternoon. It was quiet and not too many people."
       }
@@ -84,31 +84,31 @@
     "reviews": [
       {
         "user": "Timmy",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "Great place, very nice for anenue, top notch high end. Washrooms were very clean, love the room and the location. Enough free parking and in the middle of a very chick area. There is an outlet for electric cars too. U can have an event outside as well!"
       },
       {
         "user": "Zach M",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 5,
         "review": "Not often can you find a place where both the physical location speaks as loudly as the quality of the staff. cSPACE is such an amazing confluence of arts, culture, people, and history. I see it as an example of what true redemptive placemaking looks like and am so proud of Deeter and the team for continuing to live this out."
       },
       {
         "user": "Hector",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 5,
         "review": "Great space for arts, cultural events and classes. Have attended several events from Casa Mexico that shares and celebrates Mexican culture and traditions. Also attended the Festival of Animated Objects (puppets). Beautiful place to walk around in the vibrant neighborhood of Marda Loop."
       },
       {
         "user": "Jenny J",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "cSpace is a step above in all they have to offer. From the initial organization to hosting the event and accommodating last minute details, they really go above and beyond and no request is silly or cumbersome."
       },
       {
         "user": "Florence k",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 3,
         "review": "Great space for artists, there are independent boutiques. Awesome space for  hosting events. Home to Farmers Market year round every Saturday. There is a small lot. Parking is still hard to find with construction around."
       }
@@ -146,31 +146,31 @@
     "reviews": [
       {
         "user": "Ayat",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "Very beautiful and inspiring artworks! I could sit there for hours admiring the detail and hard work put into the art pieces here"
       },
       {
         "user": "Kevin N",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 4,
         "review": "A free gallery that rotates the exhibition pieces quarterly. A really lovely space with friendly staff and interesting art. Highly recommend if you're looking for something to do on the weekend if you find yourself in the East Village, Inglewood area."
       },
       {
         "user": "Jess",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 5,
         "review": "It takes about 20-25 minutes to see the gallery. Nice display of artwork by local artists. Free entry."
       },
       {
         "user": "Jenn T",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "To put it simply, Esker is a MUST go to gallery in Calgary. Their exhibitions are always so beautiful aesthetically and the content is so rich."
       },
       {
         "user": "Yalds K",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 5,
         "review": "Hello, I want to visit but I'm not sure if it's open and free for everyone or do I have to pay fee in order to he able to get entry? please someone answer."
       }
@@ -183,6 +183,69 @@
       "5",
       "6",
       "7"
+    ]
+  },
+  {
+    "id": "16",
+    "name": "Bike and Brew",
+    "imgUrl": "data:image/jpeg;base64,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",
+    "address": "921 1 Ave NE, Calgary, AB T2E 2L3",
+    "description": "A unique concept created by two local bike guys, Bike and Brew is Calgary’s original caffeinated Bicycle and Repair shop to bring the communities of cycling and coffee together.",
+    "tags": [
+      "Food & Beverage",
+      "Beverage",
+      "indoor",
+      "kid-friendly",
+      "Accessibility",
+      "Kid-friendly",
+      "Food",
+      "inclusive"
+    ],
+    "categories": [
+      "Food & Beverage",
+      "indoor"
+    ],
+    "rating": 4,
+    "reviews": [
+      {
+        "user": "Daniel K",
+        "publishedDate": "Dec, 1, 2022",
+        "rating": 4,
+        "review": "One of my favorite bike shops in Calgary! I drive or ride past 4 others to go here. Attentive service, good prices and the fact I can get an espresso or craft beer while shopping is like icing on the cake. "
+      },
+      {
+        "user": "Sean H",
+        "publishedDate": "Nov, 5, 2022",
+        "rating": 5,
+        "review": "I'm not going to lie I was stopping by to grab a coffee before heading to another bike shop to test ride a couple models as they opened an hour later.  Once I walked in I was greated by Sara at the coffee counter. "
+      },
+      {
+        "user": "Daniel H",
+        "publishedDate": "Dec, 12, 2022",
+        "rating": 5,
+        "review": "Awesome Bike shop, staff is the bees knees! Had my 13 year old cruiser fixed up from here, it runs so well now, should have done that years ago. Went back the next day and then bought a brand new bike!!"
+      },
+      {
+        "user": "Kelly D",
+        "publishedDate": "Dec, 1, 2022",
+        "rating": 4,
+        "review": "I had great dealings with Bike and Brew! After looking in most bike shops in Calgary for a carbon frame hybrid gravel bike (with none available) i tried Bike and Brew. They had several choices for me"
+      },
+      {
+        "user": "Jason",
+        "publishedDate": "Oct, 14, 2022",
+        "rating": 5,
+        "review": "Hands down the best bike shop experience I’ve seen in Calgary. Super friendly and most important knowledgable."
+      }
+    ],
+    "similar": [
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
     ]
   },
   {
@@ -208,31 +271,31 @@
     "reviews": [
       {
         "user": "Darryl K",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "Such an interesting place to visit, lots of interesting things on display, and so much history to learn about. The permanent collections are quite good, but I also really enjoy the exhibits which change, as they it freshen things up."
       },
       {
         "user": "Justina He",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 4,
         "review": "Amazing art history museum! Beautiful exhibits highlighting deffoerent art mediums like pencil, paint and sculpture. Great inclusion of inuit and indigenous artists and culture."
       },
       {
         "user": "Anna Kar",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 5,
         "review": "Modern Museum. Really enjoyed the Dior exhibition. Staff isn't the nicest."
       },
       {
         "user": "Vania Mac",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "Really nice museum. My mom and I got the opportunity to visit before they close it for renovations."
       },
       {
         "user": "Betty K",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 5,
         "review": "Spacious enough for social distancing in this pandemic. Enjoyed exploring all the floors from first floor to the 4th. Lots of interesting arts, cultural and historical collections. Staff were friendly and helpful. It’s good to see security guards too."
       }
@@ -270,31 +333,31 @@
     "reviews": [
       {
         "user": "Sally R",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 5,
         "review": "This place is absolutely beautiful. The staff is more healthy to help you with everything you may even need and more. I really enjoyed my self with family watching a play the lady day play."
       },
       {
         "user": "Rachel S",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 5,
         "review": "I went to see “Alberta Kitchen Party” here with my family and truly the only word I can use to describe it is beautiful. Before coming to watch, me and my family were pretty disconnected when it came to a love of theatre."
       },
       {
         "user": "Shelby K",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 5,
         "review": "Received ticket as a gift from a friend. Really enjoyed it. The cast is unbelievably talented. Will definitely attend again/ recommend go to others."
       },
       {
         "user": "Bill T",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 5,
         "review": "We saw Stealing Sam in a cabaret configuration. Enjoyed the show, greatly appreciated being back in the theatre and appreciate all the precautions to keep people safe."
       },
       {
         "user": "Lana T",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 4,
         "review": "My favourite theatre company in the city. Fewer generic, run of the mill productions than the other major theatres in town."
       }
@@ -332,31 +395,31 @@
     "reviews": [
       {
         "user": "Laurie L",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 5,
         "review": "My husband and I went for dinner this evening to see the Beatles: Back in Time dinner theater. We had just the most wonderful evening! The food, the service, and the entire staff were just outstanding."
       },
       {
         "user": "Colly M",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 4,
         "review": "Jubilations Dinner theater was a great experience. The food was excellent, so was the service. The entertainment was professional and fun. Kids were allowed. Special drink menu to go with the theme of the show."
       },
       {
         "user": "BettyAnn",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 3,
         "review": "This is the first time my husband and I have ever been to a dinner theater and we attended the Schipp$ Creek dinner theater with two other couples.  We absolutely loved the show and the actors were spot on."
       },
       {
         "user": "Reed D",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "Saw Schipp's Creek with my husband and some friends last night. Absolutely fantastic performance!! The cast are incredibly talented and so funny."
       },
       {
         "user": "Jessica R",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 5,
         "review": "We saw the new Office musical parody as part of a team building night and had an absolute blast!"
       }
@@ -394,31 +457,31 @@
     "reviews": [
       {
         "user": "Doug L",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 5,
         "review": "We went as a staff and it was excellent. I'd recommend it to anyone. A very enjoyable experience.  Acting and sets and the whole production was very professional and excellent from beginning to end."
       },
       {
         "user": "Karen B",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 4,
         "review": "Wonderful experience!  The play was fabulous,  well thought out story & very relate-able!  I had laughter and tears throughout the play.  The customer service was friendly, efficient and genuine. "
       },
       {
         "user": "Ross H",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 4,
         "review": "Little cute theatre with a perfect location"
       },
       {
         "user": "Jordan",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 5,
         "review": "Great space for the performing arts. It feels very intimate, and the staff were friendly and helpful. There were comfortable chairs on risers, so everyone gets a good view of the stage. Good acoustics, too!"
       },
       {
         "user": "Graham F",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 4,
         "review": "Great show excellent cast. Very funny we really enjoyed it!"
       }
@@ -456,31 +519,31 @@
     "reviews": [
       {
         "user": "Adam F",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 5,
         "review": "Always interesting, the One Yellow Rabbit High Performance Rodeo theatre festival is worth a try. You'll be hooked and come back every year."
       },
       {
         "user": "Karla G",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 5,
         "review": "Saw Monster tonight at The Motel in Art Commons. Great performance, funny, intriguing, ends with a twist"
       },
       {
         "user": "Mike R",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 4,
         "review": "Nice place to get some local talent. Nice clean building with underground parking."
       },
       {
         "user": "Mich K",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "Greatest theatre in the country!"
       },
       {
         "user": "Rosa A",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 4,
         "review": "Great company, great show!!"
       }
@@ -522,31 +585,31 @@
     "reviews": [
       {
         "user": "Michael M",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "Came for dinner for our Anniversary. The food was excellent. I think the flavours and combinations are very creative and hats off to the chef. Our server was very friendly. "
       },
       {
         "user": "Alex X",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 4,
         "review": "Great evening with a few caveats to be mindful of. What we liked: the view of the lake is stunning. We were lucky to have a waterfront table outside, which gave an amazing summer feeling. "
       },
       {
         "user": "Max F",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 5,
         "review": "It's a bit of a weird feeling driving towards a fine dining restaurant located beside a Safeway and questioning whether you're being directed to the right place. "
       },
       {
         "user": "Jason M",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 5,
         "review": "The meals were great. Portion for the chicken Supreme was great, the flavors excellent.  The Bisson was tasty and the ribeye was well done and tender."
       },
       {
         "user": "Boris W",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 3,
         "review": "High end dining without the pretentiousness. The Lake House is a classic establishment that has kept up with the times. Both of our meals were incredible, and the service was fantastic."
       }
@@ -585,31 +648,31 @@
     "reviews": [
       {
         "user": "Olive G",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "Our first Greek restaurant experience and it did not disappoint. Cozy atmosphere. Great customer service. Friendly food server. We ordered lamb chops, lamb shank, moussaka and kopanisti. Generous serving. Food really tasted good. "
       },
       {
         "user": "Canvel G",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 4,
         "review": "Some of the best customer service I have ever experienced. Beautiful interiors and cozy atmosphere. It combined to a wonderful dine-in experience."
       },
       {
         "user": "N V",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 5,
         "review": "Food was very flavourful. The waitress (kate) was nice and hospitable. The food came out within a decent amount of time. I got the seafood linguini and my husband got the lamb dish."
       },
       {
         "user": "Middle b",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 5,
         "review": "Wow, what an excellent meal and evening.  The food was spectacular and the service was exceptional.  The desert baklava is made with walnuts instead of pistachios so my wife was ecstatic sine she is allergic to pistachios.  "
       },
       {
         "user": "Hilda M",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 4,
         "review": "Had a great meal today. We ordered the calamari, lamb shank, and chicken souvlaki and it all tasted delicious. Definitely recommend checking it out! The service was also excellent."
       }
@@ -648,31 +711,31 @@
     "reviews": [
       {
         "user": "Olive G",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "Our first Greek restaurant experience and it did not disappoint. Cozy atmosphere. Great customer service. Friendly food server. We ordered lamb chops, lamb shank, moussaka and kopanisti. Generous serving. Food really tasted good. "
       },
       {
         "user": "Canvel G",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 3,
         "review": "Some of the best customer service I have ever experienced. Beautiful interiors and cozy atmosphere. It combined to a wonderful dine-in experience."
       },
       {
         "user": "N V",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 4,
         "review": "Food was very flavourful. The waitress (kate) was nice and hospitable. The food came out within a decent amount of time. I got the seafood linguini and my husband got the lamb dish."
       },
       {
         "user": "Middle b",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 5,
         "review": "Wow, what an excellent meal and evening.  The food was spectacular and the service was exceptional.  The desert baklava is made with walnuts instead of pistachios so my wife was ecstatic sine she is allergic to pistachios.  "
       },
       {
         "user": "Hilda M",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 4,
         "review": "Had a great meal today. We ordered the calamari, lamb shank, and chicken souvlaki and it all tasted delicious. Definitely recommend checking it out! The service was also excellent."
       }
@@ -711,31 +774,31 @@
     "reviews": [
       {
         "user": "Ashton N",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 3,
         "review": "Very good friendly service by the ladies here and the Peking duck was delicious! Took a bit of time to prepare but when it came out it was definitely fresh, and the pancakes in particular were done very well"
       },
       {
         "user": "Qingyuan L",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 4,
         "review": "Food was really good and tasty, I loved the Peking Duck! I ordered the 3 duck course along with 2 dishes. It was a bit disappointing to get the duck rice (part of the 3 duck course) at the very very end, about 20 min after the other of the dishes arrived"
       },
       {
         "user": "Steen",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 4,
         "review": "Came here today for lunch with a friend. My 2nd time having Dim Sum."
       },
       {
         "user": "Saron S",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "We went to Bill’s Peking House with my Hong Kong parents. They came visit for two months and have been complaining about the Chinese in Calgary until they tried Bill’s. We were very happy we found THE ONE here in Calgary."
       },
       {
         "user": "Denise C",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 4,
         "review": "Food tastes OK, not the greatest Chinese food we've ever had. A bit pricey for what it is, especially the authentic Chinese menu. They gave us one wrong order. We ordered Peking Style Pork Chop, and got some sort of fried pork with no Peking sauce.Food tastes OK, not the greatest Chinese food we've ever had. A bit pricey for what it is, especially the authentic Chinese menu. They gave us one wrong order. We ordered Peking Style Pork Chop, and got some sort of fried pork with no Peking sauce."
       }
@@ -774,31 +837,31 @@
     "reviews": [
       {
         "user": "Ashton N",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "Very good friendly service by the ladies here and the Peking duck was delicious! Took a bit of time to prepare but when it came out it was definitely fresh, and the pancakes in particular were done very well"
       },
       {
         "user": "Qingyuan L",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 3,
         "review": "Food was really good and tasty, I loved the Peking Duck! I ordered the 3 duck course along with 2 dishes. It was a bit disappointing to get the duck rice (part of the 3 duck course) at the very very end, about 20 min after the other of the dishes arrived"
       },
       {
         "user": "Steen",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 3,
         "review": "Came here today for lunch with a friend. My 2nd time having Dim Sum."
       },
       {
         "user": "Saron S",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "We went to Bill’s Peking House with my Hong Kong parents. They came visit for two months and have been complaining about the Chinese in Calgary until they tried Bill’s. We were very happy we found THE ONE here in Calgary."
       },
       {
         "user": "Denise C",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 5,
         "review": "Food tastes OK, not the greatest Chinese food we've ever had. A bit pricey for what it is, especially the authentic Chinese menu. They gave us one wrong order. We ordered Peking Style Pork Chop, and got some sort of fried pork with no Peking sauce.Food tastes OK, not the greatest Chinese food we've ever had. A bit pricey for what it is, especially the authentic Chinese menu. They gave us one wrong order. We ordered Peking Style Pork Chop, and got some sort of fried pork with no Peking sauce."
       }
@@ -837,31 +900,31 @@
     "reviews": [
       {
         "user": "Leah",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 3,
         "review": "Sadly as others have mentioned the quality of the food has slid along with service. It took an hour to get our sushi tonight. It was decently busy inside but I noticed that there were a lot of take out orders."
       },
       {
         "user": "Stephen H",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 4,
         "review": "I have dined at Sushi Bar Zipang over the years, and my most recent visit was a little disappointing compared to past visits. The service was relatively abrupt and crass. The quality, although good, seems to have diminished and no longer"
       },
       {
         "user": "Vinny",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 5,
         "review": "They have the right idea. This sashimi ride bowl was good. But the qualify of fish was good but not exceptional. Maybe I went for lunch on Wednesday and no my weekend?"
       },
       {
         "user": "Gab N",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "It's been so long since I've been back. But it's still as good as I remember it in 2016? Rice is cooked perfectly, fish is super fresh, all of the staff super attentive and friendly."
       },
       {
         "user": "Sadie F",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 2,
         "review": "The quality of this restaurant has slid. The sushi is average but I would not recommend the Omakase to anyone. Our appetizers came out quickly but then we had to WAIT AN HOUR AND HALF for a regular sashimi platter to come out."
       }
@@ -900,31 +963,31 @@
     "reviews": [
       {
         "user": "Victoria",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 5,
         "review": "Shiki has been my top Calgary ramen place since 2019. We stumbled upon one of their weekend night pop ups behind the place this summer. The food was experimental and fresh. My boyfriend and I talked about each dish the entire meal."
       },
       {
         "user": "Joey J",
-        "published": "Nov, 5, 2022",
+        "publishedDate": "Nov, 5, 2022",
         "rating": 4,
         "review": "We used to come here back in the day.  Looks like they have changed locations.  Nice open restaurant and can sit outside to enjoy the sun.  The cold brewed green tea was nice and refreshing."
       },
       {
         "user": "Tim K",
-        "published": "Dec, 12, 2022",
+        "publishedDate": "Dec, 12, 2022",
         "rating": 4,
         "review": "It has been many many years since I visited this ramen shop.  The soup base was too thick for my taste many years ago, and I did not return."
       },
       {
         "user": "Sha N",
-        "published": "Dec, 1, 2022",
+        "publishedDate": "Dec, 1, 2022",
         "rating": 4,
         "review": "My husband and I wanted to try Shiki Menya after all the hype we had heard about it. We decided to go on a Saturday, around noon. It is incredibly busy in the Bridgeland area, so we had to do a few laps before finding a parking spot "
       },
       {
         "user": "lui F",
-        "published": "Oct, 14, 2022",
+        "publishedDate": "Oct, 14, 2022",
         "rating": 5,
         "review": "Best pho ever. Noodle soup is soooooooo good. If you love soup. Please order large one. (Pictures have each noodle soup’s number). 15 is my love."
       }
@@ -937,69 +1000,6 @@
       "13",
       "14",
       "16"
-    ]
-  },
-  {
-    "id": "16",
-    "name": "Bike and Brew",
-    "imgUrl": "data:image/jpeg;base64,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",
-    "address": "921 1 Ave NE, Calgary, AB T2E 2L3",
-    "description": "A unique concept created by two local bike guys, Bike and Brew is Calgary’s original caffeinated Bicycle and Repair shop to bring the communities of cycling and coffee together.",
-    "tags": [
-      "Food & Beverage",
-      "Beverage",
-      "indoor",
-      "kid-friendly",
-      "Accessibility",
-      "Kid-friendly",
-      "Food",
-      "inclusive"
-    ],
-    "categories": [
-      "Food & Beverage",
-      "indoor"
-    ],
-    "rating": 4,
-    "reviews": [
-      {
-        "user": "Daniel K",
-        "published": "Dec, 1, 2022",
-        "rating": 4,
-        "review": "One of my favorite bike shops in Calgary! I drive or ride past 4 others to go here. Attentive service, good prices and the fact I can get an espresso or craft beer while shopping is like icing on the cake. "
-      },
-      {
-        "user": "Sean H",
-        "published": "Nov, 5, 2022",
-        "rating": 5,
-        "review": "I'm not going to lie I was stopping by to grab a coffee before heading to another bike shop to test ride a couple models as they opened an hour later.  Once I walked in I was greated by Sara at the coffee counter. "
-      },
-      {
-        "user": "Daniel H",
-        "published": "Dec, 12, 2022",
-        "rating": 5,
-        "review": "Awesome Bike shop, staff is the bees knees! Had my 13 year old cruiser fixed up from here, it runs so well now, should have done that years ago. Went back the next day and then bought a brand new bike!!"
-      },
-      {
-        "user": "Kelly D",
-        "published": "Dec, 1, 2022",
-        "rating": 4,
-        "review": "I had great dealings with Bike and Brew! After looking in most bike shops in Calgary for a carbon frame hybrid gravel bike (with none available) i tried Bike and Brew. They had several choices for me"
-      },
-      {
-        "user": "Jason",
-        "published": "Oct, 14, 2022",
-        "rating": 5,
-        "review": "Hands down the best bike shop experience I’ve seen in Calgary. Super friendly and most important knowledgable."
-      }
-    ],
-    "similar": [
-      "9",
-      "10",
-      "11",
-      "12",
-      "13",
-      "14",
-      "15"
     ]
   }
 ]

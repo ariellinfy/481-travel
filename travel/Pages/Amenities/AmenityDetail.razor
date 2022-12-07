@@ -73,12 +73,14 @@
         string currentUrl = "\\amenity\\" + id;
         PageHistoryState.AddPageToHistory(currentUrl);
         TargetPlace = state.AllAmenities[id];
+        user.Visited.Add(TargetPlace);
 
         if (TargetPlace.Similar != null)
         {
             for (int i = 0; i < TargetPlace.Similar.Count; i++)
             {
                 similarPlaces.Add(state.AllAmenities[Int32.Parse(TargetPlace.Similar[i])]);
+                user.Visited.Add(state.AllAmenities[Int32.Parse(TargetPlace.Similar[i])]);
             }
         }
         reviewItem.place = TargetPlace;

@@ -21,17 +21,17 @@
                 </div>
             </div>
             <hr />
-            @*    <div class="setting-container">
-            <h4>Notifications</h4>
-            <p>Get notifications before your plan's timings start</p>
-            <InputSelect @bind-Value="user" class ="form-select" aria-label="notify-time">
-            <option value="30" selected>30 min (default)</option>
-            <option value="15">15 min</option>
-            <option value="45">45 min</option>
-            <option value="60">60 min</option>
-            </InputSelect>
-            </div>*@
-            @*    <hr />*@
+            <div class="setting-container">
+                <h4>Notifications</h4>
+                <p>Get notifications before your plan's timings start</p>
+                <select @bind="@user.Notification" class="form-select" aria-label="notify-time">
+                    <option value="30" selected>30 min (default)</option>
+                    <option value="15">15 min</option>
+                    <option value="45">45 min</option>
+                    <option value="60">60 min</option>
+                </select>
+            </div>
+            <hr />
             <div class="setting-container">
                 <h4>Account</h4>
                 <p>Click the button below to delete your account</p>
@@ -43,7 +43,7 @@
         </div>
     </Authorized>
     <NotAuthorized>
-        <div class="user-request">
+        <div style="width: 100%; height: 100%; align-items: center; justify-content: center; padding: 3rem; display: flex; flex-direction: column; gap: 2rem;">
             <a href="/signup" class="btn btn-secondary-filled btn-larger-font">
                 Sign Up
             </a>

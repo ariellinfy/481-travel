@@ -1,9 +1,9 @@
 ﻿﻿.page-container {
     width: 100%;
     background: rgb(195,186,155);
-    background: linear-gradient(180deg, rgba(195,186,155,1) 0%, rgba(244,244,233,1) 35%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(180deg, rgba(195,186,155,1) 0%, rgba(244,244,233,1) 25%, rgba(244,244,233,1) 50%, rgba(244,244,233,1) 75%, rgba(195,186,155,1) 100%);
     padding: 0.5rem;
-    height: 720px;
+    min-height: 800px;
 }
 
 .page-header {
@@ -114,4 +114,13 @@
 
 .add-new-plan{
     background-color: white;
+}
+
+.time-picker {
+    display: flex;
+    flex-direction: row;
+}
+
+.rz-calendar .rz-inputtext {
+    height: calc(3.5rem + 2px) !important;
 }

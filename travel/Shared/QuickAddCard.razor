@@ -1,25 +1,67 @@
 ﻿<div class="card">
-    <img src=@planImg class="card-img-top" alt="...">
-    <button class="btn btn-round btn-add btn-modal" type="button" @onclick="UpdateIcon">
+    <img src=@TargetPlace.ImgUrl class="card-img-top" alt="...">
+    <button class="btn btn-round btn-add @btnColor" type="button" @onclick="UpdateIcon">
         <i class="bi @iconType"></i>
     </button>
     <div class="card-body">
-        <h5 class="card-title title-smaller">@planName</h5>
-        <p class="card-text">@planDetail</p>
+        <h5 class="card-title title-smaller">@TargetPlace.Name</h5>
+        <p class="card-text">@placeInfoShown</p>
     </div>
 </div>
 
 @code {
     [Parameter]
-    public string planImg { get; set; } = "";
-    [Parameter]
-    public string planName { get; set; } = "";
-    [Parameter]
-    public string planDetail { get; set; } = "";
+    public Place TargetPlace { get; set; }
 
-    private string iconType = "bi-plus-lg";
+    private Amenity thisAmenity { get; set; }
+
+    private Event thisEvent { get; set; }
+
+    private string placeInfoShown { get; set; }
+
+    private bool adding;
+
+    private string iconType;
+    private string btnColor;
+
     private void UpdateIcon()
     {
-        iconType = "bi-check-lg";
+        adding = !adding;
+        if (adding)
+        {
+            iconType = "bi-check-lg";
+            btnColor = "btn-to-add";
+        }
+        else
+        {
+            iconType = "bi-plus-lg";
+            btnColor = "btn-added";
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        adding = false;
+        if (adding)
+        {
+            iconType = "bi-check-lg";
+            btnColor = "btn-to-add";
+        }
+        else
+        {
+            iconType = "bi-plus-lg";
+            btnColor = "btn-added";
+        }
+
+        if (TargetPlace.GetType() == typeof(Amenity))
+        {
+            thisAmenity = (Amenity)TargetPlace;
+            placeInfoShown = thisAmenity.Address;
+        }
+        else
+        {
+            thisEvent = (Event)TargetPlace;
+            placeInfoShown = thisEvent.Date + "at " + thisEvent.StartTime;
+        }
     }
 }

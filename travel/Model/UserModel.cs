@@ -17,11 +17,13 @@
 
         public bool Offline { get; set; } = false;
 
-        public List<Place> Notifications { get; set; } = new List<Place>();
+        public int Notification { get; set; } = 30;
 
         public List<Amenity> SuggestedAmenity { get; set; } = new List<Amenity>(); // searched
 
         public List<Event> SuggestedEvent { get; set; } = new List<Event>(); // searched
+
+        public HashSet<Place> Visited { get; set; } = new HashSet<Place>();
 
         public void ClearUserData()
         {
@@ -31,7 +33,7 @@
             Trips.Clear();
             Bookmarks.Clear();
             Reviews.Clear();
-            Notifications.Clear();
+            Notification = 30;
             SuggestedAmenity.Clear();
             SuggestedEvent.Clear();
         }
