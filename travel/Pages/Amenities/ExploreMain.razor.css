@@ -14,6 +14,7 @@ h4 {
 }
 
 hr {
+    background-color: black;
     margin: 0.5rem 0;
 }
 
@@ -39,4 +40,17 @@ hr {
 
 .modal-content{
     background-color: white;
+}
+
+.selected-type {
+    font-size: 0.85em;
+    padding: 0.5em 0.85em;
+    margin: 0.25em 0;
+    background-color: #C3BA9B;
+}
+
+.selected-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
 }

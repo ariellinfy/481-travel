@@ -7,9 +7,9 @@
 
 <div class="page-container">
     <nav class="navbar navbar-light">
-        <div class="input-group mb-3">
+        <div class="input-group mb-2">
             <input class="form-control mr-sm-2" type="search" placeholder="Where would you like to go?" aria-label="Search"
-                   value="@searchText" @onfocus="onSearch" @oninput="(e) => Searching(e.Value.ToString())">
+                   @onfocus="onSearch" @oninput="(e) => Searching(e.Value.ToString())">
             <button type="button" class="navbar-toggler" data-bs-toggle="modal" data-bs-target="#amenity-search-filter">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -71,6 +71,12 @@
     }
     else 
     {
+        <div class="selected-types">
+            @foreach (string tag in filters)
+            {
+                <span class="badge rounded-pill selected-type" @onclick="() => RemoveSelectedFilter(tag)">@tag</span>
+            }
+        </div>
         <hr />
         @if (searchResults.Count > 0)
         {
@@ -96,7 +102,7 @@
     private int ratingValue = 3;
 
     // for search bar
-    private string searchText;
+    private string searchKeyword;
     private HashSet<Amenity> searchResults = new HashSet<Amenity> { };
     private List<string> filters = new List<string> { };
 
@@ -118,22 +124,46 @@
     {
         filters.Add("art & culture");
         filters.Add("indoor");
-        foreach (Amenity amenity in state.AllAmenities)
+        Filtering();
+    }
+
+    private void RemoveSelectedFilter(string tag)
+    {
+        filters.Remove(tag);
+        Filtering();
+    }
+
+    private void Filtering()
+    {
+        if (searchResults.Count > 0)
         {
-            if (amenity.Categories.Contains(filters[0]) && amenity.Categories.Contains(filters[1]))
+            if (filters.Count > 0)
             {
-                searchResults.Add(amenity);
+                foreach (string filter in filters)
+                {
+                    searchResults = searchResults.Where(p => p.Categories.Contains(filter)).ToHashSet();
+                }
+            }
+            else
+            {
+                Searching(searchKeyword);
             }
         }
-        //if(searchText.Length > 0)
-        //{
-        //    Console.WriteLine(searchText);
-        //    Searching(searchText);
-        //}
+        else
+        {
+            if (filters.Count > 0)
+            {
+                foreach (string filter in filters)
+                {
+                    searchResults = state.AllAmenities.Where(p => p.Categories.Contains(filter)).ToHashSet();
+                }
+            }
+        }
     }
 
     private void Searching(string searchText)
     {
+        searchKeyword = searchText;
         searchText = searchText.Trim();
         if (searchText.Length > 0)
         {
