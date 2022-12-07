@@ -14,7 +14,7 @@ h4 {
 }
 
 hr {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.5);
     margin: 0.5rem 0;
 }
 

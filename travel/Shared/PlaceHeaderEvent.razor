@@ -76,8 +76,8 @@ else
         {
             bookmarkIcon = "bi-bookmark";
         }
+
         bkIndex = user.Bookmarks.FindIndex(place => place.id == TargetEvent.id);
-        Console.WriteLine(bkIndex);
         if (bkIndex == -1)
         {
             user.Bookmarks.Add(TargetEvent);

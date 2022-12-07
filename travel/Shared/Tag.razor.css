@@ -4,7 +4,7 @@
     border-color: #3b4b60;
     border-radius: 1rem;
     margin: 3px;
-    box-shadow: 1.5px 1.5px 1.5px #ccc;
+    /*box-shadow: 1.5px 1.5px 1.5px #ccc;*/
     padding: 0.25rem 0.75rem;
     text-transform: capitalize;
 }

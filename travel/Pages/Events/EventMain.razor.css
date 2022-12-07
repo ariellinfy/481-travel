@@ -14,9 +14,23 @@ h4 {
 }
 
 hr {
+    background-color: rgba(0, 0, 0, 0.5);
     margin: 0.5rem 0;
 }
 
 .modal-content {
     background-color: white;
+}
+
+.selected-type {
+    font-size: 0.85em;
+    padding: 0.5em 0.85em;
+    margin: 0.25em 0;
+    background-color: #C3BA9B;
+}
+
+.selected-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
 }

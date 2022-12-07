@@ -10,7 +10,7 @@
     <nav class="navbar navbar-light">
         <div class="input-group mb-3">
             <input class="form-control mr-sm-2" type="search" placeholder="Search upcoming events" aria-label="Search"
-                    @bind-value="searchText" @bind-value:event="oninput" @onfocus="onSearch">
+                   @onfocus="onSearch" @oninput="(e) => Searching(e.Value.ToString())">
             <button type="button" class="navbar-toggler" data-bs-toggle="modal" data-bs-target="#event-search-filter">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -18,7 +18,8 @@
             {
                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="#">Best Match</a></li>
+                    <li><a class="dropdown-item" href="#">Closest Date</a></li>
+                    <li><a class="dropdown-item" href="#">Relevance</a></li>
                     <li><a class="dropdown-item" href="#">Most Popular</a></li>
                     <li><a class="dropdown-item" href="#">Newly Added</a></li>
                 </ul>
@@ -72,6 +73,12 @@
     }
     else
     {
+        <div class="selected-types">
+            @foreach (string tag in filters)
+            {
+                <span class="badge rounded-pill selected-type" @onclick="() => RemoveSelectedFilter(tag)">@tag</span>
+            }
+        </div>
         <hr />
         @if (searchResults.Count > 0)
         {
@@ -86,15 +93,15 @@
             <div class="empty-result">Sorry, no event match your search...</div>
         }
     }
-    
 </div>
 
 @code {
     [CascadingParameter]
     public StateModel state { get; set; }
 
-    private string searchText;
-    private List<Event> searchResults = new List<Event> { };
+    private string searchKeyword;
+    private HashSet<Event> searchResults = new HashSet<Event> { };
+    private List<string> filters = new List<string> { };
 
     private void onSearch()
     {
@@ -106,6 +113,64 @@
         state.OnSearch = false;
         PageHistoryState.AddPageToHistory("/events");
         base.OnInitialized();
+    }
+
+    private void ApplyFilters()
+    {
+        onSearch();
+        filters.Add("games");
+        filters.Add("indoor");
+        Filtering();
+    }
+
+    private void RemoveSelectedFilter(string tag)
+    {
+        filters.Remove(tag);
+        Filtering();
+    }
+
+    private void Filtering()
+    {
+        if (searchResults.Count > 0)
+        {
+            if (filters.Count > 0)
+            {
+                foreach (string filter in filters)
+                {
+                    searchResults = searchResults.Where(p => p.Categories.Contains(filter)).ToHashSet();
+                }
+            }
+            else
+            {
+                Searching(searchKeyword);
+            }
+        }
+        else
+        {
+            if (filters.Count > 0)
+            {
+                searchResults = state.AllEvents.Where(p => p.Categories.Contains(filters[0])).ToHashSet();
+                foreach (string filter in filters)
+                {
+                    searchResults = searchResults.Where(p => p.Categories.Contains(filter)).ToHashSet();
+                }
+            }
+        }
+    }
+
+    private void Searching(string searchText)
+    {
+        searchKeyword = searchText;
+        searchText = searchText.Trim();
+        if (searchText.Length > 0)
+        {
+            searchResults = state.AllEvents.Where(p => p.Name.Contains(searchText)).ToHashSet();
+            base.OnParametersSet();
+        }
+        else
+        {
+            searchResults.Clear();
+        }
     }
 }
 
@@ -218,7 +283,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary-filled">Apply</button>
+                    <button type="button" class="btn btn-primary-filled" data-bs-dismiss="modal" @onclick="ApplyFilters">Apply</button>
                 </div>
             </form>
         </div>
