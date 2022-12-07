@@ -12,8 +12,6 @@ namespace travel.Model
 
         public bool OnSearch { get; set; } = false;
 
-        public int OnTab { get; set; }
-
         public bool JustLogout { get; set; } = false;
 
         public Amenity[]? AllAmenities { get; set; }

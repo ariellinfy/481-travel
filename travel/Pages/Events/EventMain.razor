@@ -99,12 +99,10 @@
     private void onSearch()
     {
         state.OnSearch = true;
-        state.OnTab = 2;
     }
 
     protected override void OnInitialized()
     {
-        state.OnTab = 2;
         state.OnSearch = false;
         PageHistoryState.AddPageToHistory("/events");
         base.OnInitialized();

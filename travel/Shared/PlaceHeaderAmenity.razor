@@ -48,8 +48,6 @@ else
 
     protected override void OnInitialized()
     {
-        state.OnTab = 1;
-        state.OnSearch = false;
         bkIndex = user.Bookmarks.FindIndex(place => place.id == TargetAmenity.id);
         if (bkIndex != -1)
         {
@@ -151,7 +149,7 @@ else
                 {
                     @foreach (Trip trip in user.Trips)
                     {
-                        <button type="button" class="btn btn-setting" data-bs-target="#tripSuccess" data-bs-toggle="modal" @onclick="() => AddToExistingTrip(trip)">trip.Name</button>
+                        <button type="button" class="btn btn-setting" data-bs-target="#tripSuccess" data-bs-toggle="modal" @onclick="() => AddToExistingTrip(trip)">@trip.Name</button>
                         <hr />
                     }
                 }

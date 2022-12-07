@@ -49,7 +49,6 @@
 
     protected override void OnInitialized()
     {
-        state.OnTab = 2;
         string currentUrl = "\\event\\" + id;
         PageHistoryState.AddPageToHistory(currentUrl);
         TargetEvent = state.AllEvents[id];

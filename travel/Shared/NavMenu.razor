@@ -1,73 +1,35 @@
-﻿<div class="navbar navbar-light">
+﻿@inject NavigationManager nav
+
+<div class="navbar navbar-light">
     <ul class="navbar-nav mr-auto">
-        @if (state.OnTab == 1) {
-            <li class="nav-item">
-                <a class="nav-link active-tab" href="explore" @onclick="navClick">
-                    <i class="bi bi-house-door"></i>
-                    Explore
-                </a>
-            </li>
-        }
-        else
-        {
-            <li class="nav-item">
-                <a class="nav-link" href="explore" @onclick="navClick">
-                    <i class="bi bi-house-door"></i>
-                    Explore
-                </a>
-            </li>
-        }
-        @if (state.OnTab == 2) {
-            <li class="nav-item">
-                <a class="nav-link active-tab" href="events" @onclick="navClick">
-                    <i class="bi bi-calendar-week"></i>
-                    Events
-                </a>
-            </li>
-        }
-        else
-        {
-            <li class="nav-item">
-                <a class="nav-link" href="events" @onclick="navClick">
-                    <i class="bi bi-calendar-week"></i>
-                    Events
-                </a>
-            </li>
-        }
-        @if (state.OnTab == 3) {
-            <li class="nav-item">
-                <a class="nav-link active-tab" href="trips" @onclick="navClick">
-                    <i class="bi bi-airplane"></i>
-                    Trips
-                </a>
-            </li>
-        }
-        else
-        {
-            <li class="nav-item">
-                <a class="nav-link" href="trips" @onclick="navClick">
-                    <i class="bi bi-airplane"></i>
-                    Trips
-                </a>
-            </li>
-        }
-        @if (state.OnTab == 4) {
-            <li class="nav-item">
-                <a class="nav-link active-tab" href="profile" @onclick="navClick">
-                    <i class="bi bi-person-circle"></i>
-                    Profile
-                </a>
-            </li>
-        }
-        else
-        {
-            <li class="nav-item">
-                <a class="nav-link" href="profile" @onclick="navClick">
-                    <i class="bi bi-person-circle"></i>
-                    Profile
-                </a>
-            </li>
-        }
+        <li class="nav-item" @onclick="ToExplore">
+            <input type="radio" class="btn-check" name="onTab" value="explore" id="explore" autocomplete="off" checked>
+            <label class="btn btn-tab" for="explore">
+                <i class="bi bi-house-door"></i>
+                Explore
+            </label>
+        </li>
+        <li class="nav-item" @onclick="ToEvents">
+            <input type="radio" class="btn-check" name="onTab" value="events" id="events" autocomplete="off">
+            <label class="btn btn-tab" for="events">
+                <i class="bi bi-calendar-week"></i>
+                Events
+            </label>
+        </li>
+        <li class="nav-item" @onclick="ToTrips">
+            <input type="radio" class="btn-check" name="onTab" value="trips" id="trips" autocomplete="off">
+            <label class="btn btn-tab" for="trips">
+                <i class="bi bi-airplane"></i>
+                Trips
+            </label>
+        </li>
+        <li class="nav-item" @onclick="ToProfile">
+            <input type="radio" class="btn-check" name="onTab" value="profile" id="profile" autocomplete="off">
+            <label class="btn btn-tab" for="profile">
+                <i class="bi bi-person-circle"></i>
+                Profile
+            </label>
+        </li>
     </ul>
 </div>
 
@@ -77,5 +39,29 @@
 
     private void navClick() {
         state.OnSearch = false;
+    }
+
+    private void ToExplore()
+    {
+        navClick();
+        nav.NavigateTo("/explore");
+    }
+
+    private void ToEvents()
+    {
+        navClick();
+        nav.NavigateTo("/events");
+    }
+
+    private void ToTrips()
+    {
+        navClick();
+        nav.NavigateTo("/trips");
+    }
+
+    private void ToProfile()
+    {
+        navClick();
+        nav.NavigateTo("/profile");
     }
 }

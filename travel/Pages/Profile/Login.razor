@@ -68,7 +68,6 @@
         ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserAuthentication(login.Email);
         state.isGuest = false;
         state.ShowNav = true;
-        state.OnTab = 1;
         user.DisplayName = "Test Robot";
         user.Email = login.Email;
         user.Password = login.Password;
@@ -81,7 +80,6 @@
     {
         state.isGuest = true;
         state.ShowNav = true;
-        state.OnTab = 1;
         user.ClearUserData();
         state.JustLogout = false;
     }

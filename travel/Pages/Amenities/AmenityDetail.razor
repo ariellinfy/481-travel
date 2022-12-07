@@ -69,7 +69,6 @@
 
     protected override void OnInitialized()
     {
-        state.OnTab = 1;
         string currentUrl = "\\amenity\\" + id;
         PageHistoryState.AddPageToHistory(currentUrl);
         TargetPlace = state.AllAmenities[id];

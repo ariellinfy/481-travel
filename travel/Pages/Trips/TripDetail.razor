@@ -76,7 +76,6 @@
 
     protected override void OnInitialized()
     {
-        state.OnTab = 3;
         string currentUrl = "\\trips\\" + id;
         PageHistoryState.AddPageToHistory(currentUrl);
         TargetTrip = user.Trips[id];

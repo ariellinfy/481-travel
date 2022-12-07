@@ -8,6 +8,7 @@
 .navbar {
     width: 100%;
     border-top: 0.1rem solid lightgray;
+    padding-top: 0;
 }
 
 .navbar-nav {
@@ -19,16 +20,28 @@
 
 .nav-item {
     font-size: 0.9rem;
-    padding-top: 0.5rem;
 }
 
-    .nav-item ::deep a {
-        color: #d7d7d7;
-        border-radius: 4px;
-        display: flex;
-        align-items: center;
-        line-height: 2rem;
-    }
+.btn-tab {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.btn-check:active + .btn-tab,
+.btn-check:checked + .btn-tab,
+.btn-tab.active,
+.btn-tab.dropdown-toggle.show,
+.btn-tab:active {
+    background-color: rgba(255,255,255,1);
+    color: #C3BA9B;
+}
+
+.nav-item ::deep a {
+    color: #d7d7d7;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    line-height: 2rem;
+}
 
         .nav-item ::deep a.active {
             background-color: rgba(255,255,255,1);
@@ -40,25 +53,6 @@
             color: white;
         }
 
-.navbar-nav .nav-link:focus, .navbar-light .nav-link:hover {
-    color: #C3BA9B;
-}
-
-.nav-link {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-}
-
-    .nav-link:active {
-        color: #C3BA9B;
-    }
-
 i {
     font-size: 2.25rem;
-}
-
-.active-tab {
-    color: #C3BA9B !important;
 }

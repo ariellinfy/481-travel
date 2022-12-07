@@ -54,10 +54,10 @@ img {
 .btn-container {
     display: flex;
     flex-direction: row;
-    gap: 0.5rem;
+    gap: 1rem;
     position: relative;
-    left: 18rem;
-    top: -3rem;
+    left: 17.5rem;
+    top: -2.9rem;
     height: 0;
 }
 

@@ -62,7 +62,6 @@
         ((TravelAuthenticationStateProvider)authenticationStateProvider).NotifyUserAuthentication(signup.Email);
         state.isGuest = false;
         state.ShowNav = true;
-        state.OnTab = 1;
         user.DisplayName = signup.Name;
         user.Email = signup.Email;
         user.Password = signup.Password;

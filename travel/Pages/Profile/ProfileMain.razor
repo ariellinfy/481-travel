@@ -67,7 +67,6 @@
 
     protected override void OnInitialized()
     {
-        state.OnTab = 4;
         PageHistoryState.AddPageToHistory("/profile");
         base.OnInitialized();
     }
@@ -79,7 +78,6 @@
         user.ClearUserData();
         state.JustLogout = true;
         state.ShowNav = false;
-        state.OnTab = 1;
         navigationManager.NavigateTo("/login");
     }
 }

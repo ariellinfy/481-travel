@@ -64,7 +64,6 @@
 
     protected override void OnInitialized()
     {
-        state.OnTab = 4;
         PageHistoryState.AddPageToHistory("/bookmarks");
         if (user.Bookmarks != null && user.Bookmarks.Count > 0)
         {
