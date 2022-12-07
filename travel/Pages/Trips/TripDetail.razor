@@ -278,7 +278,9 @@
                         <textarea class="form-control" @bind="@NewPlan.Notes" placeholder="N/A" id="notes" style="height: 100px"></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-save" data-bs-target="#planSuccess" data-bs-toggle="modal" @onclick="ValidatePlanCreation">Save</button>
+                    
+                    <button type="button" class="btn btn-save" data-bs-target="#planSuccess" data-bs-toggle="modal" @onclick="ValidatePlanCreation">Save</button>
+                    <button type="button" class="btn btn-save" data-bs-target="#addPlan" @onclick="ValidatePlanCreation">Save and Create Next Plan</button>
                 </div>
             </div>
         </div>
