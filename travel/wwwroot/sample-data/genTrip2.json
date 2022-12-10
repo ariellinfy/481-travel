@@ -2,7 +2,7 @@
   {
     "id": "0",
     "name": "Gelnblow Museum",
-    "date": "Sat, Apr 29, 2023",
+    "date": "Fri, Dec 16, 2022",
     "start": "10:00 AM",
     "end": "1:00 PM",
     "Address": "130 9 Ave SE, Calgary, AB T2G 0P3",
@@ -12,9 +12,9 @@
   {
     "id": "1",
     "name": "Fort Calgary",
-    "date": "Sat, Apr 29, 2023",
+    "date": "Fri, Dec 16, 2022",
     "start": "1:30 PM",
-    "end": "3:00  PM",
+    "end": "3:00 PM",
     "Address": "750 9 Ave SE, Calgary, AB T2G 5E1",
     "Notes": "",
     "Notfiy": false
@@ -22,7 +22,7 @@
   {
     "id": "2",
     "name": "Calgary Tower",
-    "date": "Sat, Apr 29, 2023",
+    "date": "Fri, Dec 16, 2022",
     "start": "3:30 PM",
     "end": "5:00 PM",
     "Address": "101 9 Ave SW, Calgary, AB T2P 1J9",
@@ -32,7 +32,7 @@
   {
     "id": "3",
     "name": "Heritage Park",
-    "date": "Sun, Apr 30, 2023",
+    "date": "Sat, Dec 17, 2022",
     "start": "10:00 AM",
     "end": "6:00 PM",
     "Address": "1900 Heritage Dr SW, Calgary, AB T2V 2X3",
@@ -41,10 +41,10 @@
   },
   {
     "id": "4",
-    "name": "The calgary Zoo",
-    "date": "Mon, May 1, 2023",
+    "name": "The Calgary Zoo",
+    "date": "Sun, Dec 18, 2022",
     "start": "11:00 AM",
-    "end": "4:00  PM",
+    "end": "4:00 PM",
     "Address": "210 St. George's Drive NE, Calgary, AB T2E 7V6",
     "Notes": "entry fee 7$ per person",
     "Notfiy": false

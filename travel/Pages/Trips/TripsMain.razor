@@ -7,7 +7,7 @@
     <Authorized>
         <div class="page-container">
             <div class="page-header">
-                <p class="text-wrap fs-3 page-title">Trips</p>
+                <p class="text-wrap fs-3 page-title">Your Trips</p>
             </div>
             <div class="page-body">
                 @if (user.Trips.Count > 0)
@@ -65,6 +65,7 @@
     public UserModel user { get; set; }
 
     Trip newTrip = new Trip();
+    string createdTripName = "";
     RecommendedTripModel recommendedTrip = new RecommendedTripModel();
     HashSet<string> desiredTypes = new HashSet<string>();
 
@@ -80,6 +81,7 @@
         newTrip.id = user.Trips.Count.ToString();
         if (newTrip.Name == null) newTrip.Name = "Default " + newTrip.id;
         user.Trips.Add(newTrip);
+        createdTripName = newTrip.Name;
         newTrip = new Trip();
     }
 
@@ -95,7 +97,7 @@
 
     private void GenerateTrip()
     {
-        foreach (Plan plan in state.GenTrip1)
+        foreach (Plan plan in state.GenTrip2)
         {
             if (!currentRecommend.ContainsKey(plan.Date))
             {
@@ -112,7 +114,7 @@
     private void Regenerate()
     {
         currentRecommend.Clear();
-        foreach (Plan plan in state.GenTrip2)
+        foreach (Plan plan in state.GenTrip4)
         {
             if (!currentRecommend.ContainsKey(plan.Date))
             {
@@ -135,7 +137,6 @@
         {
             newTrip.Name = newTrip.Name + " " + tag;
         }
-        //newTrip.Name = "Default" + newTrip.id;
 
         foreach (List<Plan> plans in currentRecommend.Values)
         {
@@ -144,9 +145,9 @@
                 newTrip.Plans.Add(plan);
             }
         }
-        newTrip.StartDate = "Tue, Apr 18, 2023";
-        newTrip.EndDate = "Tue, Apr 21, 2023";
-        newTrip.Days = "4 Days";
+        newTrip.StartDate = "Fri, Dec 16, 2022";
+        newTrip.EndDate = "Sun, Dec 18, 2022";
+        newTrip.Days = "3 Days";
         user.Trips.Add(newTrip);
     }
 }
@@ -162,7 +163,7 @@
                         <label for="tripName">Trip Name</label>
                     </div>
                     <div class="form-controls modal-footer">
-                        <button type="button" class="btn btn-close-variant btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal" aria-label="Close">Close</button>
                         <button type="button" class="btn btn-save" data-bs-target="#tripSuccess" data-bs-toggle="modal" @onclick="ValidateTripCreation">Create New Trip</button>
                     </div>
                 </div>
@@ -212,7 +213,7 @@
                     </div>
 
                     <div class="form-controls modal-footer">
-                        <button type="button" class="btn btn-close btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal" aria-label="Close">Close</button>
                         <button type="button" class="btn btn-save" data-bs-toggle="modal" data-bs-target="#generatedTrip" @onclick="GenerateTrip">
                             Create
                         </button>
@@ -236,6 +237,17 @@
                     <DayPlans PlanDate="@dayplans.Key" Plans="@dayplans.Value" />
                     <hr />
                 }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="tripSuccess" aria-hidden="true" aria-labelledby="tripSuccessLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-center" style="margin: 2rem;">
+        <div class="modal-content">
+            <div class="modal-body modal-info">
+                <i class="bi bi-check-circle"></i>
+                You Successfully Created a New Trip <b>@createdTripName</b>
             </div>
         </div>
     </div>

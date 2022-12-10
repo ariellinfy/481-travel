@@ -80,18 +80,7 @@
         PageHistoryState.AddPageToHistory(currentUrl);
         TargetTrip = user.Trips[id];
 
-        foreach(Plan plan in TargetTrip.Plans)
-        {
-            if (!plans.ContainsKey(plan.Date))
-            {
-                plans.Add(plan.Date, new List<Plan>());
-                plans[plan.Date].Add(plan);
-            }
-            else
-            {
-                plans[plan.Date].Add(plan);
-            }
-        }
+        DaysRefresh();
 
         foreach(Place place in user.Bookmarks)
         {
@@ -106,13 +95,15 @@
 
     private void DeleteTrip()
     {
-        user.Trips.Remove(TargetTrip);
+        int toDelete = user.Trips.IndexOf(TargetTrip);
+        user.Trips[toDelete].DeletePlan();
+        //user.Trips.Remove(TargetTrip);
         nav.NavigateTo("/trips");
     }
 
     private void GoBack()
     {
-    @if (PageHistoryState.CanGoBack())
+        @if (PageHistoryState.CanGoBack())
         {
             string backPage = PageHistoryState.GetGoBackPage();
             nav.NavigateTo(backPage);
@@ -121,12 +112,42 @@
 
     void EditPlanCallback()
     {
+        DaysRefresh();
         StateHasChanged();
     }
 
     void DeletePlanCallback(Plan toDelete)
     {
+        RemoveEmptyDays();
         StateHasChanged();
+    }
+
+    void DaysRefresh() 
+    {
+        plans.Clear();
+        foreach(Plan plan in TargetTrip.Plans)
+        {
+            if (!plans.ContainsKey(plan.Date))
+            {
+                plans.Add(plan.Date, new List<Plan>());
+                plans[plan.Date].Add(plan);
+            }
+            else
+            {
+                plans[plan.Date].Add(plan);
+            }
+        }
+    }
+
+    void RemoveEmptyDays() 
+    {
+        var emptyKeys = plans.Where(pair => pair.Value.Count == 0)
+                        .Select(pair => pair.Key)
+                        .ToList();
+        foreach (var key in emptyKeys)
+        {
+            plans.Remove(key);
+        }
     }
 
     private Plan NewPlan = new Plan();
@@ -214,8 +235,8 @@
                         <label for="tripName">Trip Name</label>
                     </div>
                     <div class="form-controls modal-footer">
-                        <button type="button" class="btn btn-close-variant btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                        <button type="button" class="btn btn-save" data-bs-toggle="modal">Rename</button>
+                        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                        <button type="button" class="btn btn-save" data-bs-dismiss="modal">Rename</button>
                     </div>
                 </div>
             </div>
@@ -229,8 +250,8 @@
             <div class="modal-body">
                 <h5 class="create-option">Are you sure to delete the <b>@TargetTrip.Name</b> Trip?</h5>
                 <div class="form-controls modal-footer">
-                    <button type="button" class="btn btn-close-variant btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                    <button type="button" class="btn btn-save" data-bs-toggle="modal" @onclick="DeleteTrip">Delete</button>
+                    <button type="button" class="btn btn-cancel" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                    <button type="button" class="btn btn-save" data-bs-dismiss="modal" @onclick="DeleteTrip">Delete</button>
                 </div>
             </div>
         </div>
@@ -248,7 +269,7 @@
                 <div class="plan-form">
                     <div class="mb-3">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Activity Name</RadzenText>
-                        <input type="text" @bind="@NewPlan.Name" class="form-control" id="activityName" placeholder="Fun Activity" required>
+                        <input type="text" @bind="@NewPlan.Name" class="form-control" id="activityName" placeholder="eg. Fun Activity" required>
                     </div>
 
                     <div class="mb-3">
@@ -270,16 +291,16 @@
 
                     <div class="mb-3">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Address</RadzenText>
-                        <input type="text" @bind="@NewPlan.Address" class="form-control" id="address" placeholder="101 9 Ave SW, Calgary, AB T2P 1J9">
+                        <input type="text" @bind="@NewPlan.Address" class="form-control" id="address" placeholder="eg. 101 9 Ave SW, Calgary, AB T2P 1J9">
                     </div>
 
                     <div>
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Notes</RadzenText>
-                        <textarea class="form-control" @bind="@NewPlan.Notes" placeholder="N/A" id="notes" style="height: 100px"></textarea>
+                        <textarea class="form-control" @bind="@NewPlan.Notes" placeholder="Jot down notes for this plan" id="notes" style="height: 100px"></textarea>
                     </div>
 
                     
-                    <button type="button" class="btn btn-save" data-bs-target="#planSuccess" data-bs-toggle="modal" @onclick="ValidatePlanCreation">Save</button>
+                    <button type="button" class="btn btn-save mt-4" data-bs-dismiss="modal" @onclick="ValidatePlanCreation">Save</button>
                     <button type="button" class="btn btn-save" data-bs-target="#addPlan" @onclick="ValidatePlanCreation">Save and Create Next Plan</button>
                 </div>
             </div>

@@ -58,6 +58,14 @@
     border: 2px solid transparent;
 }
 
+.btn-cancel {
+    background-color: #7E6D53;
+    margin: 0.5rem 0 0 0;
+    color: white;
+    width: 100%;
+    border: 2px solid transparent;
+}
+
 .btn-close {
     margin: 0.5rem 0 0 0;
     color: #7E6D53;
@@ -111,4 +119,8 @@ hr {
 
 .create-new-trip {
     background-color: white;
+}
+
+.modal-info {
+    padding-bottom: 1.5rem;
 }

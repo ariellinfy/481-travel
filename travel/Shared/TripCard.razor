@@ -1,12 +1,15 @@
 ﻿@inject NavigationManager nav
 
-<div class="trip-card btn card shadow-sm" @onclick="GoToPage">
-    <div class="card-body">
-        <h5 class="card-title">@TargetTrip.Name</h5>
-        <p class="card-text">@TargetTrip.StartDate - @TargetTrip.EndDate</p>
-        <p class="card-text">@TargetTrip.Days</p>
+@if (TargetTrip.Name.Length > 0)
+{
+    <div class="trip-card btn card shadow-sm" @onclick="GoToPage">
+        <div class="card-body">
+            <h5 class="card-title">@TargetTrip.Name</h5>
+            <p class="card-text">@TargetTrip.StartDate - @TargetTrip.EndDate</p>
+            <p class="card-text">@TargetTrip.Days</p>
+        </div>
     </div>
-</div>
+}
 
 @code {
     [Parameter]

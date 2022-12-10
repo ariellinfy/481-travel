@@ -95,3 +95,19 @@ hr {
 .rz-calendar .rz-inputtext {
     height: calc(3.5rem + 2px) !important;
 }
+
+.btn-cancel-modal {
+    background-color: #7E6D53;
+    margin: 0.5rem 0 0 0;
+    color: white;
+    width: 100%;
+    border: 2px solid transparent;
+}
+
+.btn-save {
+    background-color: #4E7779;
+    margin: 0.5rem 0 0 0;
+    color: white;
+    width: 100%;
+    border: 2px solid transparent;
+}

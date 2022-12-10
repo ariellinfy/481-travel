@@ -16,5 +16,14 @@ namespace travel.Model
         public string Days { get; set; }
 
         public List<Plan> Plans { get; set; } = new List<Plan>();
+
+        public void DeletePlan()
+        {
+            Name = "";
+            StartDate = "";
+            EndDate = "";
+            Days = "";
+            Plans.Clear();
+        }
     }
 }
