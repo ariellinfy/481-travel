@@ -6,7 +6,7 @@
 
         public string user { get; set; }
 
-        public string PublishedDate { get; set; }
+        public string published { get; set; }
 
         public int rating { get; set; } = 3;
 

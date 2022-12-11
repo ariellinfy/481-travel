@@ -32,7 +32,7 @@
             {
                 @foreach (var review in TargetPlace.Reviews)
                 {
-                    <AmenityDetailReviewCard User="@review.user" PublishedOn="@review.PublishedDate" Rate="@review.rating" ReviewContent="@review.review" />
+                    <AmenityDetailReviewCard User="@review.user" PublishedOn="@review.published" Rate="@review.rating" ReviewContent="@review.review" />
                     <hr />
                 }
             }
@@ -93,7 +93,7 @@
     private void AddReview()
     {
         reviewItem.user = user.DisplayName;
-        reviewItem.PublishedDate = "Dec 9, 2022";
+        reviewItem.published = "Dec 16, 2022";
         user.Reviews.Add(reviewItem);
         TargetPlace.Reviews.Add(reviewItem);
 
