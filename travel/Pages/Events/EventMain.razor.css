@@ -34,3 +34,9 @@ hr {
     flex-wrap: wrap;
     gap: 0.25rem;
 }
+
+.filter-controls {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}

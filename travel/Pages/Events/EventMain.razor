@@ -202,14 +202,32 @@
     private void CateDancingFilter()
     {
         onSearch();
+        isArt = false;
         isDancing = true;
+        isGame = false;
+        isHobby = false;
+        isLanguage = false;
+        isFood = false;
+        isTech = false;
+        isWriting = false;
+        isTravel = false;
+        isSport = false;
         ApplyFilters();
     }
 
     private void CateGameFilter()
     {
         onSearch();
+        isArt = false;
+        isDancing = false;
         isGame = true;
+        isHobby = false;
+        isLanguage = false;
+        isFood = false;
+        isTech = false;
+        isWriting = false;
+        isTravel = false;
+        isSport = false;
         ApplyFilters();
     }
 
@@ -217,27 +235,63 @@
     {
         onSearch();
         isArt = true;
+        isDancing = false;
+        isGame = false;
+        isHobby = false;
+        isLanguage = false;
+        isFood = false;
+        isTech = false;
+        isWriting = false;
+        isTravel = false;
+        isSport = false;
         ApplyFilters();
     }
 
     private void CateFoodFilter()
     {
         onSearch();
+        isArt = false;
+        isDancing = false;
+        isGame = false;
+        isHobby = false;
+        isLanguage = false;
         isFood = true;
+        isTech = false;
+        isWriting = false;
+        isTravel = false;
+        isSport = false;
         ApplyFilters();
     }
 
     private void CateTechFilter()
     {
         onSearch();
+        isArt = false;
+        isDancing = false;
+        isGame = false;
+        isHobby = false;
+        isLanguage = false;
+        isFood = false;
         isTech = true;
+        isWriting = false;
+        isTravel = false;
+        isSport = false;
         ApplyFilters();
     }
 
     private void CateTravelFilter()
     {
         onSearch();
+        isArt = false;
+        isDancing = false;
+        isGame = false;
+        isHobby = false;
+        isLanguage = false;
+        isFood = false;
+        isTech = false;
+        isWriting = false;
         isTravel = true;
+        isSport = false;
         ApplyFilters();
     }
 
@@ -294,9 +348,18 @@
         searchText = searchText.Trim();
         if (searchText.Length > 0)
         {
-            searchResults = state.AllEvents.Where(p => p.Name.Contains(searchText, System.StringComparison.CurrentCultureIgnoreCase)).ToHashSet();
-            searchResults.UnionWith(state.AllEvents.Where(p => p.Tags[0].Contains(searchText)).ToHashSet());
-            state.SuggestedEvents = searchResults.ToList();
+            if (searchResults.Count > 0)
+            {
+                searchResults = searchResults.Where(p => p.Name.Contains(searchText, System.StringComparison.CurrentCultureIgnoreCase)).ToHashSet();
+                state.SuggestedEvents = searchResults.ToList();
+            }
+            else
+            {
+                searchResults = state.AllEvents.Where(p => p.Name.Contains(searchText, System.StringComparison.CurrentCultureIgnoreCase)).ToHashSet();
+                searchResults.UnionWith(state.AllEvents.Where(p => p.Tags.Contains(searchText)).ToHashSet());
+                state.SuggestedEvents = searchResults.ToList();
+            }
+            
             base.OnParametersSet();
         }
         else
@@ -414,7 +477,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer filter-controls">
+                    <button class="btn btn-secondary-filled" type="button" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
                     <button type="button" class="btn btn-primary-filled" data-bs-dismiss="modal" @onclick="ApplyFilters">Apply</button>
                 </div>
             </form>

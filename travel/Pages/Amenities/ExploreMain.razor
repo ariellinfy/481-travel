@@ -199,7 +199,16 @@
     private void CateShoppingFilter()
     {
         onSearch();
+        isArt = false;
         isShopping = true;
+        isGame = false;
+        isFood = false;
+        isMuseum = false;
+        isNight = false;
+        isHistoric = false;
+        isWild = false;
+        isParks = false;
+        isSport = false;
         ApplyFilters();
     }
 
@@ -207,33 +216,78 @@
     {
         onSearch();
         isArt = true;
+        isShopping = false;
+        isGame = false;
+        isFood = false;
+        isMuseum = false;
+        isNight = false;
+        isHistoric = false;
+        isWild = false;
+        isParks = false;
+        isSport = false;
         ApplyFilters();
     }
 
     private void CateGameFilter()
     {
         onSearch();
+        isArt = false;
+        isShopping = false;
         isGame = true;
+        isFood = false;
+        isMuseum = false;
+        isNight = false;
+        isHistoric = false;
+        isWild = false;
+        isParks = false;
+        isSport = false;
         ApplyFilters();
     }
 
     private void CateFoodFilter()
     {
         onSearch();
+        isArt = false;
+        isShopping = false;
+        isGame = false;
         isFood = true;
+        isMuseum = false;
+        isNight = false;
+        isHistoric = false;
+        isWild = false;
+        isParks = false;
+        isSport = false;
         ApplyFilters();
     }
 
     private void CateNightFilter()
     {
         onSearch();
+        isArt = false;
+        isShopping = false;
+        isGame = false;
+        isFood = false;
+        isMuseum = false;
         isNight = true;
+        isHistoric = false;
+        isWild = false;
+        isParks = false;
+        isSport = false;
         ApplyFilters();
     }
 
     private void CateSportFilter()
     {
         onSearch();
+        isArt = false;
+        isShopping = false;
+        isGame = false;
+        isFood = false;
+        isMuseum = false;
+        isNight = false;
+        isHistoric = false;
+        isWild = false;
+        isParks = false;
         isSport = true;
         ApplyFilters();
     }
@@ -274,13 +328,7 @@
         }
         else
         {
-            foreach (string filter in filters)
-            {
-                Console.WriteLine(filter);
-            }
-            
             searchResults = state.AllAmenities.Where(p => p.Rating >= ratingValue).ToHashSet();
-            Console.WriteLine(searchResults.Count);
             if (filters.Count > 0)
             {
                 foreach (string filter in filters)
@@ -298,9 +346,17 @@
         searchText = searchText.Trim();
         if (searchText.Length > 0)
         {
-            searchResults = state.AllAmenities.Where(p => p.Name.Contains(searchText, System.StringComparison.CurrentCultureIgnoreCase)).ToHashSet();
-            searchResults.UnionWith(state.AllAmenities.Where(p => p.Tags[0].Contains(searchText)).ToHashSet());
-            state.SuggestedAmenities = searchResults.ToList();
+            if (searchResults.Count > 0)
+            {
+                searchResults = searchResults.Where(p => p.Name.Contains(searchText, System.StringComparison.CurrentCultureIgnoreCase)).ToHashSet();
+                state.SuggestedAmenities = searchResults.ToList();
+            }
+            else
+            {
+                searchResults = state.AllAmenities.Where(p => p.Name.Contains(searchText, System.StringComparison.CurrentCultureIgnoreCase)).ToHashSet();
+                searchResults.UnionWith(state.AllAmenities.Where(p => p.Tags.Contains(searchText)).ToHashSet());
+                state.SuggestedAmenities = searchResults.ToList();
+            }
             base.OnParametersSet();
         }
         else
@@ -399,7 +455,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer filter-controls">
+                    <button class="btn btn-secondary-filled" type="button" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
                     <button type="button" class="btn btn-primary-filled" data-bs-dismiss="modal" @onclick="ApplyFilters">Apply</button>
                 </div>
             </form>

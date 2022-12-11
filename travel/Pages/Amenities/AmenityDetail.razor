@@ -69,6 +69,7 @@
 
     protected override void OnInitialized()
     {
+        Console.WriteLine("check");
         string currentUrl = "\\amenity\\" + id;
         PageHistoryState.AddPageToHistory(currentUrl);
         TargetPlace = state.AllAmenities[id];
@@ -83,6 +84,7 @@
             }
         }
         reviewItem.place = TargetPlace;
+        base.OnInitialized();
     }    
 
     void RatingOnChange(int value)
