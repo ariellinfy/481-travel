@@ -14,3 +14,7 @@
 .card-body {
     padding: 0.75rem 0.25rem;
 }
+
+.card {
+    width: auto;
+}

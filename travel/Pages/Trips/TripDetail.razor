@@ -76,7 +76,7 @@
 
     protected override void OnInitialized()
     {
-        string currentUrl = "\\trips\\" + id;
+        string currentUrl = "/trips/" + id;
         PageHistoryState.AddPageToHistory(currentUrl);
         TargetTrip = user.Trips[id];
 
@@ -132,6 +132,7 @@
         plans.Clear();
         foreach(Plan plan in TargetTrip.Plans)
         {
+            Console.WriteLine("detail: " + plan.Date + ", " + plan.Id);
             if (!plans.ContainsKey(plan.Date))
             {
                 plans.Add(plan.Date, new List<Plan>());
@@ -230,6 +231,7 @@
 
     void QuickAddCallback(Place toAdd)
     {
+        Console.WriteLine("here?");
         // add to current trip
         Plan QuickAddNewPlan = new Plan();
 
@@ -253,6 +255,7 @@
         }
 
         QuickAddNewPlan.Id = TargetTrip.Plans.Count;
+        Console.WriteLine("id" + QuickAddNewPlan.Id);
 
         TargetTrip.Plans.Add(QuickAddNewPlan);
         if (!plans.ContainsKey(QuickAddNewPlan.Date))

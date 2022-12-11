@@ -43,6 +43,7 @@
 
     protected override void OnInitialized()
     {
+        Console.WriteLine(TargetPlan.Id);
         if (TargetPlan.Notify)
         {
             bellIcon = "bi-bell-fill";
@@ -94,6 +95,7 @@
 
     private void EditPlan()
     {
+        Console.WriteLine(TargetPlan.Id);
         if (TargetPlan.Date.Equals("To Be Determine"))
         {
             DateTime? DateValue = DateTime.Now;
@@ -108,6 +110,7 @@
 
     private void SavePlan()
     {
+        Console.WriteLine("Save: " + TargetPlan.Date);
         if (TargetPlan.Name.Length == 0)
         {
             TargetPlan.Name = "Default Plan " + TargetPlan.Id;

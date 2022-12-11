@@ -50,8 +50,6 @@
     private async Task LoadDataAsync()
     {
         similarEvents.Clear();
-        string currentUrl = "\\event\\" + id;
-        PageHistoryState.AddPageToHistory(currentUrl);
         TargetEvent = state.AllEvents[id];
         user.Visited.Add(TargetEvent);
 
@@ -73,6 +71,8 @@
 
     protected override async Task OnParametersSetAsync()
     {
+        string currentUrl = "/event/" + id;
+        PageHistoryState.AddPageToHistory(currentUrl);
         await LoadDataAsync();
     }
 }

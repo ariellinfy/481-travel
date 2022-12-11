@@ -71,8 +71,6 @@
     private async Task LoadDataAsync()
     {
         similarPlaces.Clear();
-        string currentUrl = "//amenity//" + id;
-        PageHistoryState.AddPageToHistory(currentUrl);
         TargetPlace = state.AllAmenities[id];
         user.Visited.Add(TargetPlace);
 
@@ -95,6 +93,8 @@
 
     protected override async Task OnParametersSetAsync()
     {
+        string currentUrl = "/amenity/" + id;
+        PageHistoryState.AddPageToHistory(currentUrl);
         await LoadDataAsync();
     }
 
