@@ -94,6 +94,11 @@
 
     private void EditPlan()
     {
+        if (TargetPlan.Date.Equals("To Be Determine"))
+        {
+            DateTime? DateValue = DateTime.Now;
+            TargetPlan.Date = DateValue?.ToString("MMM dd, yyyy");
+        }
         if (TargetPlan.Date.Length > 12) 
         {
             TargetPlan.Date = TargetPlan.Date.Substring(5);
@@ -159,7 +164,7 @@
                         <textarea class="form-control" @bind="@TargetPlan.Notes" placeholder="Jot down notes for this plan" id="notes" style="height: 100px"></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-save" data-bs-target="#planSuccess" data-bs-dismiss="modal" @onclick="SavePlan">Save</button>
+                    <button type="submit" class="btn btn-save mt-4" data-bs-target="#planSuccess" data-bs-dismiss="modal" @onclick="SavePlan">Save</button>
                 </div>
             </div>
         </div>

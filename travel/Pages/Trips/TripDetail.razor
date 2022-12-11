@@ -222,6 +222,46 @@
         NewPlan = new Plan();
         StateHasChanged();
     }
+
+    void QuickAddCallback(Place toAdd)
+    {
+        // add to current trip
+        Plan QuickAddNewPlan = new Plan();
+
+        if (toAdd.GetType() == typeof(Amenity))
+        {
+            Amenity thisAmenity = (Amenity)toAdd;
+            QuickAddNewPlan.Name = thisAmenity.Name;
+            QuickAddNewPlan.Date = "To Be Determine";
+            QuickAddNewPlan.Start = "TBD";
+            QuickAddNewPlan.End = "TBD";
+            QuickAddNewPlan.Address = thisAmenity.Address;
+        }
+        else
+        {
+            Event thisEvent = (Event)toAdd;
+            QuickAddNewPlan.Name = thisEvent.Name;
+            QuickAddNewPlan.Date = thisEvent.Date;
+            QuickAddNewPlan.Start = thisEvent.StartTime;
+            QuickAddNewPlan.End = thisEvent.EndTime;
+            QuickAddNewPlan.Address = thisEvent.Address;
+        }
+
+        QuickAddNewPlan.Id = TargetTrip.Plans.Count;
+
+        TargetTrip.Plans.Add(QuickAddNewPlan);
+        if (!plans.ContainsKey(QuickAddNewPlan.Date))
+        {
+            plans.Add(QuickAddNewPlan.Date, new List<Plan>());
+            plans[QuickAddNewPlan.Date].Add(QuickAddNewPlan);
+        }
+        else
+        {
+            plans[QuickAddNewPlan.Date].Add(QuickAddNewPlan);
+        }
+
+        StateHasChanged();
+    }
 }
 
 <div class="modal fade" id="rename" aria-hidden="true" aria-labelledby="newTripLabel" tabindex="-1">
@@ -316,16 +356,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div id="quick-add" class="modal-body">
-                @if(user.Visited.Count > 0)
+                @if (toQuickAdd.Count > 0)
                 {
                     @foreach (Place place in toQuickAdd)
                     {
-                        <QuickAddCard TargetPlace="@place" />
+                        <QuickAddCard TargetPlace="@place" ToAddPlace="@QuickAddCallback" />
                     }
                 }
                 else
                 {
-                    <div style="font-size: large; text-align:center;">No recommendation right Now, try to Explore More!</div>
+                    <div style="font-size: large; text-align:center;">No recommendation right now, try to Explore More!</div>
                     <button type="button" class="btn btn-secondary-filled" data-bs-dismiss="modal" aria-label="Close">Got it!</button>
                 }
             </div>

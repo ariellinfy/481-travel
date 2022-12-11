@@ -1,8 +1,17 @@
 ﻿<div class="card">
     <img src=@TargetPlace.ImgUrl class="card-img-top" alt="...">
-    <button class="btn btn-round btn-add @btnColor" type="button" @onclick="UpdateIcon">
-        <i class="bi @iconType"></i>
-    </button>
+    @if(added)
+    {
+        <button class="btn btn-round btn-add btn-added" type="button">
+            <i class="bi bi-check-lg"></i>
+        </button>
+    }
+    else
+    {
+        <button class="btn btn-round btn-add btn-to-add" type="button" @onclick="AddToTrip">
+            <i class="bi bi-plus-lg"></i>
+        </button>
+    }
     <div class="card-body">
         <h5 class="card-title title-smaller">@TargetPlace.Name</h5>
         <p class="card-text">@placeInfoShown</p>
@@ -19,39 +28,22 @@
 
     private string placeInfoShown { get; set; }
 
-    private bool adding;
+    private bool added;
 
     private string iconType;
-    private string btnColor;
 
-    private void UpdateIcon()
+    [Parameter]
+    public EventCallback<Place> ToAddPlace { get; set; }
+
+    void AddToTrip()
     {
-        adding = !adding;
-        if (adding)
-        {
-            iconType = "bi-check-lg";
-            btnColor = "btn-to-add";
-        }
-        else
-        {
-            iconType = "bi-plus-lg";
-            btnColor = "btn-added";
-        }
+        added = !added;
+        ToAddPlace.InvokeAsync(TargetPlace);
     }
 
     protected override void OnInitialized()
     {
-        adding = false;
-        if (adding)
-        {
-            iconType = "bi-check-lg";
-            btnColor = "btn-to-add";
-        }
-        else
-        {
-            iconType = "bi-plus-lg";
-            btnColor = "btn-added";
-        }
+        added = false;
 
         if (TargetPlace.GetType() == typeof(Amenity))
         {
