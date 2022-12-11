@@ -6,23 +6,23 @@
     <Authorized>
         <PageHeader pageTitle="Bookmarks" />
         <div class="page-body">
-            @if (user.Bookmarks.Count != 0)
+            @if (nbookmarks > 0)
             {
                 <RadzenTabs TabPosition="@tabPosition" RenderMode="TabRenderMode.Client">
                     <Tabs>
                         <RadzenTabsItem Text="Amenity">
                             <div class="tab-container">
-                                @for (int i = 0; i < AmenityBookmarks.Count; i++)
+                                @foreach (Amenity bookmark in user.BookmarksAmenity)
                                 {
-                                    <BookmarkCardAmenity BookmarkedAmenity="@AmenityBookmarks[i]" placeIndex="@i" UnbookmarkItem="@UnbookmarkAmenityCallBack" />
+                                    <BookmarkCardAmenity BookmarkedAmenity="@bookmark" UnbookmarkItem="@UnbookmarkAmenityCallBack" />
                                 }
                             </div>
                         </RadzenTabsItem>
                         <RadzenTabsItem Text="Event">
                             <div class="tab-container">
-                                @for (int i = 0; i < EventBookmarks.Count; i++)
+                                @foreach (Event bookmark in user.BookmarksEvent)
                                 {
-                                    <BookmarkCardEvent BookmarkedEvent="@EventBookmarks[i]" placeIndex="@i" UnbookmarkItem="@UnbookmarkEventCallBack" />
+                                    <BookmarkCardEvent BookmarkedEvent="@bookmark" UnbookmarkItem="@UnbookmarkEventCallBack" />
                                 }
                             </div>
 
@@ -58,41 +58,22 @@
     public UserModel user { get; set; }
 
     TabPosition tabPosition = TabPosition.Top;
-
-    List<Amenity> AmenityBookmarks = new List<Amenity>();
-    List<Event> EventBookmarks = new List<Event>();
+    int nbookmarks;
 
     protected override void OnInitialized()
     {
         PageHistoryState.AddPageToHistory("/bookmarks");
-        if (user.Bookmarks != null && user.Bookmarks.Count > 0)
-        {
-            foreach (Place place in user.Bookmarks)
-            {
-                if (place is Amenity)
-                {
-                    AmenityBookmarks.Add((Amenity)place);
-                }
-                else
-                {
-                    EventBookmarks.Add((Event)place);
-                }
-            }
-        }
+        nbookmarks = user.BookmarksAmenity.Count() + user.BookmarksEvent.Count();
         base.OnInitialized();
     }
 
-    public void UnbookmarkAmenityCallBack(int index)
+    public void UnbookmarkAmenityCallBack(Amenity toUnbookmark)
     {
-        Amenity amenityItem = AmenityBookmarks[index];
-        Place unbookmark = user.Bookmarks.Find(place => place.Name == amenityItem.Name);
-        if (unbookmark != null) user.Bookmarks.Remove(unbookmark);
+        user.BookmarksAmenity.Remove(toUnbookmark);
     }
 
-    public void UnbookmarkEventCallBack(int index)
+    public void UnbookmarkEventCallBack(Event toUnbookmark)
     {
-        Event eventItem = EventBookmarks[index];
-        Place unbookmark = user.Bookmarks.Find(place => place.Name == eventItem.Name);
-        if (unbookmark != null) user.Bookmarks.Remove(unbookmark);
+        user.BookmarksEvent.Remove(toUnbookmark);
     }
 }

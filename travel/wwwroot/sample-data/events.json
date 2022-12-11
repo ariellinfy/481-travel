@@ -519,5 +519,117 @@
       "13",
       "14"
     ]
+  },
+  {
+    "id": "16",
+    "name": "D&D 5E for Beginners+free-food",
+    "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F508638683%2F676x380.webp&w=1920&q=75",
+    "date": "Sat, Dec 19, 2022",
+    "startTime": "6:00 PM",
+    "endTime": "11:00 PM",
+    "address": "1502 11 St SW, Calgary, AB T2R 1G9",
+    "description": "I’ll be bringing Munchkin Shakespeare and some snacks and drinks. You are all encouraged to bring board games as well, although Last Place on Earth has some that we can use!",
+    "tags": [
+      "games",
+      "food",
+      "indoor",
+      "group-games",
+      "prizes",
+      "animal",
+      "Accessibility",
+      "Kid-friendly",
+      "Free-food"
+    ],
+    "categories": [
+      "games",
+      "food",
+      "indoor"
+    ],
+    "similar": [
+      "1"
+    ]
+  },
+  {
+    "id": "17",
+    "name": "Miniatures Gaming and lunch",
+    "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F509055677%2F676x380.webp&w=1920&q=75",
+    "date": "Sun, Dec 11, 2022",
+    "startTime": "10:00 AM",
+    "endTime": "1:00 PM",
+    "address": "1314 17 Ave SW, Calgary, AB T2T 0C3",
+    "description": "As we approach the holidays we've decided to designate this meetup as our official HOLIDAY PARTY! Come down for some fun games with a friendly and welcoming community and wear your ugliest holiday sweater! We'll also be sharing treats and doing a mini swap.",
+    "tags": [
+      "games",
+      "food",
+      "indoor",
+      "group-games",
+      "prizes",
+      "animal",
+      "Accessibility",
+      "Kid-friendly",
+      "Free-food"
+    ],
+    "categories": [
+      "games",
+      "food",
+      "indoor"
+    ],
+    "similar": [
+      "1"
+    ]
+  },
+  {
+    "id": "18",
+    "name": "Coffee Shop Wednesday",
+    "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F508753980%2F676x380.webp&w=1920&q=75",
+    "date": "Wed, Dec 14, 2022",
+    "startTime": "8:00 PM",
+    "endTime": "9:30 PM",
+    "address": "1900 Heritage Dr SW, Calgary, AB T2V 2X3",
+    "description": "A place to meet and work side by side. It’s hard with a 9 to 5 to pursue our art and painting together",
+    "tags": [
+      "Art & culture",
+      "food",
+      "indoor",
+      "group-art",
+      "Accessibility",
+      "Kid-friendly",
+      "Free-food"
+    ],
+    "categories": [
+      "art & culture",
+      "food",
+      "indoor"
+    ],
+    "similar": [
+      "3"
+    ]
+  },
+  {
+    "id": "19",
+    "name": "Considering Art show and snacks",
+    "imgUrl": "https://www.meetup.com/_next/image/?url=https%3A%2F%2Fsecure-content.meetupstatic.com%2Fimages%2Fclassic-events%2F508934187%2F676x380.webp&w=1920&q=75",
+    "date": "Wed, Dec 14, 2022",
+    "startTime": "5:00 PM",
+    "endTime": "6:30 PM",
+    "address": "1011 9 Ave SE 4th floor, Calgary, AB T2G 0H7",
+    "description": "With a focus on contemporary art, we aim to explore some of today's most pressing issues - bringing thoughts, feelings, and observations into a lively and sometimes challenging exchange.",
+    "tags": [
+      "Art & culture",
+      "food",
+      "indoor",
+      "group-art",
+      "Accessibility",
+      "Kid-friendly",
+      "Free-food"
+    ],
+    "categories": [
+      "art & culture",
+      "food",
+      "indoor"
+    ],
+    "similar": [
+      "2"
+    ]
   }
 ]

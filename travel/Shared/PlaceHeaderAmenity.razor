@@ -48,7 +48,7 @@ else
 
     protected override void OnInitialized()
     {
-        bkIndex = user.Bookmarks.FindIndex(place => place.id == TargetAmenity.id);
+        bkIndex = user.BookmarksAmenity.FindIndex(place => place.id == TargetAmenity.id);
         if (bkIndex != -1)
         {
             bookmarked = true;
@@ -75,15 +75,15 @@ else
         {
             bookmarkIcon = "bi-bookmark";
         }
-        bkIndex = user.Bookmarks.FindIndex(place => place.id == TargetAmenity.id);
+        bkIndex = user.BookmarksAmenity.FindIndex(place => place.id == TargetAmenity.id);
 
         if (bkIndex == -1)
         {
-            user.Bookmarks.Add(TargetAmenity);
+            user.BookmarksAmenity.Add(TargetAmenity);
         }
         else
         {
-            user.Bookmarks.RemoveAt(bkIndex);
+            user.BookmarksAmenity.RemoveAt(bkIndex);
         }
     }
 

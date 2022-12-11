@@ -11,7 +11,9 @@
 
         public List<Trip> Trips { get; set; } = new List<Trip>();
 
-        public List<Place> Bookmarks { get; set; } = new List<Place>();
+        public List<Amenity> BookmarksAmenity { get; set; } = new List<Amenity>();
+
+        public List<Event> BookmarksEvent { get; set; } = new List<Event>();
 
         public List<Review> Reviews { get; set; } = new List<Review>();
 
@@ -31,7 +33,8 @@
             Password = "";
             DisplayName = "";
             Trips.Clear();
-            Bookmarks.Clear();
+            BookmarksAmenity.Clear();
+            BookmarksEvent.Clear();
             Reviews.Clear();
             Notification = 30;
             SuggestedAmenity.Clear();

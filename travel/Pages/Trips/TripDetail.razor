@@ -82,7 +82,12 @@
 
         DaysRefresh();
 
-        foreach(Place place in user.Bookmarks)
+        foreach(Amenity place in user.BookmarksAmenity)
+        {
+            toQuickAdd.Add(place);
+        }
+
+        foreach (Event place in user.BookmarksEvent)
         {
             toQuickAdd.Add(place);
         }

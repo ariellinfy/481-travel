@@ -32,7 +32,7 @@ else
 {
     <div class="btn-container">
         <button class="btn btn-search" type="button" disabled><i class="bi bi-plus-lg"></i></button>
-        <button class="btn btn-search" type="button" @onclick="bookmark" disabled><i class="bi @bookmarkIcon"></i></button>
+        <button class="btn btn-search" type="button" disabled><i class="bi @bookmarkIcon"></i></button>
     </div>
 }
 
@@ -53,8 +53,7 @@ else
 
     protected override void OnInitialized()
     {
-        state.OnSearch = false;
-        bkIndex = user.Bookmarks.FindIndex(place => place.id == TargetEvent.id);
+        bkIndex = user.BookmarksEvent.FindIndex(place => place.id == TargetEvent.id);
         if (bkIndex != -1)
         {
             bookmarked = true;
@@ -82,30 +81,32 @@ else
             bookmarkIcon = "bi-bookmark";
         }
 
-        bkIndex = user.Bookmarks.FindIndex(place => place.id == TargetEvent.id);
+        bkIndex = user.BookmarksEvent.FindIndex(place => place.id == TargetEvent.id);
         if (bkIndex == -1)
         {
-            user.Bookmarks.Add(TargetEvent);
+            user.BookmarksEvent.Add(TargetEvent);
         }
         else
         {
-            user.Bookmarks.RemoveAt(bkIndex);
+            user.BookmarksEvent.RemoveAt(bkIndex);
         }
     }
 
-    private Trip newtrip = new Trip();
+    private Trip newTrip = new Trip();
 
     private void ValidateTripCreation()
     {
+        newTrip.id = user.Trips.Count.ToString();
+        if (newTrip.Name == null) newTrip.Name = "Default " + newTrip.id;
         Plan planToAdd = new Plan();
         planToAdd.Name = TargetEvent.Name;
         planToAdd.Address = TargetEvent.Address;
         planToAdd.Date = TargetEvent.Date;
         planToAdd.Start = TargetEvent.StartTime;
         planToAdd.End = TargetEvent.EndTime;
-        newtrip.Plans.Add(planToAdd);
-        user.Trips.Add(newtrip);
-        newtrip = new Trip();
+        newTrip.Plans.Add(planToAdd);
+        user.Trips.Add(newTrip);
+        newTrip = new Trip();
     }
 
     private void AddToExistingTrip() { }
@@ -159,7 +160,7 @@ else
                 {
                     @foreach (Trip trip in user.Trips)
                     {
-                        <button type="button" class="btn btn-setting" data-bs-target="#tripSuccess" data-bs-toggle="modal" @onclick="() => AddToExistingTrip(trip)">trip.Name</button>
+                        <button type="button" class="btn btn-setting" data-bs-target="#tripSuccess" data-bs-toggle="modal" @onclick="() => AddToExistingTrip(trip)">@trip.Name</button>
                         <hr />
                     }
                 }
@@ -177,11 +178,11 @@ else
                 <div class="trip-form">
                     <h5 class="create-option">Create a New Trip</h5>
                     <div class="form-floating mt-3 mb-3">
-                        <input @bind="newtrip.Name" class="form-control" id="tripName" placeholder="Happy Trip" />
+                        <input @bind="newTrip.Name" class="form-control" id="tripName" placeholder="Happy Trip" />
                         <label for="tripName">Trip Name</label>
                     </div>
-                    <div class="form-controls modal-footer">
-                        <button type="button" class="btn btn-close-variant btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                    <div class="form-controls btn-controls">
+                        <button type="button" class="btn btn-cancel2" data-bs-dismiss="modal" aria-label="Close">Close</button>
                         <button type="button" class="btn btn-save" data-bs-target="#tripSuccess" data-bs-toggle="modal" @onclick="ValidateTripCreation">Create & Add to Trip</button>
                     </div>
                 </div>
@@ -192,7 +193,7 @@ else
 
 <div class="modal fade" id="tripConflict" aria-hidden="true" aria-labelledby="tripConflictLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content ">
+        <div class="modal-content">
             <div class="modal-body modal-info fw-bold" style="color: #f5ad03; padding-bottom: 1.5rem;">
                 <i class="bi bi-x-circle"></i>
                 Event timing conflicts with current Trip Plan.
@@ -201,11 +202,13 @@ else
         </div>
     </div>
 </div>
+
 <div class="modal fade" id="tripSuccess" aria-hidden="true" aria-labelledby="tripSuccessLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-center" style="margin: 2rem;">
         <div class="modal-content">
             <div class="modal-body modal-info">
                 <i class="bi bi-check-circle"></i>
+                You Successfully Added <b>@TargetEvent.Name</b>
             </div>
         </div>
     </div>
