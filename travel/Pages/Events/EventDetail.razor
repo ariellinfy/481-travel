@@ -47,8 +47,9 @@
     [Parameter]
     public int id { get; set; }
 
-    protected override void OnInitialized()
+    private async Task LoadDataAsync()
     {
+        similarEvents.Clear();
         string currentUrl = "\\event\\" + id;
         PageHistoryState.AddPageToHistory(currentUrl);
         TargetEvent = state.AllEvents[id];
@@ -62,6 +63,17 @@
                 user.Visited.Add(state.AllEvents[Int32.Parse(TargetEvent.Similar[i])]);
             }
         }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadDataAsync();
+        base.OnInitialized();
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await LoadDataAsync();
     }
 }
 

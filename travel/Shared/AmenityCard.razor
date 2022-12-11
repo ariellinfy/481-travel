@@ -23,8 +23,8 @@
 
     public void GoToPage()
     {
-        Console.WriteLine(amenityId);
         string placeUrl = "\\amenity\\" + amenityId;
         nav.NavigateTo(placeUrl);
+        StateHasChanged();
     }
 }

@@ -1,5 +1,6 @@
 ﻿@page "/amenity/{id:int}"
 @inject NavigationManager nav
+@inject HttpClient Http
 @inject PageHistoryState PageHistoryState
 
 <PlaceHeaderAmenity PageTitle="Amenity" TargetAmenity="@TargetPlace" />
@@ -67,10 +68,10 @@
     [Parameter]
     public int id { get; set; }
 
-    protected override void OnInitialized()
+    private async Task LoadDataAsync()
     {
-        Console.WriteLine("check");
-        string currentUrl = "\\amenity\\" + id;
+        similarPlaces.Clear();
+        string currentUrl = "//amenity//" + id;
         PageHistoryState.AddPageToHistory(currentUrl);
         TargetPlace = state.AllAmenities[id];
         user.Visited.Add(TargetPlace);
@@ -84,8 +85,18 @@
             }
         }
         reviewItem.place = TargetPlace;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadDataAsync();
         base.OnInitialized();
-    }    
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await LoadDataAsync();
+    }
 
     void RatingOnChange(int value)
     {
