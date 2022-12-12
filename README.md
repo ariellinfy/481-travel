@@ -1,4 +1,5 @@
 # CPSC 481 - Travel App
+**By: Jungsu Kim, Fu-Yin Lin, Kusumpreet Kaur Heer, Alokik Singh Kinra, Jingke Huang**
 # Running Our App:
 We strongly advise the use of Visual Studio NOT Visual Studio Code, therefore, you should download Visual Studio first. After that you want to clone the git repo and launch Visual Studio. In the first screen, you want to click “Clone a Repository” and copy and paste our git repo HTTPS which is located in the “Code” drop down menu on github. Press clone and the whole source code should have been downloaded, after that, press the “travel” button with a filled in green arrow icon beside it and our app should be launched. 
 
